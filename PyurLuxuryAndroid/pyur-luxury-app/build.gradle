@@ -87,6 +87,7 @@ dependencies {
     compile 'com.appolica:flubber:1.0.1'
     compile 'com.github.luongvo:iOS-SwitchView:1.0.0'
     compile 'com.github.rahimlis:badgedtablayout:v1.0.1'
+    compile 'me.relex:circleindicator:1.2.2@aar'
     testCompile 'junit:junit:4.12'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.6.0'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.0.0-RC1'

@@ -8,12 +8,14 @@ import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import com.av.dev.pyurluxuryandroid.Adapter.MerchantRestaurantAdapter;
 import com.av.dev.pyurluxuryandroid.Core.BaseActivity;
+import com.av.dev.pyurluxuryandroid.Core.PEngine;
 import com.av.dev.pyurluxuryandroid.R;
 import com.av.dev.pyurluxuryandroid.View.Fonts;
 
@@ -81,6 +83,13 @@ public class MerchantPartnersFragment extends Fragment {
         mAdapter.notifyDataSetChanged();
 
         listview.setAdapter(mAdapter);
+
+        listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                PEngine.switchFragment((BaseActivity) getActivity(), new MerchantDetailsFragment(), ((BaseActivity)getActivity()).getFrameLayout());
+            }
+        });
 
         changeFonts();
 

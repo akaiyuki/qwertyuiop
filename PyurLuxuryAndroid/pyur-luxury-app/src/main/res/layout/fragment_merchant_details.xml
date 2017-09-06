@@ -1,0 +1,192 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:scrollbars="none"
+    android:background="@color/colorPrimaryDark"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="com.av.dev.pyurluxuryandroid.Fragment.MerchantDetailsFragment">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent">
+
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:id="@+id/slideshow">
+
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/pager"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_alignParentTop="true" />
+        <me.relex.circleindicator.CircleIndicator
+            android:id="@+id/indicator"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_alignParentBottom="true"
+            app:ci_drawable="@drawable/circle_indicator"
+            app:ci_drawable_unselected="@drawable/circle_unselect"/>
+
+
+    </RelativeLayout>
+
+        <include
+            layout="@layout/merchant_app_bar"
+            android:id="@+id/app_bar"/>
+
+        <TextView
+            android:id="@+id/merchantname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/slideshow"
+            android:text="Carpe Deim"
+            android:textColor="@color/colorSearchColor"
+            android:layout_marginTop="20dp"
+            android:textSize="@dimen/font_size_medium"
+            android:layout_marginLeft="15dp"
+            android:textAllCaps="true"/>
+
+        <ImageView
+            android:id="@+id/imgrate"
+            android:layout_width="80dp"
+            android:layout_height="10dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="20dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/ic_star"
+            android:layout_below="@+id/slideshow"/>
+
+        <TextView
+            android:id="@+id/merchantplace"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/merchantname"
+            android:text="Bonifacio Global City, Taguig"
+            android:textColor="@color/colorSearchColor"
+            android:textSize="@dimen/font_size_small"
+            android:layout_marginLeft="15dp"/>
+
+        <TextView
+            android:id="@+id/merchantreview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/imgrate"
+            android:text="52 Reviews"
+            android:textColor="@color/colorSearchColor"
+            android:textSize="@dimen/font_size_small"
+            android:layout_marginLeft="15dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="3dp"/>
+
+        <TextView
+            android:id="@+id/merchantdetails"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/merchantplace"
+            android:text="Lorem ipsum dolor sit amet. consectetur adipiscing elit. Maecenas eu"
+            android:textColor="@color/colorSearchColor"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="15dp"/>
+
+        <TextView
+            android:id="@+id/benefits"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/merchantdetails"
+            android:text="pyur luxury benefits"
+            android:textAllCaps="true"
+            android:textColor="@color/colorSearchColor"
+            android:layout_marginTop="30dp"
+            android:textSize="@dimen/font_size_medium"
+            android:layout_marginLeft="15dp"/>
+
+
+
+        <!--<LinearLayout-->
+            <!--android:id="@+id/linear"-->
+            <!--android:layout_below="@+id/benefits"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginTop="20dp"-->
+            <!--android:orientation="horizontal"-->
+            <!--android:layout_marginLeft="15dp"-->
+            <!--android:layout_marginRight="15dp">-->
+
+            <!--<LinearLayout-->
+                <!--android:layout_width="0dp"-->
+                <!--android:layout_height="match_parent"-->
+                <!--android:layout_weight="1"-->
+                <!--android:orientation="vertical">-->
+
+                <!--<TextView-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_below="@+id/merchantname"-->
+                    <!--android:text="Lorem ipsum dolor"-->
+                    <!--android:textColor="@color/colorSearchColor"-->
+                    <!--android:textSize="@dimen/font_size_small"-->
+                    <!--android:drawableLeft="@drawable/ic_check_white"-->
+                    <!--android:drawablePadding="10dp"-->
+                    <!--android:gravity="center"/>-->
+
+
+            <!--</LinearLayout>-->
+
+            <!--<LinearLayout-->
+                <!--android:layout_width="0dp"-->
+                <!--android:layout_height="match_parent"-->
+                <!--android:layout_weight="1"-->
+                <!--android:orientation="vertical">-->
+
+
+            <!--</LinearLayout>-->
+
+
+        <!--</LinearLayout>-->
+
+        <GridView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/benefits"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:id="@+id/gridview"/>
+
+        <TextView
+            android:id="@+id/inclusions"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/gridview"
+            android:text="inclusions"
+            android:textAllCaps="true"
+            android:textColor="@color/colorSearchColor"
+            android:layout_marginTop="30dp"
+            android:textSize="@dimen/font_size_medium"
+            android:layout_marginLeft="15dp"/>
+
+
+        <Button
+            android:id="@+id/btnConfirm"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="20dp"
+            android:background="@color/colorButtonBackground"
+            android:text="book now"
+            android:textColor="@color/colorWhiteText"
+            android:layout_below="@+id/inclusions"/>
+
+
+    </RelativeLayout>
+
+
+</ScrollView>

@@ -1,0 +1,230 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimaryDark"
+    android:scrollbars="none"
+    tools:context="com.av.dev.pyurluxuryandroid.Fragment.HotelBookFragment">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <include
+            android:id="@+id/app_bar"
+            layout="@layout/hotel_app_bar" />
+
+        <TextView
+            android:id="@+id/city"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="city"
+            android:textAllCaps="true"
+            android:textColor="@color/colorWhiteText"
+            android:textSize="12sp" />
+
+        <EditText
+            android:id="@+id/editcity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:background="@drawable/white_rounded_edge"
+            android:hint="Choose your city"
+            android:padding="15dp"
+            android:textColor="@color/colorEditText"/>
+
+        <TextView
+            android:id="@+id/hotelname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="hotel name"
+            android:textAllCaps="true"
+            android:textColor="@color/colorWhiteText"
+            android:textSize="12sp"
+            android:layout_marginTop="10dp"/>
+
+        <EditText
+            android:id="@+id/edithotelname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:background="@drawable/white_rounded_edge"
+            android:hint="Enter hotel name"
+            android:padding="15dp"
+            android:textColor="@color/colorEditText"/>
+
+        <LinearLayout
+            android:id="@+id/linear"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+
+                <TextView
+                    android:id="@+id/checkin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="check in date"
+                    android:textAllCaps="true"
+                    android:textColor="@color/colorWhiteText"
+                    android:textSize="12sp" />
+
+                <EditText
+                    android:id="@+id/editcheckin"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/white_rounded_edge"
+                    android:drawableRight="@drawable/ic_date"
+                    android:hint="Select date"
+                    android:padding="10dp"
+                    android:textColor="@color/colorEditText"/>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/checkout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="check out date"
+                    android:textAllCaps="true"
+                    android:textColor="@color/colorWhiteText"
+                    android:textSize="12sp" />
+
+                <EditText
+                    android:id="@+id/editcheckout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="15dp"
+                    android:background="@drawable/white_rounded_edge"
+                    android:drawableRight="@drawable/ic_date"
+                    android:hint="Select date"
+                    android:padding="10dp"
+                    android:textColor="@color/colorEditText"/>
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/roomtype"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:padding="10dp"
+            android:text="Room type"
+            android:textAllCaps="true"
+            android:textColor="@color/colorWhiteText"
+            android:textSize="12sp" />
+
+        <EditText
+            android:id="@+id/editroomtype"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:background="@drawable/white_rounded_edge"
+            android:drawableRight="@drawable/ic_chevron_right"
+            android:hint="Deluxe"
+            android:padding="10dp"
+            android:textColor="@color/colorEditText"/>
+
+        <TextView
+            android:id="@+id/numrooms"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:padding="10dp"
+            android:text="Number of rooms"
+            android:textAllCaps="true"
+            android:textColor="@color/colorWhiteText"
+            android:textSize="12sp" />
+
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recyclerview"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginLeft="15dp"
+            android:scrollbars="vertical" />
+
+        <TextView
+            android:id="@+id/numpax"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:padding="10dp"
+            android:text="Number of pax"
+            android:textAllCaps="true"
+            android:textColor="@color/colorWhiteText"
+            android:textSize="12sp" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recyclerview_pax"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginLeft="15dp"
+            android:scrollbars="vertical" />
+
+        <TextView
+            android:id="@+id/notes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:padding="10dp"
+            android:text="Notes"
+            android:textAllCaps="true"
+            android:textColor="@color/colorWhiteText"
+            android:textSize="12sp" />
+
+        <EditText
+            android:id="@+id/editnotes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:background="@drawable/white_rounded_edge"
+            android:hint="Write your message"
+            android:padding="15dp"
+            android:textColor="@color/colorEditText"/>
+
+
+        <Button
+            android:id="@+id/btnConfirm"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="20dp"
+            android:background="@color/colorButtonBackground"
+            android:text="book now"
+            android:textColor="@color/colorWhiteText" />
+
+    </LinearLayout>
+
+
+</ScrollView>

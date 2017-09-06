@@ -1,0 +1,242 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimaryDark"
+    android:scrollbars="none"
+    tools:context="com.av.dev.pyurluxuryandroid.Fragment.LandTransportFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+    <include
+        layout="@layout/hotel_app_bar"
+        android:id="@+id/app_bar"/>
+
+        <TextView
+            android:id="@+id/date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="date"
+            android:textColor="@color/colorWhiteText"
+            android:textAllCaps="true"
+            android:padding="10dp"
+            android:textSize="@dimen/font_size_small"/>
+
+        <EditText
+            android:id="@+id/editdate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/white_rounded_edge"
+            android:padding="10dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:hint="Select date"
+            android:drawableRight="@drawable/ic_date"
+            android:textColor="@color/colorButtonBackground"/>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="20dp"
+            android:id="@+id/linear">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+
+
+                <TextView
+                    android:id="@+id/pickup"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="pick up time"
+                    android:textAllCaps="true"
+                    android:textColor="@color/colorWhiteText"
+                    android:padding="10dp"
+                    android:textSize="12sp"/>
+
+                <EditText
+                    android:id="@+id/editpickup"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Select time"
+                    android:background="@drawable/white_rounded_edge"
+                    android:padding="10dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="10dp"
+                    android:textColor="@color/colorButtonBackground"
+                    android:drawableRight="@drawable/ic_time"/>
+
+
+
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/txtreturn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="return time"
+                    android:textAllCaps="true"
+                    android:textColor="@color/colorWhiteText"
+                    android:padding="10dp"
+                    android:textSize="12sp"/>
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Select time"
+                    android:id="@+id/editreturn"
+                    android:background="@drawable/white_rounded_edge"
+                    android:padding="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="15dp"
+                    android:textColor="@color/colorButtonBackground"
+                    android:drawableRight="@drawable/ic_time"/>
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+        <TextView
+            android:id="@+id/location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="location"
+            android:textAllCaps="true"
+            android:textColor="@color/colorWhiteText"
+            android:padding="10dp"
+            android:textSize="12sp"
+            android:layout_marginTop="20dp"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Select location"
+            android:id="@+id/editlocation"
+            android:background="@drawable/white_rounded_edge"
+            android:padding="10dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:textColor="@color/colorButtonBackground"
+            android:drawableRight="@drawable/ic_chevron_right"/>
+
+
+        <TextView
+            android:id="@+id/passengers"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="passengers"
+            android:textColor="@color/colorWhiteText"
+            android:textAllCaps="true"
+            android:padding="10dp"
+            android:layout_marginTop="20dp"
+            android:textSize="12sp"/>
+
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recyclerview"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:scrollbars="vertical"
+            android:layout_marginLeft="15dp"/>
+
+        <TextView
+            android:id="@+id/vehicle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="vehicle type"
+            android:textAllCaps="true"
+            android:textColor="@color/colorWhiteText"
+            android:padding="10dp"
+            android:textSize="12sp"
+            android:layout_marginTop="20dp"/>
+
+        <EditText
+            android:id="@+id/editvehicle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Select car"
+            android:background="@drawable/white_rounded_edge"
+            android:padding="10dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:textColor="@color/colorButtonBackground"
+            android:drawableRight="@drawable/ic_chevron_right"/>
+
+        <TextView
+            android:id="@+id/brand"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="car brand"
+            android:textAllCaps="true"
+            android:textColor="@color/colorWhiteText"
+            android:padding="10dp"
+            android:textSize="12sp"
+            android:layout_marginTop="20dp"/>
+
+        <EditText
+            android:id="@+id/editbrand"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Select car"
+            android:background="@drawable/white_rounded_edge"
+            android:padding="10dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:textColor="@color/colorButtonBackground"
+            android:drawableRight="@drawable/ic_chevron_right"/>
+
+        <TextView
+            android:id="@+id/notes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="notes"
+            android:textAllCaps="true"
+            android:textColor="@color/colorWhiteText"
+            android:padding="10dp"
+            android:textSize="12sp"
+            android:layout_marginTop="20dp"/>
+
+        <EditText
+            android:id="@+id/editnotes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Write your message"
+            android:background="@drawable/white_rounded_edge"
+            android:padding="15dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:textColor="@color/colorButtonBackground"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="book now"
+            android:background="@color/colorButtonBackground"
+            android:textColor="@color/colorWhiteText"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="25dp"
+            android:id="@+id/btnConfirm"/>
+
+    </LinearLayout>
+
+
+</ScrollView>

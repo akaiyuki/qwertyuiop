@@ -1,0 +1,162 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimaryDark"
+    android:scrollbars="none"
+    tools:context="com.av.dev.pyurluxuryandroid.Fragment.RestaurantBookingFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <include
+            layout="@layout/hotel_app_bar"
+            android:id="@+id/app_bar"/>
+
+        <TextView
+            android:id="@+id/city"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="city"
+            android:textColor="@color/colorWhiteText"
+            android:textAllCaps="true"
+            android:padding="10dp"
+            android:textSize="12sp"/>
+
+        <EditText
+            android:id="@+id/editcity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/white_rounded_edge"
+            android:padding="15dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:hint="Choose your city"
+            android:textColor="@color/colorEditText"/>
+
+        <TextView
+            android:id="@+id/restaurantname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="restaurant name"
+            android:textAllCaps="true"
+            android:textColor="@color/colorWhiteText"
+            android:padding="10dp"
+            android:textSize="12sp"
+            android:layout_marginTop="10dp"/>
+
+        <EditText
+            android:id="@+id/editrestaurantname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter restaurant name"
+            android:background="@drawable/white_rounded_edge"
+            android:padding="15dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:textColor="@color/colorEditText"/>
+
+        <TextView
+            android:id="@+id/date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Date"
+            android:textColor="@color/colorWhiteText"
+            android:textAllCaps="true"
+            android:padding="10dp"
+            android:layout_marginTop="10dp"
+            android:textSize="12sp"/>
+
+        <EditText
+            android:id="@+id/editdate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/white_rounded_edge"
+            android:padding="10dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:hint="Select date"
+            android:drawableRight="@drawable/ic_date"
+            android:textColor="@color/colorEditText"/>
+
+        <TextView
+            android:id="@+id/time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Time"
+            android:textColor="@color/colorWhiteText"
+            android:textAllCaps="true"
+            android:padding="10dp"
+            android:layout_marginTop="10dp"
+            android:textSize="12sp"/>
+
+        <EditText
+            android:id="@+id/edittime"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/white_rounded_edge"
+            android:padding="10dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:hint="Select time"
+            android:drawableRight="@drawable/ic_time"
+            android:textColor="@color/colorEditText"/>
+
+
+        <TextView
+            android:id="@+id/numpax"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Number of pax"
+            android:textColor="@color/colorWhiteText"
+            android:textAllCaps="true"
+            android:padding="10dp"
+            android:layout_marginTop="10dp"
+            android:textSize="12sp"/>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recyclerview_pax"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:scrollbars="vertical"
+            android:layout_marginLeft="15dp"/>
+
+        <TextView
+            android:id="@+id/notes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Notes"
+            android:textColor="@color/colorWhiteText"
+            android:textAllCaps="true"
+            android:padding="10dp"
+            android:layout_marginTop="10dp"
+            android:textSize="12sp"/>
+
+        <EditText
+            android:id="@+id/editnotes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/white_rounded_edge"
+            android:padding="15dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:hint="Write your message"
+            android:textColor="@color/colorEditText"/>
+
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="book now"
+            android:background="@color/colorButtonBackground"
+            android:textColor="@color/colorWhiteText"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="20dp"
+            android:id="@+id/btnConfirm"/>
+
+    </LinearLayout>
+
+
+</ScrollView>

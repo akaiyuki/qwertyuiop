@@ -1,0 +1,261 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:scrollbars="none"
+    tools:context="com.av.dev.pyurluxuryandroid.Fragment.SeaTransportSummaryFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimaryDark"
+        android:orientation="vertical">
+
+        <include
+            android:id="@+id/app_bar"
+            layout="@layout/hotel_app_bar" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@color/white">
+
+        <TextView
+            android:id="@+id/type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="vehicle type"
+            android:textAllCaps="true"
+            android:padding="5dp"
+            android:textSize="12sp"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="15dp"/>
+
+        <TextView
+            android:id="@+id/txttype"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Private Yatch"
+            android:padding="5dp"
+            android:textColor="@color/colorBlackText"
+            android:textSize="@dimen/font_size_medium"
+            android:layout_marginLeft="15dp"/>
+
+
+        <TextView
+            android:id="@+id/departure"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="departure"
+            android:textAllCaps="true"
+            android:padding="5dp"
+            android:textSize="12sp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="10dp"/>
+
+        <TextView
+            android:id="@+id/txtdeparture"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Manila to Balesin"
+            android:padding="5dp"
+            android:textColor="@color/colorBlackText"
+            android:textSize="@dimen/font_size_medium"
+            android:layout_marginLeft="15dp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/txtdepdate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="May 1, 2018(Friday)"
+            android:textColor="@color/colorBlackText"
+            android:textSize="@dimen/font_size_medium"
+            android:layout_marginLeft="20dp"/>
+
+
+        <TextView
+            android:id="@+id/txtreturn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="return"
+            android:textAllCaps="true"
+            android:padding="5dp"
+            android:textSize="12sp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="10dp"/>
+
+        <TextView
+            android:id="@+id/txtreturnloc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Balesin to Manila"
+            android:padding="5dp"
+            android:textColor="@color/colorBlackText"
+            android:textSize="@dimen/font_size_medium"
+            android:layout_marginLeft="15dp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/txtreturndate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="May 3, 2018(Sunday)"
+            android:textColor="@color/colorBlackText"
+            android:textSize="@dimen/font_size_medium"
+            android:layout_marginLeft="20dp"/>
+
+
+        <TextView
+            android:id="@+id/deptime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="departure time"
+            android:textAllCaps="true"
+            android:padding="5dp"
+            android:textSize="12sp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="10dp"/>
+
+        <TextView
+            android:id="@+id/txtdeptime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="8:00 AM"
+            android:padding="5dp"
+            android:textColor="@color/colorBlackText"
+            android:textSize="@dimen/font_size_medium"
+            android:layout_marginLeft="15dp"/>
+
+
+        <TextView
+            android:id="@+id/returntime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="return time"
+            android:textAllCaps="true"
+            android:padding="5dp"
+            android:textSize="12sp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="10dp"/>
+
+        <TextView
+            android:id="@+id/txtreturntime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="8:00 PM"
+            android:padding="5dp"
+            android:textColor="@color/colorBlackText"
+            android:textSize="@dimen/font_size_medium"
+            android:layout_marginLeft="15dp"/>
+
+        <TextView
+            android:id="@+id/passengers"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="passengers"
+            android:textAllCaps="true"
+            android:padding="5dp"
+            android:textSize="12sp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="10dp"/>
+
+        <TextView
+            android:id="@+id/txtpassengers"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2 Passengers"
+            android:padding="5dp"
+            android:textColor="@color/colorBlackText"
+            android:textSize="@dimen/font_size_medium"
+            android:layout_marginLeft="15dp"/>
+
+
+        <TextView
+            android:id="@+id/notes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="notes"
+            android:textAllCaps="true"
+            android:padding="5dp"
+            android:textSize="12sp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="10dp"/>
+
+        <TextView
+            android:id="@+id/txtnotes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="15dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:padding="5dp"
+            android:text="N/A"
+            android:textColor="@color/colorBlackText"
+            android:textSize="@dimen/font_size_medium" />
+
+
+    </LinearLayout>
+
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="@color/white">
+
+
+            <ImageView
+                android:layout_width="80dp"
+                android:layout_height="70dp"
+                android:src="@drawable/bg"
+                android:scaleType="fitXY"
+                android:id="@+id/profile_pic"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="John Stephenson"
+                android:padding="5dp"
+                android:textColor="@color/colorButtonBackground"
+                android:textSize="@dimen/font_size_medium"
+                android:layout_toRightOf="@+id/profile_pic"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:textStyle="bold"
+                android:id="@+id/profile_name"/>
+
+            <TextView
+                android:id="@+id/profile_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Lifestyle Manager"
+                android:textColor="@color/colorButtonBackground"
+                android:textSize="@dimen/font_size_small"
+                android:layout_toRightOf="@+id/profile_pic"
+                android:layout_marginLeft="25dp"
+                android:layout_below="@+id/profile_name"/>
+
+
+        </RelativeLayout>
+
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="confirm booking"
+            android:background="@color/colorButtonBackground"
+            android:textColor="@color/colorWhiteText"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="20dp"
+            android:padding="10dp"
+            android:id="@+id/btnConfirm"/>
+
+
+
+    </LinearLayout>
+
+</ScrollView>

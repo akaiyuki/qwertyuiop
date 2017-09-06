@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="180dp"
+    android:background="@color/colorPrimaryDark">
+
+    <ImageView
+        android:id="@+id/imgbackground"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="fitXY"
+        android:src="@drawable/hotel_booking_bg" />
+
+    <RelativeLayout
+        android:id="@+id/relbackground"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/rounded_bottom_black" />
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="10dp">
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="5dp"
+            android:text=""
+            android:textAllCaps="true"
+            android:textColor="@color/colorWhiteText"
+            android:textSize="@dimen/font_size_small" />
+
+        <TextView
+            android:id="@+id/location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/title"
+            android:layout_marginLeft="15dp"
+            android:layout_marginBottom="5dp"
+            android:text="Maecenas Lorem, Ipsum"
+            android:textColor="@color/colorSearchColor"
+            android:textSize="@dimen/font_size_small"/>
+
+        <ImageView
+            android:id="@+id/imgrate"
+            android:layout_width="80dp"
+            android:layout_height="10dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="5dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/ic_star" />
+
+        <TextView
+            android:id="@+id/avg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/imgrate"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="5dp"
+            android:text="avg. main"
+            android:textColor="@color/colorSearchColor"
+            android:textSize="@dimen/font_size_small" />
+
+        <TextView
+            android:id="@+id/price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/imgrate"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_toLeftOf="@+id/avg"
+            android:text="P2000"
+            android:textColor="@color/colorWhiteText"
+            android:textSize="@dimen/font_size_small" />
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

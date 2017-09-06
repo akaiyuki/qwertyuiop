@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="200dp"
+    android:background="@color/colorPrimaryDark">
+
+    <!--<ImageView-->
+        <!--android:id="@+id/service_bg"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="200dp"-->
+        <!--android:scaleType="fitXY" />-->
+
+    <ImageView
+        android:id="@+id/service_icon"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/ic_bespoke" />
+
+    <TextView
+        android:id="@+id/service_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/service_icon"
+        android:layout_marginTop="20dp"
+        android:gravity="center_horizontal"
+        android:text="Title"
+        android:textColor="@color/colorButtonBackground"
+        android:textSize="@dimen/font_size_small" />
+
+</RelativeLayout>

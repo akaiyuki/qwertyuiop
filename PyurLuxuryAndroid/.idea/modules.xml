@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/PyurLuxuryAndroid.iml" filepath="$PROJECT_DIR$/PyurLuxuryAndroid.iml" />
+      <module fileurl="file://$PROJECT_DIR$/pyur-luxury-app/pyur-luxury-app.iml" filepath="$PROJECT_DIR$/pyur-luxury-app/pyur-luxury-app.iml" />
+    </modules>
+  </component>
+</project>

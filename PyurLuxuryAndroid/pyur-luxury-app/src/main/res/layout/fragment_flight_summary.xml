@@ -1,0 +1,354 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:scrollbars="none"
+    android:background="@color/colorToolbar"
+    tools:context="com.av.dev.pyurluxuryandroid.Fragment.summary.FlightSummaryFragment">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorBackground"
+        android:orientation="vertical">
+
+    <include
+        android:id="@+id/app_bar"
+        layout="@layout/hotel_app_bar" />
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/departure"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="15dp"
+            android:padding="5dp"
+            android:text="departure"
+            android:textAllCaps="true"
+            android:textSize="@dimen/font_size_small" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginRight="40dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="MNL"
+                    android:textAllCaps="true"
+                    android:textColor="@color/colorButtonBackground"
+                    android:padding="10dp"
+                    android:textSize="@dimen/font_size_big"
+                    android:textStyle="bold"
+                    android:layout_marginLeft="10dp"/>
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/ic_plane"/>
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="HKG"
+                    android:textAllCaps="true"
+                    android:textColor="@color/colorButtonBackground"
+                    android:padding="10dp"
+                    android:textSize="@dimen/font_size_big"
+                    android:textStyle="bold"/>
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/depdate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:text="September 2, 2018 (Friday)"
+            android:textSize="@dimen/font_size_medium"
+            android:textColor="@color/colorBlackText"/>
+
+
+
+        <TextView
+            android:id="@+id/txtreturn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="10dp"
+            android:padding="5dp"
+            android:text="return"
+            android:textAllCaps="true"
+            android:textSize="@dimen/font_size_small" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginRight="40dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="hkg"
+                    android:textAllCaps="true"
+                    android:textColor="@color/colorButtonBackground"
+                    android:padding="10dp"
+                    android:textSize="@dimen/font_size_big"
+                    android:textStyle="bold"
+                    android:layout_marginLeft="10dp"/>
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/ic_plane"/>
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="mnl"
+                    android:textAllCaps="true"
+                    android:textColor="@color/colorButtonBackground"
+                    android:padding="10dp"
+                    android:textSize="@dimen/font_size_big"
+                    android:textStyle="bold"/>
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/returndate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:text="September 4, 2018 (Sunday)"
+            android:textSize="@dimen/font_size_medium"
+            android:textColor="@color/colorBlackText"/>
+
+
+        <TextView
+            android:id="@+id/passengers"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="10dp"
+            android:padding="5dp"
+            android:text="passengers"
+            android:textAllCaps="true"
+            android:textSize="@dimen/font_size_small" />
+
+
+        <TextView
+            android:id="@+id/txtpassengers"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:padding="5dp"
+            android:text="4 Passengers"
+            android:textColor="@color/colorBlackText"
+            android:textSize="@dimen/font_size_medium" />
+
+
+        <TextView
+            android:id="@+id/airline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="10dp"
+            android:padding="5dp"
+            android:text="airlines"
+            android:textAllCaps="true"
+            android:textSize="@dimen/font_size_small" />
+
+        <TextView
+            android:id="@+id/txtairline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:padding="5dp"
+            android:text="Philippine AirAsia (PAA)"
+            android:textColor="@color/colorBlackText"
+            android:textSize="@dimen/font_size_medium" />
+
+
+        <TextView
+            android:id="@+id/txtclass"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="10dp"
+            android:padding="5dp"
+            android:text="class"
+            android:textAllCaps="true"
+            android:textSize="@dimen/font_size_small" />
+
+        <TextView
+            android:id="@+id/classtype"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:padding="5dp"
+            android:text="Economy"
+            android:textColor="@color/colorBlackText"
+            android:textSize="@dimen/font_size_medium" />
+
+        <TextView
+            android:id="@+id/notes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="15dp"
+            android:padding="5dp"
+            android:text="notes"
+            android:textAllCaps="true"
+            android:textSize="@dimen/font_size_small" />
+
+        <TextView
+            android:id="@+id/txtnotes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="15dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:padding="5dp"
+            android:text="Good afternoon. Can you schedule me an early flightfor the said date because I have an early morning meeting."
+            android:textColor="@color/colorBlackText"
+            android:textSize="@dimen/font_size_medium" />
+
+
+
+    </LinearLayout>
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="@color/white">
+
+
+            <ImageView
+                android:id="@+id/profile_pic"
+                android:layout_width="80dp"
+                android:layout_height="70dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/bg" />
+
+            <TextView
+                android:id="@+id/profile_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_toRightOf="@+id/profile_pic"
+                android:padding="5dp"
+                android:text="John Stephenson"
+                android:textColor="@color/colorButtonBackground"
+                android:textSize="@dimen/font_size"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/profile_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/profile_name"
+                android:layout_marginLeft="25dp"
+                android:layout_toRightOf="@+id/profile_pic"
+                android:text="Lifestyle Manager"
+                android:textColor="@color/colorButtonBackground"
+                android:textSize="@dimen/font_size_small" />
+
+
+        </RelativeLayout>
+
+
+        <Button
+            android:id="@+id/btnConfirm"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="20dp"
+            android:background="@color/colorButtonBackground"
+            android:padding="10dp"
+            android:text="confirm booking"
+            android:textColor="@color/colorWhiteText" />
+
+
+
+
+    </LinearLayout>
+
+
+</ScrollView>

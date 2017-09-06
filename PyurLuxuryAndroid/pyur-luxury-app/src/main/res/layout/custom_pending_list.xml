@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/img"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="15dp"
+        android:src="@drawable/hotel_booking_bg" />
+
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_toRightOf="@+id/img"
+        android:text="text"
+        android:textSize="@dimen/font_size_medium" />
+
+    <TextView
+        android:id="@+id/request"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/name"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_toRightOf="@+id/img"
+        android:drawableLeft="@drawable/hotel_booking"
+        android:drawablePadding="10dp"
+        android:text="text"
+        android:textSize="@dimen/font_size_small" />
+
+
+    <TextView
+        android:id="@+id/time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="20dp"
+        android:text="8:00 AM"
+        android:textSize="@dimen/font_size_small" />
+
+    <ImageView
+        android:id="@+id/imgcall"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_below="@+id/time"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_toLeftOf="@+id/imgmessage"
+        android:src="@drawable/ic_call" />
+
+    <ImageView
+        android:id="@+id/imgmessage"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/time"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/ic_message" />
+
+
+</RelativeLayout>

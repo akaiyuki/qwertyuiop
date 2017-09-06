@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/white_rounded_edge"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+
+
+    <ImageView
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:src="@drawable/ic_check"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Your Lifestyle Manager will get back to you after 10 mins."
+        android:padding="5dp"
+        android:textSize="16sp"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:gravity="center"
+        android:textColor="@color/colorHintText"
+        android:id="@+id/message"/>
+
+    <!--<Button-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="ok"-->
+        <!--android:background="@color/colorButtonBackground"-->
+        <!--android:textColor="@color/colorWhiteText"-->
+        <!--android:layout_marginTop="20dp"-->
+        <!--android:padding="10dp"-->
+        <!--android:id="@+id/btnConfirm"/>-->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/rounded_bottom_bronze"
+        android:id="@+id/btnOk"
+        android:padding="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="OK"
+            android:id="@+id/ok"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/colorWhiteText"
+            android:textSize="20sp"
+            android:layout_centerHorizontal="true"
+            android:textAllCaps="true"
+            android:layout_marginBottom="5dp"/>
+
+    </LinearLayout>
+
+
+</LinearLayout>
+

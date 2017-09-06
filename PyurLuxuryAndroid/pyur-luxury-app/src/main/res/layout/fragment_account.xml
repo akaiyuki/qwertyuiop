@@ -1,0 +1,224 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:scrollbars="none"
+    android:background="@color/colorBackground"
+    tools:context="com.av.dev.pyurluxuryandroid.Fragment.AccountFragment">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="230dp"
+            android:id="@+id/imgbackground"
+            android:background="@color/colorBackground"
+            android:scaleType="fitXY"/>
+
+        <com.av.dev.pyurluxuryandroid.View.HexagonMaskView
+            android:id="@+id/image"
+            android:layout_width="120dp"
+            android:layout_height="110dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="5dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/transport_services_bg" />
+
+
+        <TextView
+            android:id="@+id/edit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="15dp"
+            android:text="Edit"
+            android:textColor="@color/colorWhiteText"
+            android:textSize="@dimen/font_size_medium"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="20dp"/>
+
+
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:text="Stanley Mac"
+            android:textColor="@color/colorWhiteText"
+            android:textSize="@dimen/font_size_medium"
+            android:layout_below="@+id/image"/>
+
+        <TextView
+            android:id="@+id/location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="Dasmarinas City, Philippines"
+            android:textColor="@color/colorWhiteText"
+            android:textSize="@dimen/font_size_small"
+            android:layout_below="@+id/name"/>
+
+        <TextView
+            android:id="@+id/membership"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/bronze_rounded_bg"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="Premium"
+            android:textAllCaps="true"
+            android:textColor="@color/colorWhiteText"
+            android:layout_below="@+id/location"
+            android:textSize="@dimen/font_size_small"/>
+
+        <LinearLayout
+            android:layout_below="@+id/membership"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:background="@color/colorWhiteBackground"
+            android:orientation="vertical">
+
+
+            <TextView
+                android:id="@+id/username"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:text="Name"
+                android:textSize="@dimen/font_size_medium" />
+
+            <TextView
+                android:id="@+id/txtusername"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:text="John Doe"
+                android:textSize="@dimen/font_size_medium"
+                android:textColor="@color/colorBlackText"/>
+
+
+            <TextView
+                android:id="@+id/address"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:text="Address"
+                android:textSize="@dimen/font_size_medium" />
+
+            <TextView
+                android:id="@+id/txtaddress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="15dp"
+                android:text="Blk D3 L9 Brgy. San Luis 1 Dasmarinas City, Cavite"
+                android:textSize="@dimen/font_size_medium"
+                android:textColor="@color/colorBlackText"/>
+
+            <TextView
+                android:id="@+id/mobile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:text="Mobile"
+                android:textSize="@dimen/font_size_medium" />
+
+            <TextView
+                android:id="@+id/txtmobile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:text="0977 830 4255"
+                android:textSize="@dimen/font_size_medium"
+                android:textColor="@color/colorBlackText"/>
+
+            <TextView
+                android:id="@+id/plan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:text="Plan"
+                android:textSize="@dimen/font_size_medium" />
+
+            <TextView
+                android:id="@+id/txtplan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:text="Premium"
+                android:textSize="@dimen/font_size_medium"
+                android:textColor="@color/colorBlackText"/>
+
+            <TextView
+                android:id="@+id/member"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:text="Member Since"
+                android:textSize="@dimen/font_size_medium" />
+
+            <TextView
+                android:id="@+id/txtmember"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:text="July 05, 2017"
+                android:textSize="@dimen/font_size_medium"
+                android:textColor="@color/colorBlackText"/>
+
+            <TextView
+                android:id="@+id/email"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:text="Email"
+                android:textSize="@dimen/font_size_medium" />
+
+            <TextView
+                android:id="@+id/txtemail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:text="john.doe@gmail.com"
+                android:textSize="@dimen/font_size_medium"
+                android:textColor="@color/colorBlackText"/>
+
+            <TextView
+                android:id="@+id/password"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:text="Password"
+                android:textSize="@dimen/font_size_medium" />
+
+
+            <TextView
+                android:id="@+id/txtpassword"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15dp"
+                android:layout_marginLeft="20dp"
+                android:text="******"
+                android:textSize="@dimen/font_size_medium"
+                android:textColor="@color/colorBlackText"/>
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+
+</ScrollView>

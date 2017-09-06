@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#a98563</color>
+    <color name="colorPrimaryDark">#1a1a1a</color>
+    <color name="colorAccent">#a98563</color>
+
+    <color name="colorWhiteText">#ffffff</color>
+    <color name="colorWhiteBackground">#ffffff</color>
+    <color name="colorButtonBackground">#a98563</color>
+    <color name="colorButtonBackgroundBold">#a98563</color>
+    <color name="colorToolbar">#1a1a1a</color>
+
+    <color name="colorHintText">#797979</color>
+    <color name="colorBackground">#000000</color>
+    <color name="colorBlackText">#000000</color>
+
+    <color name="colorRed">#c90606</color>
+    <color name="colorEditText">#a98563</color>
+
+    <color name="colorSearchBackground">#535353</color>
+    <color name="colorSearchColor">#8f8f8f</color>
+</resources>

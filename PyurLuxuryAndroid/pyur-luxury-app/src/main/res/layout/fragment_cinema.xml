@@ -1,0 +1,168 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimaryDark"
+    android:scrollbars="none"
+    tools:context="com.av.dev.pyurluxuryandroid.Fragment.CinemaFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <include
+            android:id="@+id/app_bar"
+            layout="@layout/hotel_app_bar" />
+
+
+        <TextView
+            android:id="@+id/cinema"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="cinema"
+            android:textColor="@color/colorWhiteText"
+            android:textAllCaps="true"
+            android:padding="10dp"
+            android:textSize="12sp"/>
+
+        <EditText
+            android:id="@+id/editcinema"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/white_rounded_edge"
+            android:padding="10dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:hint="Select cinema"
+            android:textColor="@color/colorButtonBackground"
+            android:drawableRight="@drawable/ic_chevron_right"/>
+
+
+        <TextView
+            android:id="@+id/movie"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="movie"
+            android:textAllCaps="true"
+            android:textColor="@color/colorWhiteText"
+            android:padding="10dp"
+            android:textSize="12sp"
+            android:layout_marginTop="20dp"/>
+
+        <EditText
+            android:id="@+id/editmovie"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Select movie"
+            android:background="@drawable/white_rounded_edge"
+            android:padding="10dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:textColor="@color/colorButtonBackground"
+            android:drawableRight="@drawable/ic_chevron_right"/>
+
+
+        <TextView
+            android:id="@+id/date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="date"
+            android:textAllCaps="true"
+            android:textColor="@color/colorWhiteText"
+            android:padding="10dp"
+            android:textSize="12sp"
+            android:layout_marginTop="20dp"/>
+
+        <EditText
+            android:id="@+id/editdate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Select date"
+            android:background="@drawable/white_rounded_edge"
+            android:padding="10dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:textColor="@color/colorButtonBackground"
+            android:drawableRight="@drawable/ic_date"/>
+
+        <TextView
+            android:id="@+id/time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="time"
+            android:textAllCaps="true"
+            android:textColor="@color/colorWhiteText"
+            android:padding="10dp"
+            android:textSize="12sp"
+            android:layout_marginTop="20dp"/>
+
+        <EditText
+            android:id="@+id/edittime"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Select time"
+            android:background="@drawable/white_rounded_edge"
+            android:padding="10dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:textColor="@color/colorButtonBackground"
+            android:drawableRight="@drawable/ic_time"/>
+
+
+        <TextView
+            android:id="@+id/pax"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="number of pax"
+            android:textColor="@color/colorWhiteText"
+            android:textAllCaps="true"
+            android:padding="10dp"
+            android:layout_marginTop="20dp"
+            android:textSize="12sp"/>
+
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recyclerview"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:scrollbars="vertical"
+            android:layout_marginLeft="15dp"/>
+
+        <TextView
+            android:id="@+id/notes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="notes"
+            android:textAllCaps="true"
+            android:textColor="@color/colorWhiteText"
+            android:padding="10dp"
+            android:textSize="12sp"
+            android:layout_marginTop="20dp"/>
+
+        <EditText
+            android:id="@+id/editnotes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Write your message"
+            android:background="@drawable/white_rounded_edge"
+            android:padding="15dp"
+            android:textColor="@color/colorButtonBackground"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="book now"
+            android:background="@color/colorButtonBackground"
+            android:textColor="@color/colorWhiteText"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="25dp"
+            android:id="@+id/btnConfirm"/>
+
+
+    </LinearLayout>
+
+
+</ScrollView>

@@ -1,0 +1,192 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBackground"
+    android:scrollbars="none"
+    tools:context="com.av.dev.pyurluxuryandroid.Fragment.summary.CinemaSummaryFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimaryDark"
+        android:orientation="vertical">
+
+        <include
+            android:id="@+id/app_bar"
+            layout="@layout/hotel_app_bar" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/movie"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="15dp"
+                android:padding="5dp"
+                android:text="movie title"
+                android:textAllCaps="true"
+                android:textSize="@dimen/font_size_small" />
+
+            <TextView
+                android:id="@+id/txtmovie"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:padding="5dp"
+                android:text="Wonderwoman"
+                android:textColor="@color/colorBlackText"
+                android:textSize="@dimen/font_size_medium" />
+
+            <TextView
+                android:id="@+id/date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="15dp"
+                android:padding="5dp"
+                android:text="date"
+                android:textAllCaps="true"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/txtdate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:padding="5dp"
+                android:text="October 2, 2018 (Friday)"
+                android:textColor="@color/colorBlackText"
+                android:textSize="@dimen/font_size_medium" />
+
+            <TextView
+                android:id="@+id/time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="15dp"
+                android:padding="5dp"
+                android:text="time"
+                android:textAllCaps="true"
+                android:textSize="@dimen/font_size_small" />
+
+            <TextView
+                android:id="@+id/txttime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:padding="5dp"
+                android:text="8:00 PM"
+                android:textColor="@color/colorBlackText"
+                android:textSize="@dimen/font_size_medium" />
+
+            <TextView
+                android:id="@+id/pax"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="15dp"
+                android:padding="5dp"
+                android:text="Number of Persons"
+                android:textAllCaps="true"
+                android:textSize="@dimen/font_size_small" />
+
+            <TextView
+                android:id="@+id/txtpax"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:padding="5dp"
+                android:text="2 Persons"
+                android:textColor="@color/colorBlackText"
+                android:textSize="@dimen/font_size_medium" />
+
+            <TextView
+                android:id="@+id/notes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="15dp"
+                android:padding="5dp"
+                android:text="notes"
+                android:textAllCaps="true"
+                android:textSize="@dimen/font_size_small" />
+
+            <TextView
+                android:id="@+id/txtnotes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:padding="5dp"
+                android:text="Lorem ip sum dolor sit amet, consectetur"
+                android:textColor="@color/colorBlackText"
+                android:textSize="@dimen/font_size_medium"
+                android:layout_marginRight="15dp"
+                android:layout_marginBottom="15dp"/>
+
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="@color/white">
+
+
+            <ImageView
+                android:layout_width="80dp"
+                android:layout_height="70dp"
+                android:src="@drawable/bg"
+                android:scaleType="fitXY"
+                android:id="@+id/profile_pic"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="John Stephenson"
+                android:padding="5dp"
+                android:textColor="@color/colorButtonBackground"
+                android:textSize="@dimen/font_size"
+                android:layout_toRightOf="@+id/profile_pic"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:textStyle="bold"
+                android:id="@+id/profile_name"/>
+
+            <TextView
+                android:id="@+id/profile_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Lifestyle Manager"
+                android:textColor="@color/colorButtonBackground"
+                android:textSize="@dimen/font_size_small"
+                android:layout_toRightOf="@+id/profile_pic"
+                android:layout_marginLeft="25dp"
+                android:layout_below="@+id/profile_name"/>
+
+
+        </RelativeLayout>
+
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="confirm booking"
+            android:background="@color/colorButtonBackground"
+            android:textColor="@color/colorWhiteText"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="20dp"
+            android:padding="10dp"
+            android:id="@+id/btnConfirm"/>
+
+
+    </LinearLayout>
+
+</ScrollView>

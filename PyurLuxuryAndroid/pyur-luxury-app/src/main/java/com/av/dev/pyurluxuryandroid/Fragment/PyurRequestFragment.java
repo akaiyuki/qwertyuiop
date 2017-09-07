@@ -20,6 +20,7 @@ import com.av.dev.pyurluxuryandroid.Core.BaseActivity;
 import com.av.dev.pyurluxuryandroid.Core.PEngine;
 import com.av.dev.pyurluxuryandroid.Fragment.pager.PagerCompletedFragment;
 import com.av.dev.pyurluxuryandroid.Fragment.pager.completed.PagerHotelCompletedFragment;
+import com.av.dev.pyurluxuryandroid.Fragment.pager.pending.PagerPendingFragment;
 import com.av.dev.pyurluxuryandroid.Fragment.pager.pending.PendingDetailActivity;
 import com.av.dev.pyurluxuryandroid.R;
 import com.av.dev.pyurluxuryandroid.View.Fonts;
@@ -199,8 +200,8 @@ public class PyurRequestFragment extends Fragment {
                         String selected = String.valueOf(mListViewPager.getAdapter().getItem(i));
                         Log.d("selected", selected);
 
-                        startActivity(new Intent(getActivity(), PendingDetailActivity.class));
-//                        PEngine.switchFragment((BaseActivity) getActivity(), new PagerPendingFragment(), ((BaseActivity)getActivity()).getFrameLayout());
+//                        startActivity(new Intent(getActivity(), PendingDetailActivity.class));
+                        PEngine.switchFragment((BaseActivity) getActivity(), new PagerPendingFragment(), ((BaseActivity)getActivity()).getFrameLayout());
                     }
                 });
 

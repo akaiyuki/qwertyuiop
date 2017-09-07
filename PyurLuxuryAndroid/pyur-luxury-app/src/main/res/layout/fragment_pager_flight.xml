@@ -3,21 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:scrollbars="none"
-    android:background="@color/colorToolbar"
-    tools:context="com.av.dev.pyurluxuryandroid.Fragment.summary.FlightSummaryFragment">
-
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/colorBackground"
-        android:orientation="vertical">
-
-    <include
-        android:id="@+id/app_bar"
-        layout="@layout/hotel_app_bar" />
-
-
+    tools:context="com.av.dev.pyurluxuryandroid.Fragment.pager.PagerFlightFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -290,66 +276,5 @@
 
 
     </LinearLayout>
-
-
-        <RelativeLayout
-            android:id="@+id/lifestyle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:background="@color/white">
-
-
-            <ImageView
-                android:id="@+id/profile_pic"
-                android:layout_width="80dp"
-                android:layout_height="70dp"
-                android:scaleType="fitXY"
-                android:src="@drawable/bg" />
-
-            <TextView
-                android:id="@+id/profile_name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="10dp"
-                android:layout_toRightOf="@+id/profile_pic"
-                android:padding="5dp"
-                android:text="John Stephenson"
-                android:textColor="@color/colorButtonBackground"
-                android:textSize="@dimen/font_size"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/profile_title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/profile_name"
-                android:layout_marginLeft="25dp"
-                android:layout_toRightOf="@+id/profile_pic"
-                android:text="Lifestyle Manager"
-                android:textColor="@color/colorButtonBackground"
-                android:textSize="@dimen/font_size_small" />
-
-
-        </RelativeLayout>
-
-
-        <Button
-            android:id="@+id/btnConfirm"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_marginTop="20dp"
-            android:background="@color/colorButtonBackground"
-            android:padding="10dp"
-            android:text="confirm booking"
-            android:textColor="@color/colorWhiteText" />
-
-
-
-
-    </LinearLayout>
-
 
 </ScrollView>

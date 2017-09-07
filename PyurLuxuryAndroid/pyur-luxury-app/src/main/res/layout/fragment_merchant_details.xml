@@ -45,7 +45,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/slideshow"
             android:text="Carpe Deim"
-            android:textColor="@color/colorSearchColor"
+            android:textColor="@color/colorWhiteText"
             android:layout_marginTop="20dp"
             android:textSize="@dimen/font_size_medium"
             android:layout_marginLeft="15dp"
@@ -103,7 +103,7 @@
             android:layout_below="@+id/merchantdetails"
             android:text="pyur luxury benefits"
             android:textAllCaps="true"
-            android:textColor="@color/colorSearchColor"
+            android:textColor="@color/colorWhiteText"
             android:layout_marginTop="30dp"
             android:textSize="@dimen/font_size_medium"
             android:layout_marginLeft="15dp"/>
@@ -168,10 +168,20 @@
             android:layout_below="@+id/gridview"
             android:text="inclusions"
             android:textAllCaps="true"
-            android:textColor="@color/colorSearchColor"
+            android:textColor="@color/colorWhiteText"
             android:layout_marginTop="30dp"
             android:textSize="@dimen/font_size_medium"
             android:layout_marginLeft="15dp"/>
+
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recyclerview"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginLeft="15dp"
+            android:scrollbars="vertical"
+            android:layout_below="@+id/inclusions"
+            android:layout_marginTop="10dp"/>
 
 
         <Button
@@ -183,7 +193,7 @@
             android:background="@color/colorButtonBackground"
             android:text="book now"
             android:textColor="@color/colorWhiteText"
-            android:layout_below="@+id/inclusions"/>
+            android:layout_below="@+id/recyclerview"/>
 
 
     </RelativeLayout>

@@ -5,14 +5,20 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.GridView;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.av.dev.pyurluxuryandroid.Adapter.SlideAdapter;
 import com.av.dev.pyurluxuryandroid.Core.BaseActivity;
 import com.av.dev.pyurluxuryandroid.R;
+import com.av.dev.pyurluxuryandroid.View.Fonts;
 
 import java.util.ArrayList;
 import java.util.Timer;
@@ -40,6 +46,26 @@ public class MerchantDetailsFragment extends Fragment {
     CircleIndicator indicator;
     @BindView(R.id.app_bar)
     Toolbar toolbar;
+    @BindView(R.id.merchantname)
+    TextView merchantname;
+    @BindView(R.id.merchantplace)
+    TextView merchantplace;
+    @BindView(R.id.imgrate)
+    ImageView imgrate;
+    @BindView(R.id.merchantreview)
+    TextView merchantreview;
+    @BindView(R.id.merchantdetails)
+    TextView merchantdetails;
+    @BindView(R.id.benefits)
+    TextView benefits;
+    @BindView(R.id.gridview)
+    GridView gridview;
+    @BindView(R.id.inclusions)
+    TextView inclusions;
+    @BindView(R.id.recyclerview)
+    RecyclerView recyclerview;
+    @BindView(R.id.btnConfirm)
+    Button btnConfirm;
 
     public MerchantDetailsFragment() {
         // Required empty public constructor
@@ -71,6 +97,8 @@ public class MerchantDetailsFragment extends Fragment {
 
         init();
 
+        changeFont();
+
         return view;
     }
 
@@ -100,6 +128,17 @@ public class MerchantDetailsFragment extends Fragment {
                 handler.post(Update);
             }
         }, 2500, 2500);
+    }
+
+    private void changeFont(){
+        merchantname.setTypeface(Fonts.trajanRegular);
+        merchantplace.setTypeface(Fonts.latoRegular);
+        merchantreview.setTypeface(Fonts.latoRegular);
+        merchantdetails.setTypeface(Fonts.latoRegular);
+        benefits.setTypeface(Fonts.trajanRegular);
+        inclusions.setTypeface(Fonts.trajanRegular);
+        btnConfirm.setTypeface(Fonts.latoRegular);
+
     }
 
 }

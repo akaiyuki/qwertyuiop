@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.av.dev.pyurluxuryandroid.Fragment.pager.pending.PendingDetailActivity">
+
+
+    <include
+        layout="@layout/request_app_bar"
+        android:id="@+id/app_bar"/>
+
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/app_bar">
+
+        <include
+            layout="@layout/header_pending"
+            android:id="@+id/header"/>
+
+        <FrameLayout
+            android:id="@+id/framelayout_main"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/header"
+            android:layout_above="@+id/btncancel"/>
+
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/linear"
+            android:text="cancel booking"
+            android:padding="10dp"
+            android:textColor="@color/colorWhiteText"
+            android:background="@color/colorCancelBook"
+            android:id="@+id/btncancel"
+            android:layout_alignParentBottom="true"/>
+
+
+    </RelativeLayout>
+
+
+
+
+
+
+
+</RelativeLayout>

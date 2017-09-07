@@ -27,12 +27,15 @@
             </intent-filter>
         </activity>
         <activity android:name=".Activity.LoginActivity" />
-        <activity android:name=".Activity.HotelBookingActivity"
-            android:windowSoftInputMode="adjustPan" ></activity>
+        <activity
+            android:name=".Activity.HotelBookingActivity"
+            android:windowSoftInputMode="adjustPan" />
 
         <meta-data
             android:name="io.fabric.ApiKey"
             android:value="1ee2a0cff833e434204ac00384402e2b53f839b1" />
+
+        <activity android:name=".Fragment.pager.pending.PendingDetailActivity"></activity>
     </application>
 
 </manifest>

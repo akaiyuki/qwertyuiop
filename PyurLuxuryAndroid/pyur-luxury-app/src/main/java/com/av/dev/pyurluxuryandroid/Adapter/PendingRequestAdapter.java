@@ -89,8 +89,6 @@ public class PendingRequestAdapter extends ArrayAdapter<String> {
 
         holder.txttime.setTypeface(Fonts.latoRegular);
 
-
-
         return convertView;
     }
 

@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:scrollbars="none"
-    tools:context="com.av.dev.pyurluxuryandroid.Fragment.pager.PagerCompletedFragment">
+    tools:context="com.av.dev.pyurluxuryandroid.Fragment.pager.completed.PagerCompletedFragment">
 
     <RelativeLayout
         android:layout_width="wrap_content"

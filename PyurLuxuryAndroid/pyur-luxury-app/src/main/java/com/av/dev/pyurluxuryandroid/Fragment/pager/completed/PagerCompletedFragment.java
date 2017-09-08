@@ -1,4 +1,4 @@
-package com.av.dev.pyurluxuryandroid.Fragment.pager;
+package com.av.dev.pyurluxuryandroid.Fragment.pager.completed;
 
 
 import android.graphics.drawable.Drawable;

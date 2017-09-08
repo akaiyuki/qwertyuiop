@@ -1,0 +1,183 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:scrollbars="none"
+    tools:context="com.av.dev.pyurluxuryandroid.Fragment.pager.completed.PagerResCompletedFragment">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/colorWhiteBackground">
+
+    <include
+        layout="@layout/request_app_bar"
+        android:id="@+id/app_bar"/>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/app_bar"
+        android:id="@+id/relheader">
+
+        <include
+            layout="@layout/header_completed"
+            android:id="@+id/header"/>
+
+    </RelativeLayout>
+
+        <LinearLayout
+            android:layout_below="@+id/relheader"
+            android:id="@+id/linear"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@color/white">
+            <TextView
+                android:id="@+id/city"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="city"
+                android:textAllCaps="true"
+                android:padding="5dp"
+                android:textSize="12sp"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="15dp"/>
+
+            <TextView
+                android:id="@+id/txtcity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Bonifacio Global City, Taguig"
+                android:padding="5dp"
+                android:textColor="@color/colorBlackText"
+                android:textSize="@dimen/font_size_medium"
+                android:layout_marginLeft="15dp"/>
+
+
+            <TextView
+                android:id="@+id/restaurantname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Restaurant name"
+                android:textAllCaps="true"
+                android:padding="5dp"
+                android:textSize="12sp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="10dp"/>
+
+            <TextView
+                android:id="@+id/txtrestaurantname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Carpe Deim"
+                android:padding="5dp"
+                android:textColor="@color/colorBlackText"
+                android:textSize="@dimen/font_size_medium"
+                android:layout_marginLeft="15dp"/>
+
+            <TextView
+                android:id="@+id/date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="date"
+                android:textAllCaps="true"
+                android:padding="5dp"
+                android:textSize="12sp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="10dp"/>
+
+            <TextView
+                android:id="@+id/txtdate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="May 2, 2018 (Friday)"
+                android:padding="5dp"
+                android:textColor="@color/colorBlackText"
+                android:textSize="@dimen/font_size_medium"
+                android:layout_marginLeft="15dp"/>
+
+            <TextView
+                android:id="@+id/time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Time"
+                android:textAllCaps="true"
+                android:padding="5dp"
+                android:textSize="12sp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="10dp"/>
+
+            <TextView
+                android:id="@+id/txttime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="8:00 PM"
+                android:padding="5dp"
+                android:textColor="@color/colorBlackText"
+                android:textSize="@dimen/font_size_medium"
+                android:layout_marginLeft="15dp"/>
+
+            <TextView
+                android:id="@+id/numpax"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Number of persons"
+                android:textAllCaps="true"
+                android:padding="5dp"
+                android:textSize="12sp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="10dp"/>
+
+            <TextView
+                android:id="@+id/txtnumpax"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2 Persons"
+                android:padding="5dp"
+                android:textColor="@color/colorBlackText"
+                android:textSize="@dimen/font_size_medium"
+                android:layout_marginLeft="15dp"/>
+
+            <TextView
+                android:id="@+id/notes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Notes"
+                android:textAllCaps="true"
+                android:padding="5dp"
+                android:textSize="12sp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="10dp"/>
+
+            <TextView
+                android:id="@+id/txtnotes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Lorem ipsum dolor sit amet, consectetur adipiscingelit."
+                android:padding="5dp"
+                android:textColor="@color/colorBlackText"
+                android:textSize="@dimen/font_size_medium"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginBottom="15dp"/>
+        </LinearLayout>
+
+
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/linear"
+            android:id="@+id/relfooter">
+
+            <include
+                layout="@layout/footer_completed"
+                android:id="@+id/footer"/>
+
+        </RelativeLayout>
+
+
+    </RelativeLayout>
+
+</ScrollView>

@@ -1,9 +1,11 @@
 package com.av.dev.pyurluxuryandroid.Fragment;
 
 
+import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
@@ -112,6 +114,8 @@ public class FlightFragment extends Fragment {
 
         changeFont();
 
+        changeWays();
+
         return view;
     }
 
@@ -137,6 +141,34 @@ public class FlightFragment extends Fragment {
 
         oneWay.setTypeface(Fonts.latoRegular);
         roundWay.setTypeface(Fonts.latoRegular);
+    }
+
+    private void changeWays(){
+
+        oneWay.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                oneWay.setBackgroundDrawable(getActivity().getResources().getDrawable(R.drawable.ic_roundway));
+                roundWay.setBackgroundDrawable(getActivity().getResources().getDrawable(R.drawable.ic_oneway));
+
+                oneWay.setTextColor(Color.parseColor("#"+Integer.toHexString(ContextCompat.getColor(getContext(),R.color.colorWhiteText))));
+                roundWay.setTextColor(Color.parseColor("#"+Integer.toHexString(ContextCompat.getColor(getContext(),R.color.colorEditText))));
+            }
+        });
+
+        roundWay.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                roundWay.setBackgroundDrawable(getActivity().getResources().getDrawable(R.drawable.ic_roundway));
+                oneWay.setBackgroundDrawable(getActivity().getResources().getDrawable(R.drawable.ic_oneway));
+
+                roundWay.setTextColor(Color.parseColor("#"+Integer.toHexString(ContextCompat.getColor(getContext(),R.color.colorWhiteText))));
+                oneWay.setTextColor(Color.parseColor("#"+Integer.toHexString(ContextCompat.getColor(getContext(),R.color.colorEditText))));
+
+            }
+        });
+
+
     }
 
 }

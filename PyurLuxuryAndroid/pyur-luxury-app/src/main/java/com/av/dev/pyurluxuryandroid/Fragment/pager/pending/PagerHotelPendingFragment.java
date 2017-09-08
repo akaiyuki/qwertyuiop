@@ -1,21 +1,18 @@
 package com.av.dev.pyurluxuryandroid.Fragment.pager.pending;
 
 
-import android.content.Context;
 import android.graphics.drawable.Drawable;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.av.dev.pyurluxuryandroid.Core.BaseActivity;
-import com.av.dev.pyurluxuryandroid.Fragment.pager.PagerFlightFragment;
 import com.av.dev.pyurluxuryandroid.R;
 import com.av.dev.pyurluxuryandroid.View.CircleTransform;
 import com.av.dev.pyurluxuryandroid.View.Fonts;
@@ -27,7 +24,22 @@ import butterknife.ButterKnife;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class PagerPendingFragment extends Fragment {
+public class PagerHotelPendingFragment extends Fragment {
+
+    @BindView(R.id.city) TextView city;
+    @BindView(R.id.txtcity) TextView txtCity;
+    @BindView(R.id.hotelname) TextView hotelName;
+    @BindView(R.id.txthotelname) TextView txtHotelName;
+    @BindView(R.id.checkin) TextView checkin;
+    @BindView(R.id.txtcheckin) TextView txtcheckin;
+    @BindView(R.id.checkout) TextView checkout;
+    @BindView(R.id.txtcheckout) TextView txtCheckout;
+    @BindView(R.id.time1) TextView time1;
+    @BindView(R.id.txttime) TextView txtTime;
+    @BindView(R.id.numpax) TextView numpax;
+    @BindView(R.id.txtnumpax) TextView txtNumPax;
+    @BindView(R.id.notes) TextView notes;
+    @BindView(R.id.txtnotes) TextView txtNotes;
 
     @BindView(R.id.img)
     ImageView img;
@@ -42,37 +54,11 @@ public class PagerPendingFragment extends Fragment {
     @BindView(R.id.imgmessage)
     ImageView imgmessage;
 
-    @BindView(R.id.departure)
-    TextView departure;
-    @BindView(R.id.deporigin)
-    TextView deporigin;
-    @BindView(R.id.depdes)
-    TextView depdes;
-    @BindView(R.id.depdate)
-    TextView depdate;
-    @BindView(R.id.txtreturn)
-    TextView txtreturn;
-    @BindView(R.id.returnorigin)
-    TextView returnorigin;
-    @BindView(R.id.returndes)
-    TextView returndes;
-    @BindView(R.id.returndate)
-    TextView returndate;
-    @BindView(R.id.passengers)
-    TextView passengers;
-    @BindView(R.id.txtpassengers)
-    TextView txtpassengers;
-    @BindView(R.id.airline)
-    TextView airline;
-    @BindView(R.id.txtairline)
-    TextView txtairline;
-    @BindView(R.id.txtclass)
-    TextView txtclass;
-    @BindView(R.id.classtype) TextView classtype;
-    @BindView(R.id.notes) TextView notes;
-    @BindView(R.id.txtnotes) TextView txtnotes;
+    @BindView(R.id.btncancel)
+    Button btncancel;
 
-    public PagerPendingFragment() {
+
+    public PagerHotelPendingFragment() {
         // Required empty public constructor
     }
 
@@ -81,7 +67,7 @@ public class PagerPendingFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_pager_pending, container, false);
+        View view = inflater.inflate(R.layout.fragment_pager_hotel_pending, container, false);
 
         ButterKnife.bind(this,view);
 
@@ -105,12 +91,27 @@ public class PagerPendingFragment extends Fragment {
             }
         });
 
-        setUi();
+        setUI();
 
         return view;
     }
 
-    private void setUi(){
+    private void setUI(){
+        city.setTypeface(Fonts.latoRegular);
+        txtCity.setTypeface(Fonts.latoRegular);
+        hotelName.setTypeface(Fonts.latoRegular);
+        txtHotelName.setTypeface(Fonts.latoRegular);
+        checkin.setTypeface(Fonts.latoRegular);
+        txtcheckin.setTypeface(Fonts.latoRegular);
+        checkout.setTypeface(Fonts.latoRegular);
+        txtCheckout.setTypeface(Fonts.latoRegular);
+        time1.setTypeface(Fonts.latoRegular);
+        txtTime.setTypeface(Fonts.latoRegular);
+        numpax.setTypeface(Fonts.latoRegular);
+        txtNumPax.setTypeface(Fonts.latoRegular);
+        notes.setTypeface(Fonts.latoRegular);
+        txtNotes.setTypeface(Fonts.latoRegular);
+
         Picasso.with(getContext())
                 .load(R.drawable.bg)
                 .transform(new CircleTransform())
@@ -118,33 +119,16 @@ public class PagerPendingFragment extends Fragment {
 
         name.setTypeface(Fonts.latoBold);
         request.setTypeface(Fonts.latoRegular);
+        request.setText("Hotel Booking");
 
-        Drawable img = getContext().getResources().getDrawable( R.drawable.ic_flight_booking );
+        Drawable img = getContext().getResources().getDrawable( R.drawable.ic_hotel );
         img.setBounds( 0, 0, 60, 60 );
         request.setCompoundDrawables( img, null, null, null );
 
         time.setTypeface(Fonts.latoRegular);
 
-        departure.setTypeface(Fonts.latoRegular);
-        deporigin.setTypeface(Fonts.latoBold);
-        depdes.setTypeface(Fonts.latoBold);
-        depdate.setTypeface(Fonts.latoRegular);
-        txtreturn.setTypeface(Fonts.latoRegular);
-        returnorigin.setTypeface(Fonts.latoBold);
-        returndes.setTypeface(Fonts.latoBold);
-        returndate.setTypeface(Fonts.latoRegular);
-        passengers.setTypeface(Fonts.latoRegular);
-        txtpassengers.setTypeface(Fonts.latoRegular);
-        airline.setTypeface(Fonts.latoRegular);
-        txtairline.setTypeface(Fonts.latoRegular);
-        txtclass.setTypeface(Fonts.latoRegular);
-        classtype.setTypeface(Fonts.latoRegular);
-        notes.setTypeface(Fonts.latoRegular);
-        txtnotes.setTypeface(Fonts.latoRegular);
-
+        btncancel.setTypeface(Fonts.latoRegular);
 
     }
-
-
 
 }

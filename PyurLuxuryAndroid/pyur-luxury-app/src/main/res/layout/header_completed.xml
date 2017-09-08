@@ -33,7 +33,7 @@
         android:layout_marginLeft="20dp"
         android:layout_marginTop="10dp"
         android:layout_toRightOf="@+id/img"
-        android:drawableLeft="@drawable/hotel_booking"
+        android:drawableLeft="@drawable/ic_hotel"
         android:drawablePadding="10dp"
         android:text="Flight Booking"
         android:gravity="center"

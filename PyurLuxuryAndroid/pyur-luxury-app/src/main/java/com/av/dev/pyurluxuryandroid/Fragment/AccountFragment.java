@@ -1,19 +1,23 @@
 package com.av.dev.pyurluxuryandroid.Fragment;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.av.dev.pyurluxuryandroid.Activity.LoginActivity;
 import com.av.dev.pyurluxuryandroid.R;
 import com.av.dev.pyurluxuryandroid.View.Fonts;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -58,6 +62,8 @@ public class AccountFragment extends Fragment {
     TextView edit;
     @BindView(R.id.imgbackground)
     ImageView imgbackground;
+    @BindView(R.id.logout)
+    Button logout;
 
 
     public AccountFragment() {
@@ -75,7 +81,14 @@ public class AccountFragment extends Fragment {
 
         changeFont();
 
+
         return view;
+    }
+
+    @OnClick(R.id.logout)
+    public void onClickLogout(){
+        startActivity(new Intent(getActivity(), LoginActivity.class));
+        getActivity().finish();
     }
 
     private void changeFont(){
@@ -100,6 +113,7 @@ public class AccountFragment extends Fragment {
         edit.setTypeface(Fonts.latoRegular);
 
 //        imgbackground.getBackground().setAlpha(80);
+        logout.setTypeface(Fonts.latoRegular);
     }
 
 }

@@ -1,6 +1,7 @@
 package com.av.dev.pyurluxuryandroid.Fragment;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.Fragment;
@@ -15,6 +16,7 @@ import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.av.dev.pyurluxuryandroid.Activity.MainActivity;
 import com.av.dev.pyurluxuryandroid.Adapter.SlideAdapter;
 import com.av.dev.pyurluxuryandroid.Core.BaseActivity;
 import com.av.dev.pyurluxuryandroid.R;
@@ -26,6 +28,7 @@ import java.util.TimerTask;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import me.relex.circleindicator.CircleIndicator;
 
 /**
@@ -139,6 +142,12 @@ public class MerchantDetailsFragment extends Fragment {
         inclusions.setTypeface(Fonts.trajanRegular);
         btnConfirm.setTypeface(Fonts.latoRegular);
 
+    }
+
+    @OnClick(R.id.btnConfirm)
+    public void onClick(){
+        startActivity(new Intent(getActivity(), MainActivity.class));
+        getActivity().finish();
     }
 
 }

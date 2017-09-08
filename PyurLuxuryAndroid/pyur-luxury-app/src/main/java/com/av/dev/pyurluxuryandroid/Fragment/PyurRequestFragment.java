@@ -1,7 +1,6 @@
 package com.av.dev.pyurluxuryandroid.Fragment;
 
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.PagerAdapter;
@@ -18,10 +17,10 @@ import android.widget.TextView;
 import com.av.dev.pyurluxuryandroid.Adapter.PendingRequestAdapter;
 import com.av.dev.pyurluxuryandroid.Core.BaseActivity;
 import com.av.dev.pyurluxuryandroid.Core.PEngine;
-import com.av.dev.pyurluxuryandroid.Fragment.pager.PagerCompletedFragment;
-import com.av.dev.pyurluxuryandroid.Fragment.pager.completed.PagerHotelCompletedFragment;
+import com.av.dev.pyurluxuryandroid.Fragment.pager.completed.PagerCompletedFragment;
+import com.av.dev.pyurluxuryandroid.Fragment.pager.completed.PagerResCompletedFragment;
+import com.av.dev.pyurluxuryandroid.Fragment.pager.pending.PagerHotelPendingFragment;
 import com.av.dev.pyurluxuryandroid.Fragment.pager.pending.PagerPendingFragment;
-import com.av.dev.pyurluxuryandroid.Fragment.pager.pending.PendingDetailActivity;
 import com.av.dev.pyurluxuryandroid.R;
 import com.av.dev.pyurluxuryandroid.View.Fonts;
 import com.av.dev.pyurluxuryandroid.View.SlidingTabLayout;
@@ -201,7 +200,7 @@ public class PyurRequestFragment extends Fragment {
                         Log.d("selected", selected);
 
 //                        startActivity(new Intent(getActivity(), PendingDetailActivity.class));
-                        PEngine.switchFragment((BaseActivity) getActivity(), new PagerPendingFragment(), ((BaseActivity)getActivity()).getFrameLayout());
+                        PEngine.switchFragment((BaseActivity) getActivity(), new PagerHotelPendingFragment(), ((BaseActivity)getActivity()).getFrameLayout());
                     }
                 });
 
@@ -228,7 +227,7 @@ public class PyurRequestFragment extends Fragment {
                     public void onItemClick(AdapterView<?> adapterView, View view, int pos, long l) {
 //                        PEngine.switchFragment((BaseActivity) getActivity(), new PagerCompletedFragment(), ((BaseActivity)getActivity()).getFrameLayout());
 
-                        PEngine.switchFragment((BaseActivity) getActivity(), new PagerHotelCompletedFragment(), ((BaseActivity)getActivity()).getFrameLayout());
+                        PEngine.switchFragment((BaseActivity) getActivity(), new PagerCompletedFragment(), ((BaseActivity)getActivity()).getFrameLayout());
 
                     }
                 });

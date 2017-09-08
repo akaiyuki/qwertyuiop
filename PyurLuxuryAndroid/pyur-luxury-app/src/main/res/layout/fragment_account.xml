@@ -208,11 +208,21 @@
                 android:id="@+id/txtpassword"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="15dp"
                 android:layout_marginLeft="20dp"
                 android:text="******"
                 android:textSize="@dimen/font_size_medium"
                 android:textColor="@color/colorBlackText"/>
+
+            <Button
+                android:id="@+id/logout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Log out"
+                android:background="@color/colorButtonBackground"
+                android:textColor="@color/colorWhiteText"
+                android:layout_marginTop="20dp"/>
+
+
 
         </LinearLayout>
 

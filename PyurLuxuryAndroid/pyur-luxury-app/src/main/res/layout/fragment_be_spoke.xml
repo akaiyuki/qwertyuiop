@@ -28,7 +28,7 @@
             android:textSize="12sp"
             android:layout_marginTop="15dp"
             android:layout_marginLeft="15dp"
-            android:textColor="@color/colorWhiteText"/>
+            android:textColor="@color/colorTextColor"/>
 
         <EditText
             android:id="@+id/editrequest"
@@ -66,7 +66,7 @@
                 android:layout_height="wrap_content"
                 android:text="urgency"
                 android:textAllCaps="true"
-                android:textColor="@color/colorWhiteText"
+                android:textColor="@color/colorTextColor"
                 android:padding="10dp"
                 android:layout_marginLeft="10dp"
                 android:textSize="12sp"/>

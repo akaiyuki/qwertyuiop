@@ -23,7 +23,7 @@
             android:padding="10dp"
             android:text="city"
             android:textAllCaps="true"
-            android:textColor="@color/colorWhiteText"
+            android:textColor="@color/colorTextColor"
             android:textSize="12sp" />
 
         <EditText
@@ -44,7 +44,7 @@
             android:padding="10dp"
             android:text="hotel name"
             android:textAllCaps="true"
-            android:textColor="@color/colorWhiteText"
+            android:textColor="@color/colorTextColor"
             android:textSize="12sp"
             android:layout_marginTop="10dp"/>
 
@@ -80,7 +80,7 @@
                     android:padding="10dp"
                     android:text="check in date"
                     android:textAllCaps="true"
-                    android:textColor="@color/colorWhiteText"
+                    android:textColor="@color/colorTextColor"
                     android:textSize="12sp" />
 
                 <EditText
@@ -111,7 +111,7 @@
                     android:padding="10dp"
                     android:text="check out date"
                     android:textAllCaps="true"
-                    android:textColor="@color/colorWhiteText"
+                    android:textColor="@color/colorTextColor"
                     android:textSize="12sp" />
 
                 <EditText
@@ -139,7 +139,7 @@
             android:padding="10dp"
             android:text="Room type"
             android:textAllCaps="true"
-            android:textColor="@color/colorWhiteText"
+            android:textColor="@color/colorTextColor"
             android:textSize="12sp" />
 
         <EditText
@@ -162,7 +162,7 @@
             android:padding="10dp"
             android:text="Number of rooms"
             android:textAllCaps="true"
-            android:textColor="@color/colorWhiteText"
+            android:textColor="@color/colorTextColor"
             android:textSize="12sp" />
 
 
@@ -181,7 +181,7 @@
             android:padding="10dp"
             android:text="Number of pax"
             android:textAllCaps="true"
-            android:textColor="@color/colorWhiteText"
+            android:textColor="@color/colorTextColor"
             android:textSize="12sp" />
 
         <android.support.v7.widget.RecyclerView
@@ -199,7 +199,7 @@
             android:padding="10dp"
             android:text="Notes"
             android:textAllCaps="true"
-            android:textColor="@color/colorWhiteText"
+            android:textColor="@color/colorTextColor"
             android:textSize="12sp" />
 
         <EditText

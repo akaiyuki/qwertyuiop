@@ -229,7 +229,7 @@
             android:padding="10dp"
             android:text="departure"
             android:textAllCaps="true"
-            android:textColor="@color/colorWhiteText"
+            android:textColor="@color/colorTextColor"
             android:textSize="@dimen/font_size_small" />
 
         <EditText
@@ -253,7 +253,7 @@
             android:padding="10dp"
             android:text="return"
             android:textAllCaps="true"
-            android:textColor="@color/colorWhiteText"
+            android:textColor="@color/colorTextColor"
             android:textSize="@dimen/font_size_small" />
 
         <EditText
@@ -278,7 +278,7 @@
             android:padding="10dp"
             android:text="class"
             android:textAllCaps="true"
-            android:textColor="@color/colorWhiteText"
+            android:textColor="@color/colorTextColor"
             android:textSize="@dimen/font_size_small" />
 
         <EditText
@@ -302,7 +302,7 @@
             android:padding="10dp"
             android:text="passengers"
             android:textAllCaps="true"
-            android:textColor="@color/colorWhiteText"
+            android:textColor="@color/colorTextColor"
             android:textSize="12sp" />
 
 
@@ -322,7 +322,7 @@
             android:padding="10dp"
             android:text="airline"
             android:textAllCaps="true"
-            android:textColor="@color/colorWhiteText"
+            android:textColor="@color/colorTextColor"
             android:textSize="@dimen/font_size_small" />
 
         <EditText
@@ -346,7 +346,7 @@
             android:padding="10dp"
             android:text="notes"
             android:textAllCaps="true"
-            android:textColor="@color/colorWhiteText"
+            android:textColor="@color/colorTextColor"
             android:textSize="@dimen/font_size_small" />
 
         <EditText

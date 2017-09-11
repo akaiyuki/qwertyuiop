@@ -12,9 +12,9 @@
         android:layout_height="wrap_content">
 
     <ImageView
-        android:layout_width="100dp"
-        android:layout_height="50dp"
-        android:src="@drawable/logo"
+        android:layout_width="150dp"
+        android:layout_height="80dp"
+        android:src="@drawable/ic_logo_header"
         android:layout_centerHorizontal="true"/>
 
     </RelativeLayout>

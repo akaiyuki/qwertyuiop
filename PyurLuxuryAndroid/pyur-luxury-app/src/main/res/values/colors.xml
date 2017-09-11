@@ -15,10 +15,12 @@
     <color name="colorBlackText">#000000</color>
 
     <color name="colorRed">#c90606</color>
-    <color name="colorEditText">#a98563</color>
+    <color name="colorEditText">#1a1a1a</color>
 
     <color name="colorSearchBackground">#535353</color>
     <color name="colorSearchColor">#8f8f8f</color>
     <color name="colorDivider">#8f8f8f</color>
     <color name="colorCancelBook">#e76649</color>
+
+    <color name="colorTextColor">#a98563</color>
 </resources>

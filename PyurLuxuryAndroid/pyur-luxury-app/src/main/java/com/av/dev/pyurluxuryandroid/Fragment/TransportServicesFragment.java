@@ -2,6 +2,8 @@ package com.av.dev.pyurluxuryandroid.Fragment;
 
 
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
@@ -15,6 +17,7 @@ import com.av.dev.pyurluxuryandroid.Activity.HotelBookingActivity;
 import com.av.dev.pyurluxuryandroid.Adapter.SpacesItemDecoration;
 import com.av.dev.pyurluxuryandroid.Adapter.TransportServiceAdapter;
 import com.av.dev.pyurluxuryandroid.Core.BaseActivity;
+import com.av.dev.pyurluxuryandroid.Core.PConfiguration;
 import com.av.dev.pyurluxuryandroid.Core.PEngine;
 import com.av.dev.pyurluxuryandroid.R;
 import com.av.dev.pyurluxuryandroid.View.ItemOffsetDecoration;
@@ -93,6 +96,24 @@ public class TransportServicesFragment extends Fragment {
             Intent intent = new Intent(getActivity(), HotelBookingActivity.class);
             intent.putExtra("goto", "sea");
             startActivity(intent);
+        } else if (position == 3){
+
+            //open uber application
+            PackageManager pm = getActivity().getPackageManager();
+            try {
+                pm.getPackageInfo("com.ubercab", PackageManager.GET_ACTIVITIES);
+                String uri = "uber://?action=setPickup&pickup=my_location";
+                Intent intent = new Intent(Intent.ACTION_VIEW);
+                intent.setData(Uri.parse(uri));
+                startActivity(intent);
+            } catch (PackageManager.NameNotFoundException e) {
+                try {
+                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(PConfiguration.androidUberAppUrl)));
+                } catch (android.content.ActivityNotFoundException anfe) {
+                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(PConfiguration.websiteUberUrl)));
+                }
+            }
+
         }
 
     }

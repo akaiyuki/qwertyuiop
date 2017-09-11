@@ -21,7 +21,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="cinema"
-            android:textColor="@color/colorWhiteText"
+            android:textColor="@color/colorTextColor"
             android:textAllCaps="true"
             android:padding="10dp"
             android:textSize="12sp"/>
@@ -35,7 +35,7 @@
             android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp"
             android:hint="Select cinema"
-            android:textColor="@color/colorButtonBackground"
+            android:textColor="@color/colorEditText"
             android:drawableRight="@drawable/ic_chevron_right"/>
 
 
@@ -45,7 +45,7 @@
             android:layout_height="wrap_content"
             android:text="movie"
             android:textAllCaps="true"
-            android:textColor="@color/colorWhiteText"
+            android:textColor="@color/colorTextColor"
             android:padding="10dp"
             android:textSize="12sp"
             android:layout_marginTop="20dp"/>
@@ -59,7 +59,7 @@
             android:padding="10dp"
             android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp"
-            android:textColor="@color/colorButtonBackground"
+            android:textColor="@color/colorEditText"
             android:drawableRight="@drawable/ic_chevron_right"/>
 
 
@@ -69,7 +69,7 @@
             android:layout_height="wrap_content"
             android:text="date"
             android:textAllCaps="true"
-            android:textColor="@color/colorWhiteText"
+            android:textColor="@color/colorTextColor"
             android:padding="10dp"
             android:textSize="12sp"
             android:layout_marginTop="20dp"/>
@@ -83,7 +83,7 @@
             android:padding="10dp"
             android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp"
-            android:textColor="@color/colorButtonBackground"
+            android:textColor="@color/colorEditText"
             android:drawableRight="@drawable/ic_date"/>
 
         <TextView
@@ -92,7 +92,7 @@
             android:layout_height="wrap_content"
             android:text="time"
             android:textAllCaps="true"
-            android:textColor="@color/colorWhiteText"
+            android:textColor="@color/colorTextColor"
             android:padding="10dp"
             android:textSize="12sp"
             android:layout_marginTop="20dp"/>
@@ -106,7 +106,7 @@
             android:padding="10dp"
             android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp"
-            android:textColor="@color/colorButtonBackground"
+            android:textColor="@color/colorEditText"
             android:drawableRight="@drawable/ic_time"/>
 
 
@@ -115,7 +115,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="number of pax"
-            android:textColor="@color/colorWhiteText"
+            android:textColor="@color/colorTextColor"
             android:textAllCaps="true"
             android:padding="10dp"
             android:layout_marginTop="20dp"
@@ -135,7 +135,7 @@
             android:layout_height="wrap_content"
             android:text="notes"
             android:textAllCaps="true"
-            android:textColor="@color/colorWhiteText"
+            android:textColor="@color/colorTextColor"
             android:padding="10dp"
             android:textSize="12sp"
             android:layout_marginTop="20dp"/>
@@ -147,7 +147,7 @@
             android:hint="Write your message"
             android:background="@drawable/white_rounded_edge"
             android:padding="15dp"
-            android:textColor="@color/colorButtonBackground"
+            android:textColor="@color/colorEditText"
             android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp"/>
 

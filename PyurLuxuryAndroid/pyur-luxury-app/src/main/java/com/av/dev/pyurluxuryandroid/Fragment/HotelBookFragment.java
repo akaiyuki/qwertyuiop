@@ -144,6 +144,13 @@ public class HotelBookFragment extends Fragment {
         txtNumPax.setTypeface(Fonts.latoRegular);
         txtNotes.setTypeface(Fonts.latoRegular);
         btnConfirm.setTypeface(Fonts.latoRegular);
+
+        editHotelName.setTypeface(Fonts.latoRegular);
+        editCheckin.setTypeface(Fonts.latoRegular);
+        editCheckout.setTypeface(Fonts.latoRegular);
+        editRoomType.setTypeface(Fonts.latoRegular);
+        editNotes.setTypeface(Fonts.latoRegular);
+        editCity.setTypeface(Fonts.latoRegular);
     }
 
 

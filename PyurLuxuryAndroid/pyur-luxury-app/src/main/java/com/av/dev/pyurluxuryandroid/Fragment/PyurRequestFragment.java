@@ -171,6 +171,7 @@ public class PyurRequestFragment extends Fragment {
                 case 1:
 //                    resId = R.layout.pager_completed;
                     resId = R.layout.pager_item;
+                    break;
             }
 
             View view = getActivity().getLayoutInflater().inflate(resId, container, false);

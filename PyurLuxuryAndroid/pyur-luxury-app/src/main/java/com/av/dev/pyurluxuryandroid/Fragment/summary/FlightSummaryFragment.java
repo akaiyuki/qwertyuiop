@@ -85,7 +85,7 @@ public class FlightSummaryFragment extends Fragment {
 
     @OnClick(R.id.btnConfirm)
     public void onClick(){
-        PDialog.showDialogSuccess((BaseActivity) getActivity());
+        PDialog.showRate((BaseActivity) getActivity());
     }
 
     private void changeFont(){

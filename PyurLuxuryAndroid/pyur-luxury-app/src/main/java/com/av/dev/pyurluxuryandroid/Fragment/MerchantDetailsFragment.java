@@ -14,6 +14,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.GridView;
 import android.widget.ImageView;
+import android.widget.RatingBar;
 import android.widget.TextView;
 
 import com.av.dev.pyurluxuryandroid.Activity.MainActivity;
@@ -53,8 +54,8 @@ public class MerchantDetailsFragment extends Fragment {
     TextView merchantname;
     @BindView(R.id.merchantplace)
     TextView merchantplace;
-    @BindView(R.id.imgrate)
-    ImageView imgrate;
+    @BindView(R.id.rating)
+    RatingBar rating;
     @BindView(R.id.merchantreview)
     TextView merchantreview;
     @BindView(R.id.merchantdetails)

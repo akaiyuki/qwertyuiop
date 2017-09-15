@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RatingBar;
 import android.widget.TextView;
 
 import com.av.dev.pyurluxuryandroid.Core.BaseActivity;
@@ -68,7 +69,8 @@ public class PagerCompletedFragment extends Fragment {
     @BindView(R.id.linearrate)
     LinearLayout linearrate;
     @BindView(R.id.txtrate) TextView txtrate;
-    @BindView(R.id.imgrate) ImageView imgrate;
+    @BindView(R.id.rating)
+    RatingBar rating;
 
 
     public PagerCompletedFragment() {

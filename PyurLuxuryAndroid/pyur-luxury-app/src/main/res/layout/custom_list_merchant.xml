@@ -14,7 +14,7 @@
     <RelativeLayout
         android:id="@+id/relbackground"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="70dp"
         android:layout_alignParentBottom="true"
         android:background="@drawable/rounded_bottom_black" />
 
@@ -29,7 +29,7 @@
             android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="15dp"
             android:text=""
             android:textAllCaps="true"
             android:textColor="@color/colorWhiteText"
@@ -46,24 +46,39 @@
             android:textColor="@color/colorSearchColor"
             android:textSize="@dimen/font_size_small"/>
 
-        <ImageView
-            android:id="@+id/imgrate"
-            android:layout_width="80dp"
-            android:layout_height="10dp"
+        <!--<ImageView-->
+            <!--android:id="@+id/imgrate"-->
+            <!--android:layout_width="80dp"-->
+            <!--android:layout_height="10dp"-->
+            <!--android:layout_alignParentRight="true"-->
+            <!--android:layout_marginRight="10dp"-->
+            <!--android:layout_marginTop="5dp"-->
+            <!--android:scaleType="fitXY"-->
+            <!--android:src="@drawable/ic_star" />-->
+
+        <RatingBar
+            android:id="@+id/rating"
+            android:layout_gravity="center_horizontal"
+            style="?android:ratingBarStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:numStars="5"
+            android:rating="4"
+            android:stepSize="1.0"
+            android:progressTint="@color/colorStarSelected"
             android:layout_alignParentRight="true"
             android:layout_marginRight="10dp"
-            android:layout_marginTop="5dp"
-            android:scaleType="fitXY"
-            android:src="@drawable/ic_star" />
+            android:layout_marginTop="5dp"/>
+
 
         <TextView
             android:id="@+id/avg"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
-            android:layout_below="@+id/imgrate"
+            android:layout_below="@+id/rating"
             android:layout_marginRight="10dp"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="7dp"
             android:text="avg. main"
             android:textColor="@color/colorSearchColor"
             android:textSize="@dimen/font_size_small" />
@@ -72,7 +87,7 @@
             android:id="@+id/price"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/imgrate"
+            android:layout_below="@+id/rating"
             android:layout_marginLeft="15dp"
             android:layout_marginRight="10dp"
             android:layout_marginTop="5dp"

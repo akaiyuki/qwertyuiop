@@ -51,16 +51,34 @@
             android:layout_marginLeft="15dp"
             android:textAllCaps="true"/>
 
-        <ImageView
-            android:id="@+id/imgrate"
-            android:layout_width="80dp"
-            android:layout_height="10dp"
+        <!--<ImageView-->
+            <!--android:id="@+id/imgrate"-->
+            <!--android:layout_width="80dp"-->
+            <!--android:layout_height="10dp"-->
+            <!--android:layout_alignParentRight="true"-->
+            <!--android:layout_marginRight="15dp"-->
+            <!--android:layout_marginTop="20dp"-->
+            <!--android:scaleType="fitXY"-->
+            <!--android:src="@drawable/ic_star"-->
+            <!--android:layout_below="@+id/slideshow"/>-->
+
+
+        <RatingBar
+            android:id="@+id/rating"
+            style="?android:ratingBarStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:numStars="5"
+            android:rating="2"
+            android:stepSize="1.0"
+            android:progressTint="@color/colorStarSelected"
+            android:layout_below="@+id/slideshow"
             android:layout_alignParentRight="true"
             android:layout_marginRight="15dp"
-            android:layout_marginTop="20dp"
-            android:scaleType="fitXY"
-            android:src="@drawable/ic_star"
-            android:layout_below="@+id/slideshow"/>
+            android:layout_marginTop="20dp"/>
+
+
+
 
         <TextView
             android:id="@+id/merchantplace"
@@ -76,7 +94,7 @@
             android:id="@+id/merchantreview"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/imgrate"
+            android:layout_below="@+id/rating"
             android:text="52 Reviews"
             android:textColor="@color/colorSearchColor"
             android:textSize="@dimen/font_size_small"

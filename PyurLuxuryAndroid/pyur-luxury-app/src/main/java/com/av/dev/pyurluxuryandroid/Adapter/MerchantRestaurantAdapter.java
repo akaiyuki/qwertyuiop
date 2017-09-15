@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.RatingBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -51,7 +52,7 @@ public class MerchantRestaurantAdapter extends ArrayAdapter<String> {
             holder.price = (TextView) convertView.findViewById(R.id.price);
             holder.avg = convertView.findViewById(R.id.avg);
             holder.imgbackground = (ImageView) convertView.findViewById(R.id.imgbackground);
-            holder.imgrate = convertView.findViewById(R.id.imgrate);
+            holder.rating = convertView.findViewById(R.id.rating);
             holder.relbackground = convertView.findViewById(R.id.relbackground);
 
             convertView.setTag(holder);
@@ -96,7 +97,8 @@ public class MerchantRestaurantAdapter extends ArrayAdapter<String> {
         TextView price;
         TextView avg;
         ImageView imgbackground;
-        ImageView imgrate;
+//        ImageView imgrate;
+        RatingBar rating;
         RelativeLayout relbackground;
     }
 }

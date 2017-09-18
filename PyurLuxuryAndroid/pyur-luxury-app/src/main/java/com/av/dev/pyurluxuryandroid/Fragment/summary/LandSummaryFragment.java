@@ -94,19 +94,19 @@ public class LandSummaryFragment extends Fragment {
     private void changeFont(){
 
         pickDate.setTypeface(Fonts.latoRegular);
-        txtPickDate.setTypeface(Fonts.latoBold);
+        txtPickDate.setTypeface(Fonts.latoRegular);
         pickTime.setTypeface(Fonts.latoRegular);
-        txtPickTime.setTypeface(Fonts.latoBold);
+        txtPickTime.setTypeface(Fonts.latoRegular);
         txtReturn.setTypeface(Fonts.latoRegular);
-        txtReturnTime.setTypeface(Fonts.latoBold);
+        txtReturnTime.setTypeface(Fonts.latoRegular);
         location.setTypeface(Fonts.latoRegular);
-        txtLocation.setTypeface(Fonts.latoBold);
+        txtLocation.setTypeface(Fonts.latoRegular);
         carType.setTypeface(Fonts.latoRegular);
-        txtCarType.setTypeface(Fonts.latoBold);
+        txtCarType.setTypeface(Fonts.latoRegular);
         passengers.setTypeface(Fonts.latoRegular);
-        txtPassengers.setTypeface(Fonts.latoBold);
+        txtPassengers.setTypeface(Fonts.latoRegular);
         notes.setTypeface(Fonts.latoRegular);
-        txtNotes.setTypeface(Fonts.latoBold);
+        txtNotes.setTypeface(Fonts.latoRegular);
         profileName.setTypeface(Fonts.trajanRegular);
         profileTitle.setTypeface(Fonts.latoRegular);
 

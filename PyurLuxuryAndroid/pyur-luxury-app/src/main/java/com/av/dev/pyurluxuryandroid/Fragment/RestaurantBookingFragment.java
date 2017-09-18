@@ -1,7 +1,6 @@
 package com.av.dev.pyurluxuryandroid.Fragment;
 
 
-import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -15,12 +14,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.av.dev.pyurluxuryandroid.Activity.HotelBookingActivity;
-import com.av.dev.pyurluxuryandroid.Activity.MainActivity;
 import com.av.dev.pyurluxuryandroid.Adapter.HotelPaxAdapter;
 import com.av.dev.pyurluxuryandroid.Core.BaseActivity;
 import com.av.dev.pyurluxuryandroid.Core.PEngine;
 import com.av.dev.pyurluxuryandroid.Core.PSingleton;
+import com.av.dev.pyurluxuryandroid.Fragment.summary.RestaurantBookingDetailsFragment;
 import com.av.dev.pyurluxuryandroid.R;
 import com.av.dev.pyurluxuryandroid.View.Fonts;
 

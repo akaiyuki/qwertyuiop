@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:scrollbars="none"
-    tools:context="com.av.dev.pyurluxuryandroid.Fragment.HotelBookDetailsFragment">
+    tools:context="com.av.dev.pyurluxuryandroid.Fragment.summary.HotelBookDetailsFragment">
 
 
     <LinearLayout

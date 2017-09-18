@@ -89,15 +89,15 @@ public class CinemaSummaryFragment extends Fragment {
 
     private void changeFont(){
         movie.setTypeface(Fonts.latoRegular);
-        txtmovie.setTypeface(Fonts.latoBold);
+        txtmovie.setTypeface(Fonts.latoRegular);
         date.setTypeface(Fonts.latoRegular);
-        txtdate.setTypeface(Fonts.latoBold);
+        txtdate.setTypeface(Fonts.latoRegular);
         time.setTypeface(Fonts.latoRegular);
-        txttime.setTypeface(Fonts.latoBold);
+        txttime.setTypeface(Fonts.latoRegular);
         pax.setTypeface(Fonts.latoRegular);
-        txtpax.setTypeface(Fonts.latoBold);
+        txtpax.setTypeface(Fonts.latoRegular);
         notes.setTypeface(Fonts.latoRegular);
-        txtnotes.setTypeface(Fonts.latoBold);
+        txtnotes.setTypeface(Fonts.latoRegular);
 
         profile_name.setTypeface(Fonts.trajanRegular);
         profile_title.setTypeface(Fonts.latoRegular);

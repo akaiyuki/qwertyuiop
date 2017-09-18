@@ -20,6 +20,8 @@ import android.widget.Toast;
 import com.av.dev.pyurluxuryandroid.Core.BaseActivity;
 import com.av.dev.pyurluxuryandroid.Core.PEngine;
 import com.av.dev.pyurluxuryandroid.Fragment.AccountFragment;
+import com.av.dev.pyurluxuryandroid.Fragment.LifestyleManager.AccountLifestyleFragment;
+import com.av.dev.pyurluxuryandroid.Fragment.LifestyleManager.RequestLifestyleFragment;
 import com.av.dev.pyurluxuryandroid.Fragment.PyurRequestFragment;
 import com.av.dev.pyurluxuryandroid.Fragment.ServicesFragment;
 import com.av.dev.pyurluxuryandroid.R;
@@ -85,7 +87,10 @@ public class MainActivity extends BaseActivity {
                                 menu.findItem(R.id.menu_account).setIcon(R.drawable.ic_account);
 
                                 item.setIcon(R.drawable.ic_pyur_click);
-                                PEngine.switchFragment(INSTANCE, new PyurRequestFragment(), getFrameLayout());
+//                                PEngine.switchFragment(INSTANCE, new PyurRequestFragment(), getFrameLayout());
+
+                                PEngine.switchFragment(INSTANCE, new RequestLifestyleFragment(), getFrameLayout());
+
                                 return true;
                             case R.id.menu_account:
                                 // TODO
@@ -93,7 +98,10 @@ public class MainActivity extends BaseActivity {
                                 menu.findItem(R.id.menu_request).setIcon(R.drawable.ic_request);
 
                                 item.setIcon(R.drawable.ic_account_click);
-                                PEngine.switchFragment(INSTANCE, new AccountFragment(), getFrameLayout());
+//                                PEngine.switchFragment(INSTANCE, new AccountFragment(), getFrameLayout());
+
+                                PEngine.switchFragment(INSTANCE, new AccountLifestyleFragment(), getFrameLayout());
+
                                 return true;
                         }
                         return false;

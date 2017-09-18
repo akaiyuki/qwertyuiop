@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/profilepic"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/ticketing_bg" />
+
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_toRightOf="@+id/profilepic"
+        android:text="Ashley Graham"
+        android:textColor="@color/colorTextColor"
+        android:textSize="@dimen/font_size_medium" />
+
+    <TextView
+        android:id="@+id/booking"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/name"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_toRightOf="@+id/profilepic"
+        android:drawableLeft="@drawable/ic_flight"
+        android:drawablePadding="10dp"
+        android:text="Flight Booking"
+        android:textSize="@dimen/font_size_small" />
+
+    <TextView
+        android:id="@+id/details"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/booking"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="11dp"
+        android:layout_toRightOf="@+id/profilepic"
+        android:text="Lorem ipsum dolor sit amet"
+        android:textStyle="italic"
+        android:layout_marginBottom="15dp"/>
+
+</RelativeLayout>

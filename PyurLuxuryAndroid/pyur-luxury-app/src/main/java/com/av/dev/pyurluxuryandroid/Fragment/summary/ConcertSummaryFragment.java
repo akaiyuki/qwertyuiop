@@ -90,15 +90,15 @@ public class ConcertSummaryFragment extends Fragment {
 
     private void changeFont(){
         concert.setTypeface(Fonts.latoRegular);
-        txtconcert.setTypeface(Fonts.latoBold);
+        txtconcert.setTypeface(Fonts.latoRegular);
         date.setTypeface(Fonts.latoRegular);
-        txtdate.setTypeface(Fonts.latoBold);
+        txtdate.setTypeface(Fonts.latoRegular);
         ticket.setTypeface(Fonts.latoRegular);
-        txtticket.setTypeface(Fonts.latoBold);
+        txtticket.setTypeface(Fonts.latoRegular);
         pax.setTypeface(Fonts.latoRegular);
-        txtpax.setTypeface(Fonts.latoBold);
+        txtpax.setTypeface(Fonts.latoRegular);
         notes.setTypeface(Fonts.latoRegular);
-        txtnotes.setTypeface(Fonts.latoBold);
+        txtnotes.setTypeface(Fonts.latoRegular);
         profile_name.setTypeface(Fonts.trajanRegular);
         profile_title.setTypeface(Fonts.latoRegular);
         btnConfirm.setTypeface(Fonts.latoRegular);

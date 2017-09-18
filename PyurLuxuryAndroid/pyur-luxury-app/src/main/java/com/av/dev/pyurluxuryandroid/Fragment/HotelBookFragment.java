@@ -1,8 +1,6 @@
 package com.av.dev.pyurluxuryandroid.Fragment;
 
 
-import android.content.Intent;
-import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -21,6 +19,7 @@ import com.av.dev.pyurluxuryandroid.Adapter.HotelRoomAdapter;
 import com.av.dev.pyurluxuryandroid.Core.BaseActivity;
 import com.av.dev.pyurluxuryandroid.Core.PEngine;
 import com.av.dev.pyurluxuryandroid.Core.PSingleton;
+import com.av.dev.pyurluxuryandroid.Fragment.summary.HotelBookDetailsFragment;
 import com.av.dev.pyurluxuryandroid.R;
 import com.av.dev.pyurluxuryandroid.View.Fonts;
 

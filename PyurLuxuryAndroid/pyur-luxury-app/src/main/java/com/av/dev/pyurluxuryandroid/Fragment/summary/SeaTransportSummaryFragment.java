@@ -1,4 +1,4 @@
-package com.av.dev.pyurluxuryandroid.Fragment;
+package com.av.dev.pyurluxuryandroid.Fragment.summary;
 
 
 import android.graphics.drawable.Drawable;
@@ -23,26 +23,31 @@ import butterknife.OnClick;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class PlaySummaryFragment extends Fragment {
+public class SeaTransportSummaryFragment extends Fragment {
 
     @BindView(R.id.btnConfirm)
     Button btnConfirm;
-    @BindView(R.id.play) TextView play;
-    @BindView(R.id.txtplay) TextView txtplay;
-    @BindView(R.id.date) TextView date;
-    @BindView(R.id.txtdate) TextView txtdate;
-    @BindView(R.id.time) TextView time;
-    @BindView(R.id.txttime) TextView txttime;
-    @BindView(R.id.ticket) TextView ticket;
-    @BindView(R.id.txtticket) TextView txtticket;
-    @BindView(R.id.pax) TextView pax;
-    @BindView(R.id.txtpax) TextView txtpax;
+    @BindView(R.id.type) TextView type;
+    @BindView(R.id.txttype) TextView txtType;
+    @BindView(R.id.departure) TextView departure;
+    @BindView(R.id.txtdeparture) TextView txtdeparture;
+    @BindView(R.id.txtdepdate) TextView txtdepdate;
+    @BindView(R.id.txtreturn) TextView txtreturn;
+    @BindView(R.id.txtreturnloc) TextView txtreturnloc;
+    @BindView(R.id.txtreturndate) TextView txtreturndate;
+    @BindView(R.id.deptime) TextView deptime;
+    @BindView(R.id.txtdeptime) TextView txtdeptime;
+    @BindView(R.id.returntime) TextView returntime;
+    @BindView(R.id.txtreturntime) TextView txtreturntime;
+    @BindView(R.id.passengers) TextView passengers;
+    @BindView(R.id.txtpassengers) TextView txtpassengers;
     @BindView(R.id.notes) TextView notes;
     @BindView(R.id.txtnotes) TextView txtnotes;
     @BindView(R.id.profile_name) TextView profile_name;
     @BindView(R.id.profile_title) TextView profile_title;
 
-    public PlaySummaryFragment() {
+
+    public SeaTransportSummaryFragment() {
         // Required empty public constructor
     }
 
@@ -51,7 +56,7 @@ public class PlaySummaryFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_play_summary, container, false);
+        View view = inflater.inflate(R.layout.fragment_sea_transport_summary, container, false);
 
         ButterKnife.bind(this,view);
 
@@ -71,11 +76,11 @@ public class PlaySummaryFragment extends Fragment {
         });
 
         TextView mTxtTitle = (TextView) toolbar.findViewById(R.id.txt_title);
-        mTxtTitle.setText("PLAY TICKETING");
+        mTxtTitle.setText("SEA");
         mTxtTitle.setTypeface(Fonts.latoBold);
 
-        Drawable img = getContext().getResources().getDrawable( R.drawable.ic_play_white );
-        img.setBounds( 0, 0, 60, 60 );
+        Drawable img = getContext().getResources().getDrawable( R.drawable.ic_sea_white );
+        img.setBounds( 0, 0, 80, 60 );
         mTxtTitle.setCompoundDrawables( img, null, null, null );
 
         changeFont();
@@ -89,22 +94,25 @@ public class PlaySummaryFragment extends Fragment {
     }
 
     private void changeFont(){
-        play.setTypeface(Fonts.latoRegular);
-        txtplay.setTypeface(Fonts.latoBold);
-        date.setTypeface(Fonts.latoRegular);
-        txtdate.setTypeface(Fonts.latoBold);
-        time.setTypeface(Fonts.latoRegular);
-        txttime.setTypeface(Fonts.latoBold);
-        ticket.setTypeface(Fonts.latoRegular);
-        txtticket.setTypeface(Fonts.latoBold);
-        pax.setTypeface(Fonts.latoRegular);
-        txtpax.setTypeface(Fonts.latoBold);
+        type.setTypeface(Fonts.latoRegular);
+        txtType.setTypeface(Fonts.latoRegular);
+        departure.setTypeface(Fonts.latoRegular);
+        txtdeparture.setTypeface(Fonts.latoRegular);
+        txtdepdate.setTypeface(Fonts.latoRegular);
+        txtreturn.setTypeface(Fonts.latoRegular);
+        txtreturnloc.setTypeface(Fonts.latoRegular);
+        txtreturndate.setTypeface(Fonts.latoRegular);
+        deptime.setTypeface(Fonts.latoRegular);
+        txtdeptime.setTypeface(Fonts.latoRegular);
+        returntime.setTypeface(Fonts.latoRegular);
+        txtreturntime.setTypeface(Fonts.latoRegular);
+        passengers.setTypeface(Fonts.latoRegular);
+        txtpassengers.setTypeface(Fonts.latoRegular);
         notes.setTypeface(Fonts.latoRegular);
-        txtnotes.setTypeface(Fonts.latoBold);
+        txtnotes.setTypeface(Fonts.latoRegular);
         profile_name.setTypeface(Fonts.trajanRegular);
         profile_title.setTypeface(Fonts.latoRegular);
         btnConfirm.setTypeface(Fonts.latoRegular);
-
     }
 
 }

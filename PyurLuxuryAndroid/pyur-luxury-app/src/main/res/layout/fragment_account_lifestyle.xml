@@ -1,0 +1,198 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.av.dev.pyurluxuryandroid.Fragment.LifestyleManager.AccountLifestyleFragment">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:id="@+id/relbackground"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorBackground">
+
+            <!--<ImageView-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="255dp"-->
+            <!--android:id="@+id/imgbackground"-->
+            <!--android:background="@color/colorBackground"-->
+            <!--android:scaleType="fitXY"/>-->
+
+
+            <com.av.dev.pyurluxuryandroid.View.HexagonMaskView
+                android:id="@+id/image"
+                android:layout_width="105dp"
+                android:layout_height="105dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="3dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/transport_services_bg" />
+
+
+            <TextView
+                android:id="@+id/edit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="15dp"
+                android:text="Edit"
+                android:textColor="@color/colorTextColor"
+                android:textSize="@dimen/font_size_medium" />
+
+
+            <TextView
+                android:id="@+id/name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/image"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="5dp"
+                android:text="Valerie Anderson"
+                android:textColor="@color/colorTextColor"
+                android:textSize="@dimen/font_size_medium" />
+
+            <TextView
+                android:id="@+id/status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/name"
+                android:layout_centerHorizontal="true"
+                android:text="Lifestyle Manager"
+                android:textColor="@color/colorTextColor"
+                android:textSize="@dimen/font_size_small" />
+
+
+            <LinearLayout
+                android:id="@+id/linear"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/status"
+                android:layout_marginBottom="15dp"
+                android:layout_marginTop="15dp"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/finished"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="10"
+                        android:textColor="@color/colorTextColor"
+                        android:textSize="@dimen/font_size_large" />
+
+
+                    <TextView
+                        android:id="@+id/txtfinished"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Finished"
+                        android:textColor="@color/colorWhiteText"
+                        android:textSize="@dimen/font_size_small" />
+
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/pending"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="3"
+                        android:textColor="@color/colorTextColor"
+                        android:textSize="@dimen/font_size_large" />
+
+
+                    <TextView
+                        android:id="@+id/txtpending"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Pending"
+                        android:textColor="@color/colorWhiteText"
+                        android:textSize="@dimen/font_size_small" />
+
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center_horizontal"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/cancelled"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="2"
+                        android:textColor="@color/colorTextColor"
+                        android:textSize="@dimen/font_size_large" />
+
+
+                    <TextView
+                        android:id="@+id/txtcancelled"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Cancelled"
+                        android:textColor="@color/colorWhiteText"
+                        android:textSize="@dimen/font_size_small" />
+
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+
+        <!--<ScrollView-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:scrollbars="none"-->
+        <!--android:layout_below="@+id/relbackground">-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/relbackground"
+            android:background="@color/colorWhiteBackground"
+            android:orientation="vertical">
+
+            <com.av.dev.pyurluxuryandroid.View.SlidingTabLayout
+                android:id="@+id/sliding_tabs"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorWhiteBackground" />
+
+            <android.support.v4.view.ViewPager
+                android:id="@+id/viewpager"
+                android:layout_width="match_parent"
+                android:layout_height="0px"
+                android:layout_weight="1"
+                android:background="@color/colorWhiteBackground" />
+
+        </LinearLayout>
+        <!--</ScrollView>-->
+
+    </RelativeLayout>
+
+</RelativeLayout>

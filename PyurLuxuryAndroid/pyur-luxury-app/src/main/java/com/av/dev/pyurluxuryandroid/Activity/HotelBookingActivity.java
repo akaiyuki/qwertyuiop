@@ -2,13 +2,12 @@ package com.av.dev.pyurluxuryandroid.Activity;
 
 import android.content.Intent;
 import android.support.v4.app.Fragment;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.av.dev.pyurluxuryandroid.Core.BaseActivity;
 import com.av.dev.pyurluxuryandroid.Core.PEngine;
-import com.av.dev.pyurluxuryandroid.Fragment.BeSpokeFragment;
-import com.av.dev.pyurluxuryandroid.Fragment.CinemaFragment;
+import com.av.dev.pyurluxuryandroid.Fragment.services.BeSpokeFragment;
+import com.av.dev.pyurluxuryandroid.Fragment.services.CinemaFragment;
 import com.av.dev.pyurluxuryandroid.Fragment.ConcertFragment;
 import com.av.dev.pyurluxuryandroid.Fragment.EventTicketingFragment;
 import com.av.dev.pyurluxuryandroid.Fragment.FlightFragment;

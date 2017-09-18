@@ -1,7 +1,6 @@
-package com.av.dev.pyurluxuryandroid.Fragment;
+package com.av.dev.pyurluxuryandroid.Fragment.summary;
 
 
-import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -12,7 +11,6 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.av.dev.pyurluxuryandroid.Activity.MainActivity;
 import com.av.dev.pyurluxuryandroid.Core.BaseActivity;
 import com.av.dev.pyurluxuryandroid.Core.PDialog;
 import com.av.dev.pyurluxuryandroid.R;
@@ -25,26 +23,24 @@ import butterknife.OnClick;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class RestaurantBookingDetailsFragment extends Fragment {
+public class EventSummaryFragment extends Fragment {
 
     @BindView(R.id.btnConfirm)
     Button btnConfirm;
-    @BindView(R.id.city) TextView city;
-    @BindView(R.id.txtcity) TextView txtCity;
-    @BindView(R.id.restaurantname) TextView restaurantName;
-    @BindView(R.id.txtrestaurantname) TextView txtRestaurantName;
+    @BindView(R.id.event) TextView event;
+    @BindView(R.id.txtevent) TextView txtevent;
     @BindView(R.id.date) TextView date;
-    @BindView(R.id.txtdate) TextView txtDate;
-    @BindView(R.id.time) TextView time;
-    @BindView(R.id.txttime) TextView txtTime;
-    @BindView(R.id.numpax) TextView numPax;
-    @BindView(R.id.txtnumpax) TextView txtNumPax;
+    @BindView(R.id.txtdate) TextView txtdate;
+    @BindView(R.id.ticket) TextView ticket;
+    @BindView(R.id.txtticket) TextView txtticket;
+    @BindView(R.id.pax) TextView pax;
+    @BindView(R.id.txtpax) TextView txtpax;
     @BindView(R.id.notes) TextView notes;
-    @BindView(R.id.txtnotes) TextView txtNotes;
-    @BindView(R.id.profile_name) TextView profileName;
-    @BindView(R.id.profile_title) TextView profileTitle;
+    @BindView(R.id.txtnotes) TextView txtnotes;
+    @BindView(R.id.profile_name) TextView profile_name;
+    @BindView(R.id.profile_title) TextView profile_title;
 
-    public RestaurantBookingDetailsFragment() {
+    public EventSummaryFragment() {
         // Required empty public constructor
     }
 
@@ -53,9 +49,9 @@ public class RestaurantBookingDetailsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_restaurant_booking_details, container, false);
+        View view = inflater.inflate(R.layout.fragment_event_summary, container, false);
 
-        ButterKnife.bind(this, view);
+        ButterKnife.bind(this,view);
 
         Toolbar toolbar = (Toolbar) view.findViewById(R.id.app_bar);
         ((BaseActivity) getActivity()).setSupportActionBar(toolbar);
@@ -73,10 +69,10 @@ public class RestaurantBookingDetailsFragment extends Fragment {
         });
 
         TextView mTxtTitle = (TextView) toolbar.findViewById(R.id.txt_title);
-        mTxtTitle.setText("Restaurant Booking");
+        mTxtTitle.setText("EVENT TICKETING");
         mTxtTitle.setTypeface(Fonts.latoBold);
 
-        Drawable img = getContext().getResources().getDrawable( R.drawable.ic_restaurant_white );
+        Drawable img = getContext().getResources().getDrawable( R.drawable.ic_event_white );
         img.setBounds( 0, 0, 60, 60 );
         mTxtTitle.setCompoundDrawables( img, null, null, null );
 
@@ -87,28 +83,22 @@ public class RestaurantBookingDetailsFragment extends Fragment {
 
     @OnClick(R.id.btnConfirm)
     public void onClick(){
-
         PDialog.showDialogSuccess((BaseActivity) getActivity());
-
     }
 
     private void changeFont(){
-        city.setTypeface(Fonts.latoRegular);
-        txtCity.setTypeface(Fonts.latoBold);
-        restaurantName.setTypeface(Fonts.latoRegular);
-        txtRestaurantName.setTypeface(Fonts.latoBold);
+        event.setTypeface(Fonts.latoRegular);
+        txtevent.setTypeface(Fonts.latoRegular);
         date.setTypeface(Fonts.latoRegular);
-        txtDate.setTypeface(Fonts.latoBold);
-        time.setTypeface(Fonts.latoRegular);
-        txtTime.setTypeface(Fonts.latoBold);
-        numPax.setTypeface(Fonts.latoRegular);
-        txtNumPax.setTypeface(Fonts.latoBold);
+        txtdate.setTypeface(Fonts.latoRegular);
+        ticket.setTypeface(Fonts.latoRegular);
+        txtticket.setTypeface(Fonts.latoRegular);
+        pax.setTypeface(Fonts.latoRegular);
+        txtpax.setTypeface(Fonts.latoRegular);
         notes.setTypeface(Fonts.latoRegular);
-        txtNotes.setTypeface(Fonts.latoBold);
-
-        profileName.setTypeface(Fonts.trajanRegular);
-        profileTitle.setTypeface(Fonts.latoRegular);
+        txtnotes.setTypeface(Fonts.latoRegular);
+        profile_name.setTypeface(Fonts.trajanRegular);
+        profile_title.setTypeface(Fonts.latoRegular);
         btnConfirm.setTypeface(Fonts.latoRegular);
     }
-
 }

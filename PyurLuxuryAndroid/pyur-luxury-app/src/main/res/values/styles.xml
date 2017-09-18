@@ -27,4 +27,17 @@
         <item name="colorControlNormal">@color/colorWhiteText</item>
     </style>
 
+    <style name="RateBar" parent="@android:style/Widget.RatingBar">
+        <item name="android:progressDrawable">@drawable/ic_rate</item>
+        <item name="android:minHeight">20dip</item>
+        <item name="android:maxHeight">20dip</item>
+    </style>
+
+    <!--<style name="RatingBar" parent="@android:style/Widget.RatingBar">-->
+        <!--<item name="android:progressDrawable">@drawable/ic_star</item>-->
+        <!--<item name="android:minHeight">20dip</item>-->
+        <!--<item name="android:maxHeight">20dip</item>-->
+    <!--</style>-->
+
+
 </resources>

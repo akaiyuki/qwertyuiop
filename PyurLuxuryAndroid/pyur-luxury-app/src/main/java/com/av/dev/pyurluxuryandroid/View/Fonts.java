@@ -15,5 +15,6 @@ public class Fonts {
     public static Typeface trajanRegular = Typeface.createFromAsset(BaseActivity.INSTANCE.getAssets(),"fonts/trajan/Trajan.otf");
     public static Typeface trajanBold = Typeface.createFromAsset(BaseActivity.INSTANCE.getAssets(),"fonts/trajan/TrajanBold.otf");
 
+    public static Typeface latoItalic = Typeface.createFromAsset(BaseActivity.INSTANCE.getAssets(),"fonts/lato/LatoItalic.ttf");
 
 }

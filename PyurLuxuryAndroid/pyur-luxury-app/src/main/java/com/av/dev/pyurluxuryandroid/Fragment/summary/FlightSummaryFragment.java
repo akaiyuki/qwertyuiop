@@ -90,17 +90,17 @@ public class FlightSummaryFragment extends Fragment {
 
     private void changeFont(){
         departure.setTypeface(Fonts.latoRegular);
-        depDate.setTypeface(Fonts.latoBold);
+        depDate.setTypeface(Fonts.latoRegular);
         txtReturn.setTypeface(Fonts.latoRegular);
-        returnDate.setTypeface(Fonts.latoBold);
+        returnDate.setTypeface(Fonts.latoRegular);
         passengers.setTypeface(Fonts.latoRegular);
-        txtPassengers.setTypeface(Fonts.latoBold);
+        txtPassengers.setTypeface(Fonts.latoRegular);
         airline.setTypeface(Fonts.latoRegular);
-        txtAirline.setTypeface(Fonts.latoBold);
+        txtAirline.setTypeface(Fonts.latoRegular);
         txtClass.setTypeface(Fonts.latoRegular);
-        classType.setTypeface(Fonts.latoBold);
+        classType.setTypeface(Fonts.latoRegular);
         notes.setTypeface(Fonts.latoRegular);
-        txtNotes.setTypeface(Fonts.latoBold);
+        txtNotes.setTypeface(Fonts.latoRegular);
 
         profileName.setTypeface(Fonts.trajanRegular);
         profileTitle.setTypeface(Fonts.latoRegular);

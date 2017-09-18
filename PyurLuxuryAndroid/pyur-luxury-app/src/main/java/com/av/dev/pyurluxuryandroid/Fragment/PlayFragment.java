@@ -18,6 +18,7 @@ import com.av.dev.pyurluxuryandroid.Adapter.HotelPaxAdapter;
 import com.av.dev.pyurluxuryandroid.Core.BaseActivity;
 import com.av.dev.pyurluxuryandroid.Core.PEngine;
 import com.av.dev.pyurluxuryandroid.Core.PSingleton;
+import com.av.dev.pyurluxuryandroid.Fragment.summary.PlaySummaryFragment;
 import com.av.dev.pyurluxuryandroid.R;
 import com.av.dev.pyurluxuryandroid.View.Fonts;
 

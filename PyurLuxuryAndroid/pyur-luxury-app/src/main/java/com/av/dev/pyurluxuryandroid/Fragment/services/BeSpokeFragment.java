@@ -1,6 +1,7 @@
-package com.av.dev.pyurluxuryandroid.Fragment;
+package com.av.dev.pyurluxuryandroid.Fragment.services;
 
 
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -9,38 +10,37 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
+import com.av.dev.pyurluxuryandroid.Activity.MainActivity;
 import com.av.dev.pyurluxuryandroid.Core.BaseActivity;
-import com.av.dev.pyurluxuryandroid.Core.PDialog;
 import com.av.dev.pyurluxuryandroid.R;
 import com.av.dev.pyurluxuryandroid.View.Fonts;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import vn.luongvo.widget.iosswitchview.SwitchView;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class EventSummaryFragment extends Fragment {
+public class BeSpokeFragment extends Fragment {
 
     @BindView(R.id.btnConfirm)
     Button btnConfirm;
-    @BindView(R.id.event) TextView event;
-    @BindView(R.id.txtevent) TextView txtevent;
-    @BindView(R.id.date) TextView date;
-    @BindView(R.id.txtdate) TextView txtdate;
-    @BindView(R.id.ticket) TextView ticket;
-    @BindView(R.id.txtticket) TextView txtticket;
-    @BindView(R.id.pax) TextView pax;
-    @BindView(R.id.txtpax) TextView txtpax;
-    @BindView(R.id.notes) TextView notes;
-    @BindView(R.id.txtnotes) TextView txtnotes;
-    @BindView(R.id.profile_name) TextView profile_name;
-    @BindView(R.id.profile_title) TextView profile_title;
+    @BindView(R.id.switchview)
+    SwitchView switchView;
+    @BindView(R.id.request) TextView request;
+    @BindView(R.id.editrequest)
+    EditText editRequest;
+    @BindView(R.id.urgency) TextView urgency;
+    @BindView(R.id.urgent) TextView urgent;
 
-    public EventSummaryFragment() {
+
+
+    public BeSpokeFragment() {
         // Required empty public constructor
     }
 
@@ -49,7 +49,7 @@ public class EventSummaryFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_event_summary, container, false);
+        View view = inflater.inflate(R.layout.fragment_be_spoke, container, false);
 
         ButterKnife.bind(this,view);
 
@@ -69,12 +69,21 @@ public class EventSummaryFragment extends Fragment {
         });
 
         TextView mTxtTitle = (TextView) toolbar.findViewById(R.id.txt_title);
-        mTxtTitle.setText("EVENT TICKETING");
+        mTxtTitle.setText("BeSpoke");
         mTxtTitle.setTypeface(Fonts.latoBold);
 
-        Drawable img = getContext().getResources().getDrawable( R.drawable.ic_event_white );
+        Drawable img = getContext().getResources().getDrawable( R.drawable.ic_bespoke_white );
         img.setBounds( 0, 0, 60, 60 );
         mTxtTitle.setCompoundDrawables( img, null, null, null );
+
+
+        //trial for switch
+        switchView.setOnCheckedChangeListener(new SwitchView.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(SwitchView switchView, boolean isChecked) {
+//                Toast.makeText(MainActivity.this, "onCheckedChanged: " + isChecked, Toast.LENGTH_SHORT).show();
+            }
+        });
 
         changeFont();
 
@@ -83,22 +92,16 @@ public class EventSummaryFragment extends Fragment {
 
     @OnClick(R.id.btnConfirm)
     public void onClick(){
-        PDialog.showDialogSuccess((BaseActivity) getActivity());
+        startActivity(new Intent(getActivity(), MainActivity.class));
+        getActivity().finish();
     }
 
     private void changeFont(){
-        event.setTypeface(Fonts.latoRegular);
-        txtevent.setTypeface(Fonts.latoBold);
-        date.setTypeface(Fonts.latoRegular);
-        txtdate.setTypeface(Fonts.latoBold);
-        ticket.setTypeface(Fonts.latoRegular);
-        txtticket.setTypeface(Fonts.latoBold);
-        pax.setTypeface(Fonts.latoRegular);
-        txtpax.setTypeface(Fonts.latoBold);
-        notes.setTypeface(Fonts.latoRegular);
-        txtnotes.setTypeface(Fonts.latoBold);
-        profile_name.setTypeface(Fonts.trajanRegular);
-        profile_title.setTypeface(Fonts.latoRegular);
+        request.setTypeface(Fonts.latoRegular);
+        editRequest.setTypeface(Fonts.latoRegular);
+        urgency.setTypeface(Fonts.latoRegular);
+        urgent.setTypeface(Fonts.latoRegular);
         btnConfirm.setTypeface(Fonts.latoRegular);
     }
+
 }

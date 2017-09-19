@@ -81,7 +81,7 @@ public class LifestyleAccountAdapter extends ArrayAdapter<String> {
                 .into(holder.imgprofile);
 
         holder.txtbooking.setText("Flight Booking");
-        Drawable img = getContext().getResources().getDrawable( R.drawable.ic_flight );
+        Drawable img = getContext().getResources().getDrawable( R.drawable.ic_flight_booking );
         img.setBounds( 0, 0, 60, 60 );
         holder.txtbooking.setCompoundDrawables( img, null, null, null );
 

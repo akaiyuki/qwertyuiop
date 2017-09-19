@@ -7,6 +7,7 @@ import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,9 +17,20 @@ import android.widget.TextView;
 
 import com.av.dev.pyurluxuryandroid.Adapter.HotelPaxAdapter;
 import com.av.dev.pyurluxuryandroid.Adapter.HotelRoomAdapter;
+import com.av.dev.pyurluxuryandroid.Core.ApiResponse.ApiResponseLogin;
+import com.av.dev.pyurluxuryandroid.Core.AppController;
 import com.av.dev.pyurluxuryandroid.Core.BaseActivity;
+import com.av.dev.pyurluxuryandroid.Core.PDatePicker;
 import com.av.dev.pyurluxuryandroid.Core.PEngine;
+import com.av.dev.pyurluxuryandroid.Core.PSharedPreferences;
 import com.av.dev.pyurluxuryandroid.Core.PSingleton;
+import com.av.dev.pyurluxuryandroid.Core.api.ApiHotelBookObject;
+import com.av.dev.pyurluxuryandroid.Core.api.ApiResponse;
+import com.av.dev.pyurluxuryandroid.Core.api.RestClient;
+import com.av.dev.pyurluxuryandroid.Core.object.PDateCheckOut;
+import com.av.dev.pyurluxuryandroid.Core.object.SendPost.PostHotelBookObject;
+import com.av.dev.pyurluxuryandroid.Core.object.SendPost.PostHotelDetailsObject;
+import com.av.dev.pyurluxuryandroid.Core.object.SharedPreferencesObject;
 import com.av.dev.pyurluxuryandroid.Fragment.summary.HotelBookDetailsFragment;
 import com.av.dev.pyurluxuryandroid.R;
 import com.av.dev.pyurluxuryandroid.View.Fonts;
@@ -26,6 +38,9 @@ import com.av.dev.pyurluxuryandroid.View.Fonts;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -130,7 +145,19 @@ public class HotelBookFragment extends Fragment {
 
     @OnClick(R.id.btnConfirm)
     public void onClick(){
+
+        PSingleton.setCity(editCity.getText().toString());
+        PSingleton.setHotelName(editHotelName.getText().toString());
+        PSingleton.setCheckIn(editCheckin.getText().toString());
+        PSingleton.setCheckOut(editCheckout.getText().toString());
+        PSingleton.setRoomType(editRoomType.getText().toString());
+        PSingleton.setNumRoom(String.valueOf(PSingleton.getRoomPosition() + 1));
+        PSingleton.setNumPax(String.valueOf(PSingleton.getPaxPosition() + 1));
+        PSingleton.setNotes(editNotes.getText().toString());
+
         PEngine.switchFragment((BaseActivity) getActivity(), new HotelBookDetailsFragment(),  ((BaseActivity) getActivity()).getFrameLayout());
+
+
     }
 
     private void changeFont(){
@@ -150,7 +177,25 @@ public class HotelBookFragment extends Fragment {
         editRoomType.setTypeface(Fonts.latoRegular);
         editNotes.setTypeface(Fonts.latoRegular);
         editCity.setTypeface(Fonts.latoRegular);
+
+        editCheckin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                PDatePicker datePicker = new PDatePicker((BaseActivity) getActivity(), (EditText)view);
+            }
+        });
+
+        editCheckout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                PDateCheckOut datePicker = new PDateCheckOut((BaseActivity) getActivity(), (EditText)view);
+            }
+        });
+
+
     }
+
+
 
 
 

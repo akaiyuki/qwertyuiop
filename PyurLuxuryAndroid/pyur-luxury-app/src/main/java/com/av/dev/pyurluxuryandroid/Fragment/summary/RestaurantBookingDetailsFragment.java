@@ -6,21 +6,35 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.av.dev.pyurluxuryandroid.Activity.MainActivity;
+import com.av.dev.pyurluxuryandroid.Core.AppController;
 import com.av.dev.pyurluxuryandroid.Core.BaseActivity;
 import com.av.dev.pyurluxuryandroid.Core.PDialog;
+import com.av.dev.pyurluxuryandroid.Core.PSharedPreferences;
+import com.av.dev.pyurluxuryandroid.Core.PSingleton;
+import com.av.dev.pyurluxuryandroid.Core.api.ApiResponse;
+import com.av.dev.pyurluxuryandroid.Core.api.RestClient;
+import com.av.dev.pyurluxuryandroid.Core.object.SendPost.PostResBookObject;
+import com.av.dev.pyurluxuryandroid.Core.object.SendPost.PostResDetailsObject;
+import com.av.dev.pyurluxuryandroid.Core.object.SharedPreferencesObject;
 import com.av.dev.pyurluxuryandroid.R;
 import com.av.dev.pyurluxuryandroid.View.Fonts;
+import com.skydoves.medal.MedalAnimation;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -43,6 +57,9 @@ public class RestaurantBookingDetailsFragment extends Fragment {
     @BindView(R.id.txtnotes) TextView txtNotes;
     @BindView(R.id.profile_name) TextView profileName;
     @BindView(R.id.profile_title) TextView profileTitle;
+
+    @BindView(R.id.loading)
+    RelativeLayout loading;
 
     public RestaurantBookingDetailsFragment() {
         // Required empty public constructor
@@ -82,13 +99,35 @@ public class RestaurantBookingDetailsFragment extends Fragment {
 
         changeFont();
 
+        populateView();
+
+        //initialize loading
+        MedalAnimation medalAnimation = new MedalAnimation.Builder()
+                .setSpeed(4200)
+                .setTurn(4)
+                .build();
+        medalAnimation.startAnimation(view.findViewById(R.id.badge));
+
+        hideLoading();
+
         return view;
+    }
+
+    private void showLoading(){
+
+        loading.setVisibility(View.VISIBLE);
+
+    }
+
+    private void hideLoading(){
+        loading.setVisibility(View.GONE);
     }
 
     @OnClick(R.id.btnConfirm)
     public void onClick(){
 
-        PDialog.showDialogSuccess((BaseActivity) getActivity());
+        requestApiBookRestaurant(PSingleton.getCity(),PSingleton.getHotelName(),PSingleton.getDate(),
+                PSingleton.getTime(),PSingleton.getNumPax(),PSingleton.getNotes());
 
     }
 
@@ -109,6 +148,47 @@ public class RestaurantBookingDetailsFragment extends Fragment {
         profileName.setTypeface(Fonts.trajanRegular);
         profileTitle.setTypeface(Fonts.latoRegular);
         btnConfirm.setTypeface(Fonts.latoRegular);
+    }
+
+    private void populateView(){
+        txtCity.setText(PSingleton.getCity());
+        txtRestaurantName.setText(PSingleton.getHotelName());
+        txtDate.setText(PSingleton.getDate());
+        txtTime.setText(PSingleton.getTime());
+        txtNumPax.setText(PSingleton.getNumPax()+" Persons");
+        txtNotes.setText(PSingleton.getNotes());
+    }
+
+    private void requestApiBookRestaurant(String city, String resName, String date, String time,
+                                          String numPax, String notes){
+
+        showLoading();
+
+        RestClient restClient = new RestClient(RestClient.loginApiResponse);
+        Call<ApiResponse> call = restClient.getApiServiceLogin().resBookService(PSharedPreferences.getSomeStringValue(AppController.getInstance(), SharedPreferencesObject.userToken),
+                new PostResBookObject("Restaurant Booking",
+                        new PostResDetailsObject(city,resName,date,time,numPax,notes)));
+
+        call.enqueue(new Callback<ApiResponse>() {
+            @Override
+            public void onResponse(Call<ApiResponse> call, Response<ApiResponse> response) {
+
+                hideLoading();
+
+                if (response.isSuccessful()){
+                    Log.d("api response", response.body().getMessage());
+                    PDialog.showDialogSuccess((BaseActivity) getActivity());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ApiResponse> call, Throwable t) {
+
+                hideLoading();
+
+            }
+        });
+
     }
 
 }

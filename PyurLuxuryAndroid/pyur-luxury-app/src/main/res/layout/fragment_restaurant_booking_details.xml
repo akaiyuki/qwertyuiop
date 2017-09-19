@@ -3,153 +3,158 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:scrollbars="none"
+    android:background="@color/colorBackground"
     tools:context="com.av.dev.pyurluxuryandroid.Fragment.summary.RestaurantBookingDetailsFragment">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:background="@color/colorPrimaryDark">
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimaryDark"
+        android:orientation="vertical">
 
         <include
-            layout="@layout/hotel_app_bar"
-            android:id="@+id/app_bar"/>
+            android:id="@+id/app_bar"
+            layout="@layout/hotel_app_bar" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:background="@color/white">
+            android:background="@color/white"
+            android:orientation="vertical">
+
             <TextView
                 android:id="@+id/city"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="15dp"
+                android:padding="5dp"
                 android:text="city"
                 android:textAllCaps="true"
-                android:padding="5dp"
-                android:textSize="12sp"
-                android:layout_marginTop="15dp"
-                android:layout_marginLeft="15dp"/>
+                android:textSize="12sp" />
 
             <TextView
                 android:id="@+id/txtcity"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Bonifacio Global City, Taguig"
+                android:layout_marginLeft="15dp"
                 android:padding="5dp"
+                android:text="Bonifacio Global City, Taguig"
                 android:textColor="@color/colorBlackText"
-                android:textSize="@dimen/font_size_medium"
-                android:layout_marginLeft="15dp"/>
+                android:textSize="@dimen/font_size_medium" />
 
 
             <TextView
                 android:id="@+id/restaurantname"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="10dp"
+                android:padding="5dp"
                 android:text="Restaurant name"
                 android:textAllCaps="true"
-                android:padding="5dp"
-                android:textSize="12sp"
-                android:layout_marginLeft="15dp"
-                android:layout_marginTop="10dp"/>
+                android:textSize="12sp" />
 
             <TextView
                 android:id="@+id/txtrestaurantname"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Carpe Deim"
+                android:layout_marginLeft="15dp"
                 android:padding="5dp"
+                android:text="Carpe Deim"
                 android:textColor="@color/colorBlackText"
-                android:textSize="@dimen/font_size_medium"
-                android:layout_marginLeft="15dp"/>
+                android:textSize="@dimen/font_size_medium" />
 
             <TextView
                 android:id="@+id/date"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="10dp"
+                android:padding="5dp"
                 android:text="date"
                 android:textAllCaps="true"
-                android:padding="5dp"
-                android:textSize="12sp"
-                android:layout_marginLeft="15dp"
-                android:layout_marginTop="10dp"/>
+                android:textSize="12sp" />
 
             <TextView
                 android:id="@+id/txtdate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="May 2, 2018 (Friday)"
+                android:layout_marginLeft="15dp"
                 android:padding="5dp"
+                android:text="May 2, 2018 (Friday)"
                 android:textColor="@color/colorBlackText"
-                android:textSize="@dimen/font_size_medium"
-                android:layout_marginLeft="15dp"/>
+                android:textSize="@dimen/font_size_medium" />
 
             <TextView
                 android:id="@+id/time"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="10dp"
+                android:padding="5dp"
                 android:text="Time"
                 android:textAllCaps="true"
-                android:padding="5dp"
-                android:textSize="12sp"
-                android:layout_marginLeft="15dp"
-                android:layout_marginTop="10dp"/>
+                android:textSize="12sp" />
 
             <TextView
                 android:id="@+id/txttime"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="8:00 PM"
+                android:layout_marginLeft="15dp"
                 android:padding="5dp"
+                android:text="8:00 PM"
                 android:textColor="@color/colorBlackText"
-                android:textSize="@dimen/font_size_medium"
-                android:layout_marginLeft="15dp"/>
+                android:textSize="@dimen/font_size_medium" />
 
             <TextView
                 android:id="@+id/numpax"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="10dp"
+                android:padding="5dp"
                 android:text="Number of persons"
                 android:textAllCaps="true"
-                android:padding="5dp"
-                android:textSize="12sp"
-                android:layout_marginLeft="15dp"
-                android:layout_marginTop="10dp"/>
+                android:textSize="12sp" />
 
             <TextView
                 android:id="@+id/txtnumpax"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="2 Persons"
+                android:layout_marginLeft="15dp"
                 android:padding="5dp"
+                android:text="2 Persons"
                 android:textColor="@color/colorBlackText"
-                android:textSize="@dimen/font_size_medium"
-                android:layout_marginLeft="15dp"/>
+                android:textSize="@dimen/font_size_medium" />
 
             <TextView
                 android:id="@+id/notes"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="10dp"
+                android:padding="5dp"
                 android:text="Notes"
                 android:textAllCaps="true"
-                android:padding="5dp"
-                android:textSize="12sp"
-                android:layout_marginLeft="15dp"
-                android:layout_marginTop="10dp"/>
+                android:textSize="12sp" />
 
             <TextView
                 android:id="@+id/txtnotes"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Lorem ipsum dolor sit amet, consectetur adipiscingelit."
-                android:padding="5dp"
-                android:textColor="@color/colorBlackText"
-                android:textSize="@dimen/font_size_medium"
+                android:layout_marginBottom="15dp"
                 android:layout_marginLeft="15dp"
                 android:layout_marginRight="15dp"
-                android:layout_marginBottom="15dp"/>
+                android:padding="5dp"
+                android:text="Lorem ipsum dolor sit amet, consectetur adipiscingelit."
+                android:textColor="@color/colorBlackText"
+                android:textSize="@dimen/font_size_medium" />
         </LinearLayout>
-
 
 
         <RelativeLayout
@@ -160,50 +165,64 @@
 
 
             <ImageView
+                android:id="@+id/profile_pic"
                 android:layout_width="80dp"
                 android:layout_height="70dp"
-                android:src="@drawable/bg"
                 android:scaleType="fitXY"
-                android:id="@+id/profile_pic"/>
+                android:src="@drawable/bg" />
 
             <TextView
+                android:id="@+id/profile_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="John Stephenson"
-                android:padding="5dp"
-                android:textColor="@color/colorButtonBackground"
-                android:textSize="15sp"
-                android:layout_toRightOf="@+id/profile_pic"
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="10dp"
-                android:textStyle="bold"
-                android:id="@+id/profile_name"/>
+                android:layout_toRightOf="@+id/profile_pic"
+                android:padding="5dp"
+                android:text="John Stephenson"
+                android:textColor="@color/colorButtonBackground"
+                android:textSize="15sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/profile_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_below="@+id/profile_name"
+                android:layout_marginLeft="25dp"
+                android:layout_toRightOf="@+id/profile_pic"
                 android:text="Lifestyle Manager"
                 android:textColor="@color/colorButtonBackground"
-                android:textSize="13sp"
-                android:layout_toRightOf="@+id/profile_pic"
-                android:layout_marginLeft="25dp"
-                android:layout_below="@+id/profile_name"/>
+                android:textSize="13sp" />
 
 
         </RelativeLayout>
 
 
         <Button
+            android:id="@+id/btnConfirm"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="confirm booking"
-            android:background="@color/colorButtonBackground"
-            android:textColor="@color/colorWhiteText"
             android:layout_alignParentBottom="true"
             android:layout_marginTop="20dp"
-            android:id="@+id/btnConfirm"/>
+            android:background="@color/colorButtonBackground"
+            android:text="confirm booking"
+            android:textColor="@color/colorWhiteText" />
 
     </LinearLayout>
+
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true">
+
+            <include
+                layout="@layout/layout_loading"
+                android:id="@+id/loading"/>
+
+        </RelativeLayout>
+
+    </RelativeLayout>
 
 </ScrollView>

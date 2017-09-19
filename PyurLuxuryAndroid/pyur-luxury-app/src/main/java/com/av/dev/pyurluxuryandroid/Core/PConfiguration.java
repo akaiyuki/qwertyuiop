@@ -10,4 +10,8 @@ public class PConfiguration {
 
     public static String websiteUberUrl = "http://play.google.com/store/apps/details?id=com.ubercab";
 
+    public static String apiUrl = "https://av-pyur-luxury-api-2.herokuapp.com/";
+
+//    public static String apiUrl = "https://betti-api.herokuapp.com/";
+
 }

@@ -6,24 +6,37 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.av.dev.pyurluxuryandroid.Activity.MainActivity;
+import com.av.dev.pyurluxuryandroid.Core.AppController;
 import com.av.dev.pyurluxuryandroid.Core.BaseActivity;
 import com.av.dev.pyurluxuryandroid.Core.PDialog;
 import com.av.dev.pyurluxuryandroid.Core.PEngine;
+import com.av.dev.pyurluxuryandroid.Core.PSharedPreferences;
+import com.av.dev.pyurluxuryandroid.Core.PSingleton;
+import com.av.dev.pyurluxuryandroid.Core.api.ApiResponse;
+import com.av.dev.pyurluxuryandroid.Core.api.RestClient;
+import com.av.dev.pyurluxuryandroid.Core.object.SendPost.PostHotelBookObject;
+import com.av.dev.pyurluxuryandroid.Core.object.SendPost.PostHotelDetailsObject;
+import com.av.dev.pyurluxuryandroid.Core.object.SharedPreferencesObject;
 import com.av.dev.pyurluxuryandroid.R;
 import com.av.dev.pyurluxuryandroid.View.Fonts;
+import com.skydoves.medal.MedalAnimation;
 
-import org.parceler.transfuse.annotations.Bind;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -48,6 +61,8 @@ public class HotelBookDetailsFragment extends Fragment {
     @BindView(R.id.profile_name) TextView txtProfileName;
     @BindView(R.id.profiletitle) TextView txtProfileTitle;
 
+    @BindView(R.id.loading)
+    RelativeLayout loading;
 
     public HotelBookDetailsFragment() {
         // Required empty public constructor
@@ -88,6 +103,16 @@ public class HotelBookDetailsFragment extends Fragment {
 
         changeFont();
 
+        populateViews();
+
+        MedalAnimation medalAnimation = new MedalAnimation.Builder()
+                .setSpeed(4200)
+                .setTurn(4)
+                .build();
+        medalAnimation.startAnimation(view.findViewById(R.id.badge));
+
+        hideLoading();
+
         return view;
     }
 
@@ -96,8 +121,24 @@ public class HotelBookDetailsFragment extends Fragment {
 
 //        PEngine.switchFragment((BaseActivity) getActivity(), new RestaurantBookingDetailsFragment(), ((BaseActivity) getActivity()).getFrameLayout());
 
-        PDialog.showDialogSuccess((BaseActivity) getActivity());
 
+
+        requestApiBookHotel(PSingleton.getCity(),PSingleton.getHotelName(),PSingleton.getCheckIn(),
+                PSingleton.getCheckOut(),PSingleton.getRoomType(),PSingleton.getNumRoom(),PSingleton.getNumPax(),
+                PSingleton.getNotes());
+
+
+
+    }
+
+    private void showLoading(){
+
+        loading.setVisibility(View.VISIBLE);
+
+    }
+
+    private void hideLoading(){
+        loading.setVisibility(View.GONE);
     }
 
     private void changeFont(){
@@ -119,6 +160,61 @@ public class HotelBookDetailsFragment extends Fragment {
         txtProfileName.setTypeface(Fonts.trajanRegular);
         txtProfileTitle.setTypeface(Fonts.latoRegular);
         btnConfirm.setTypeface(Fonts.latoRegular);
+    }
+
+    private void populateViews(){
+        txtCity.setText(PSingleton.getCity());
+        txtHotelName.setText(PSingleton.getHotelName());
+        txtcheckin.setText(PSingleton.getCheckIn());
+        txtCheckout.setText(PSingleton.getCheckOut());
+
+        //hide time
+        time.setText("Number of Rooms");
+        txtTime.setText(PSingleton.getNumRoom()+" Rooms");
+
+        txtNumPax.setText(PSingleton.getNumPax()+" Persons");
+
+        txtNotes.setText(PSingleton.getNotes());
+
+
+    }
+
+
+    private void requestApiBookHotel(String city, String hotelName, String checkIn, String checkOut, String roomType,
+                                     String numRoom, String numPax, String notes){
+
+        showLoading();
+
+        RestClient restClient = new RestClient(RestClient.loginApiResponse);
+
+        Call<ApiResponse> call = restClient.getApiServiceLogin().bookService(PSharedPreferences.getSomeStringValue(AppController.getInstance(), SharedPreferencesObject.userToken),
+                new PostHotelBookObject("Hotel Booking",
+                        new PostHotelDetailsObject(city,hotelName,checkIn,checkOut,roomType,numRoom,numPax,notes)));
+
+        call.enqueue(new Callback<ApiResponse>() {
+            @Override
+            public void onResponse(Call<ApiResponse> call, Response<ApiResponse> response) {
+
+                hideLoading();
+
+                if (response.isSuccessful()){
+                    Log.d("api response", response.body().getMessage());
+
+                    PDialog.showDialogSuccess((BaseActivity) getActivity());
+
+                }
+
+            }
+
+            @Override
+            public void onFailure(Call<ApiResponse> call, Throwable t) {
+
+                hideLoading();
+
+            }
+        });
+
+
     }
 
 }

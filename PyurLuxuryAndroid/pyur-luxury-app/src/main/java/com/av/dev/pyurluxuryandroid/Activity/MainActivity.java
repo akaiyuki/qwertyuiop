@@ -17,8 +17,12 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.av.dev.pyurluxuryandroid.Core.AppController;
 import com.av.dev.pyurluxuryandroid.Core.BaseActivity;
+import com.av.dev.pyurluxuryandroid.Core.Enums;
 import com.av.dev.pyurluxuryandroid.Core.PEngine;
+import com.av.dev.pyurluxuryandroid.Core.PSharedPreferences;
+import com.av.dev.pyurluxuryandroid.Core.object.SharedPreferencesObject;
 import com.av.dev.pyurluxuryandroid.Fragment.AccountFragment;
 import com.av.dev.pyurluxuryandroid.Fragment.LifestyleManager.AccountLifestyleFragment;
 import com.av.dev.pyurluxuryandroid.Fragment.LifestyleManager.RequestLifestyleFragment;
@@ -87,9 +91,21 @@ public class MainActivity extends BaseActivity {
                                 menu.findItem(R.id.menu_account).setIcon(R.drawable.ic_account);
 
                                 item.setIcon(R.drawable.ic_pyur_click);
-//                                PEngine.switchFragment(INSTANCE, new PyurRequestFragment(), getFrameLayout());
 
-                                PEngine.switchFragment(INSTANCE, new RequestLifestyleFragment(), getFrameLayout());
+
+//
+
+                                if (PSharedPreferences.getSomeStringValue(AppController.getInstance(), SharedPreferencesObject.userType)
+                                        .equalsIgnoreCase(String.valueOf(Enums.client))){
+
+                                    PEngine.switchFragment(INSTANCE, new PyurRequestFragment(), getFrameLayout());
+
+                                } else if (PSharedPreferences.getSomeStringValue(AppController.getInstance(), SharedPreferencesObject.userType)
+                                        .equalsIgnoreCase(String.valueOf(Enums.lifeStyleManager))){
+
+                                    PEngine.switchFragment(INSTANCE, new RequestLifestyleFragment(), getFrameLayout());
+
+                                }
 
                                 return true;
                             case R.id.menu_account:
@@ -98,9 +114,21 @@ public class MainActivity extends BaseActivity {
                                 menu.findItem(R.id.menu_request).setIcon(R.drawable.ic_request);
 
                                 item.setIcon(R.drawable.ic_account_click);
-//                                PEngine.switchFragment(INSTANCE, new AccountFragment(), getFrameLayout());
 
-                                PEngine.switchFragment(INSTANCE, new AccountLifestyleFragment(), getFrameLayout());
+
+
+                                if (PSharedPreferences.getSomeStringValue(AppController.getInstance(), SharedPreferencesObject.userType)
+                                        .equalsIgnoreCase(String.valueOf(Enums.client))){
+
+                                    PEngine.switchFragment(INSTANCE, new AccountFragment(), getFrameLayout());
+
+                                } else if (PSharedPreferences.getSomeStringValue(AppController.getInstance(), SharedPreferencesObject.userType)
+                                        .equalsIgnoreCase(String.valueOf(Enums.lifeStyleManager))){
+
+                                    PEngine.switchFragment(INSTANCE, new AccountLifestyleFragment(), getFrameLayout());
+
+                                }
+
 
                                 return true;
                         }

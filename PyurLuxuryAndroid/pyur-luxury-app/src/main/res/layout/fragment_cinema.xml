@@ -84,6 +84,8 @@
             android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp"
             android:textColor="@color/colorEditText"
+            android:focusable="false"
+            android:focusableInTouchMode="true"
             android:drawableRight="@drawable/ic_date"/>
 
         <TextView
@@ -107,6 +109,8 @@
             android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp"
             android:textColor="@color/colorEditText"
+            android:focusable="false"
+            android:focusableInTouchMode="true"
             android:drawableRight="@drawable/ic_time"/>
 
 

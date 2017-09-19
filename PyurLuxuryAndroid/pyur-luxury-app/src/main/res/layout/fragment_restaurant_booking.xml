@@ -34,6 +34,8 @@
             android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp"
             android:hint="Choose your city"
+            android:inputType="text"
+            android:maxLines="1"
             android:textColor="@color/colorEditText"/>
 
         <TextView
@@ -56,6 +58,8 @@
             android:padding="15dp"
             android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp"
+            android:inputType="text"
+            android:maxLines="1"
             android:textColor="@color/colorEditText"/>
 
         <TextView
@@ -78,6 +82,8 @@
             android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp"
             android:hint="Select date"
+            android:focusable="false"
+            android:focusableInTouchMode="true"
             android:drawableRight="@drawable/ic_date"
             android:textColor="@color/colorEditText"/>
 
@@ -101,6 +107,8 @@
             android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp"
             android:hint="Select time"
+            android:focusable="false"
+            android:focusableInTouchMode="true"
             android:drawableRight="@drawable/ic_time"
             android:textColor="@color/colorEditText"/>
 

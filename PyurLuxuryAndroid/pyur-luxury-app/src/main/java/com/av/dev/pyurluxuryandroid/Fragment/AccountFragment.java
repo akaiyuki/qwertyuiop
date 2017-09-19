@@ -8,10 +8,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.av.dev.pyurluxuryandroid.Activity.LoginActivity;
+import com.av.dev.pyurluxuryandroid.Core.AppController;
+import com.av.dev.pyurluxuryandroid.Core.PSharedPreferences;
+import com.av.dev.pyurluxuryandroid.Core.object.SharedPreferencesObject;
 import com.av.dev.pyurluxuryandroid.R;
 import com.av.dev.pyurluxuryandroid.View.Fonts;
 
@@ -33,15 +37,15 @@ public class AccountFragment extends Fragment {
     @BindView(R.id.username)
     TextView username;
     @BindView(R.id.txtusername)
-    TextView txtusername;
+    EditText txtusername;
     @BindView(R.id.address)
     TextView address;
     @BindView(R.id.txtaddress)
-    TextView txtaddress;
+    EditText txtaddress;
     @BindView(R.id.mobile)
     TextView mobile;
     @BindView(R.id.txtmobile)
-    TextView txtmobile;
+    EditText txtmobile;
     @BindView(R.id.plan)
     TextView plan;
     @BindView(R.id.txtplan)
@@ -53,11 +57,11 @@ public class AccountFragment extends Fragment {
     @BindView(R.id.email)
     TextView email;
     @BindView(R.id.txtemail)
-    TextView txtemail;
+    EditText txtemail;
     @BindView(R.id.password)
     TextView password;
     @BindView(R.id.txtpassword)
-    TextView txtpassword;
+    EditText txtpassword;
     @BindView(R.id.edit)
     TextView edit;
     @BindView(R.id.imgbackground)
@@ -81,12 +85,15 @@ public class AccountFragment extends Fragment {
 
         changeFont();
 
+        populateViews();
+
 
         return view;
     }
 
     @OnClick(R.id.logout)
     public void onClickLogout(){
+        PSharedPreferences.clearAllPreferences();
         startActivity(new Intent(getActivity(), LoginActivity.class));
         getActivity().finish();
     }
@@ -114,6 +121,37 @@ public class AccountFragment extends Fragment {
 
 //        imgbackground.getBackground().setAlpha(80);
         logout.setTypeface(Fonts.latoRegular);
+
+        txtusername.setEnabled(false);
+        txtaddress.setEnabled(false);
+        txtmobile.setEnabled(false);
+        txtemail.setEnabled(false);
+        txtpassword.setEnabled(false);
+
+    }
+
+    private void populateViews(){
+        name.setText(PSharedPreferences.getSomeStringValue(AppController.getInstance(), SharedPreferencesObject.userName));
+        location.setText(PSharedPreferences.getSomeStringValue(AppController.getInstance(), SharedPreferencesObject.address));
+
+        txtusername.setText(PSharedPreferences.getSomeStringValue(AppController.getInstance(), SharedPreferencesObject.userName));
+        txtaddress.setText(PSharedPreferences.getSomeStringValue(AppController.getInstance(), SharedPreferencesObject.address));
+        txtmobile.setText(PSharedPreferences.getSomeStringValue(AppController.getInstance(), SharedPreferencesObject.mobile));
+        txtemail.setText(PSharedPreferences.getSomeStringValue(AppController.getInstance(), SharedPreferencesObject.email));
+
+        edit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                txtusername.setEnabled(true);
+                txtaddress.setEnabled(true);
+                txtmobile.setEnabled(true);
+                txtemail.setEnabled(true);
+                txtpassword.setEnabled(true);
+
+            }
+        });
+
+
     }
 
 }

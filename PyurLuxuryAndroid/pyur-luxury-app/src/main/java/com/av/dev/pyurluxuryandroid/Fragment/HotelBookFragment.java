@@ -7,7 +7,6 @@ import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,20 +16,11 @@ import android.widget.TextView;
 
 import com.av.dev.pyurluxuryandroid.Adapter.HotelPaxAdapter;
 import com.av.dev.pyurluxuryandroid.Adapter.HotelRoomAdapter;
-import com.av.dev.pyurluxuryandroid.Core.ApiResponse.ApiResponseLogin;
-import com.av.dev.pyurluxuryandroid.Core.AppController;
 import com.av.dev.pyurluxuryandroid.Core.BaseActivity;
 import com.av.dev.pyurluxuryandroid.Core.PDatePicker;
 import com.av.dev.pyurluxuryandroid.Core.PEngine;
-import com.av.dev.pyurluxuryandroid.Core.PSharedPreferences;
 import com.av.dev.pyurluxuryandroid.Core.PSingleton;
-import com.av.dev.pyurluxuryandroid.Core.api.ApiHotelBookObject;
-import com.av.dev.pyurluxuryandroid.Core.api.ApiResponse;
-import com.av.dev.pyurluxuryandroid.Core.api.RestClient;
 import com.av.dev.pyurluxuryandroid.Core.object.PDateCheckOut;
-import com.av.dev.pyurluxuryandroid.Core.object.SendPost.PostHotelBookObject;
-import com.av.dev.pyurluxuryandroid.Core.object.SendPost.PostHotelDetailsObject;
-import com.av.dev.pyurluxuryandroid.Core.object.SharedPreferencesObject;
 import com.av.dev.pyurluxuryandroid.Fragment.summary.HotelBookDetailsFragment;
 import com.av.dev.pyurluxuryandroid.R;
 import com.av.dev.pyurluxuryandroid.View.Fonts;
@@ -38,9 +28,6 @@ import com.av.dev.pyurluxuryandroid.View.Fonts;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 /**
  * A simple {@link Fragment} subclass.

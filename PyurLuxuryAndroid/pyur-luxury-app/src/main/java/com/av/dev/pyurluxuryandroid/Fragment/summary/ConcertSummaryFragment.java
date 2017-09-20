@@ -14,10 +14,11 @@ import android.widget.TextView;
 
 import com.av.dev.pyurluxuryandroid.Core.AppController;
 import com.av.dev.pyurluxuryandroid.Core.BaseActivity;
+import com.av.dev.pyurluxuryandroid.Core.Enums;
 import com.av.dev.pyurluxuryandroid.Core.PDialog;
 import com.av.dev.pyurluxuryandroid.Core.PSharedPreferences;
 import com.av.dev.pyurluxuryandroid.Core.PSingleton;
-import com.av.dev.pyurluxuryandroid.Core.api.ApiResponse;
+import com.av.dev.pyurluxuryandroid.Core.ApiResponse.ApiResponse;
 import com.av.dev.pyurluxuryandroid.Core.api.RestClient;
 import com.av.dev.pyurluxuryandroid.Core.object.SendPost.PostConcertBookObject;
 import com.av.dev.pyurluxuryandroid.Core.object.SendPost.PostConcertDetailsObject;
@@ -166,7 +167,7 @@ public class ConcertSummaryFragment extends Fragment {
 
         RestClient restClient = new RestClient(RestClient.loginApiResponse);
         Call<ApiResponse> call = restClient.getApiServiceLogin().concertBookService(PSharedPreferences.getSomeStringValue(AppController.getInstance(), SharedPreferencesObject.userToken),
-               new PostConcertBookObject("Ticketing Service",new PostConcertDetailsObject("Concert Ticketing",
+               new PostConcertBookObject(Enums.serviceTicketing,new PostConcertDetailsObject("Concert Ticketing",
                        concert,ticket,pax,notes)));
 
         call.enqueue(new Callback<ApiResponse>() {

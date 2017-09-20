@@ -1,6 +1,7 @@
 package com.av.dev.pyurluxuryandroid.Fragment;
 
 
+import android.app.TimePickerDialog;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -13,14 +14,21 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.TimePicker;
 
 import com.av.dev.pyurluxuryandroid.Adapter.HotelPaxAdapter;
 import com.av.dev.pyurluxuryandroid.Core.BaseActivity;
+import com.av.dev.pyurluxuryandroid.Core.PDatePicker;
 import com.av.dev.pyurluxuryandroid.Core.PEngine;
 import com.av.dev.pyurluxuryandroid.Core.PSingleton;
 import com.av.dev.pyurluxuryandroid.Fragment.summary.LandSummaryFragment;
 import com.av.dev.pyurluxuryandroid.R;
 import com.av.dev.pyurluxuryandroid.View.Fonts;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -113,6 +121,16 @@ public class LandTransportFragment extends Fragment {
 
     @OnClick(R.id.btnConfirm)
     public void onClick(){
+
+        PSingleton.setDate(editDate.getText().toString());
+        PSingleton.setPickUp(editPickup.getText().toString());
+        PSingleton.setReturnTime(editReturn.getText().toString());
+        PSingleton.setLocation(editLocation.getText().toString());
+        PSingleton.setVehicle(editVehicle.getText().toString());
+        PSingleton.setNumPax(String.valueOf(PSingleton.getPaxPosition()+1));
+        PSingleton.setBrand(editBrand.getText().toString());
+        PSingleton.setNotes(editNotes.getText().toString());
+
         PEngine.switchFragment((BaseActivity) getActivity(), new LandSummaryFragment(), ((BaseActivity)getActivity()).getFrameLayout());
     }
 
@@ -127,6 +145,85 @@ public class LandTransportFragment extends Fragment {
         notes.setTypeface(Fonts.latoRegular);
 
         btnConfirm.setTypeface(Fonts.latoRegular);
+
+        editDate.setTypeface(Fonts.latoRegular);
+        editPickup.setTypeface(Fonts.latoRegular);
+        editReturn.setTypeface(Fonts.latoRegular);
+        editLocation.setTypeface(Fonts.latoRegular);
+        editVehicle.setTypeface(Fonts.latoRegular);
+        editBrand.setTypeface(Fonts.latoRegular);
+        editNotes.setTypeface(Fonts.latoRegular);
+
+        editDate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                PDatePicker datePicker = new PDatePicker((BaseActivity) getActivity(), (EditText)view);
+            }
+        });
+
+        editPickup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Calendar mcurrentTime = Calendar.getInstance();
+                int hour = mcurrentTime.get(Calendar.HOUR_OF_DAY);
+                int minute = mcurrentTime.get(Calendar.MINUTE);
+                TimePickerDialog mTimePicker;
+                mTimePicker = new TimePickerDialog(getActivity(), new TimePickerDialog.OnTimeSetListener() {
+                    @Override
+                    public void onTimeSet(TimePicker timePicker, int selectedHour, int selectedMinute) {
+
+                        String time = selectedHour + ":" + selectedMinute;
+                        SimpleDateFormat fmt = new SimpleDateFormat("HH:mm");
+                        Date date = null;
+                        try {
+                            date = fmt.parse(time );
+                        } catch (ParseException e) {
+
+                            e.printStackTrace();
+                        }
+
+                        SimpleDateFormat fmtOut = new SimpleDateFormat("hh:mm aa");
+
+                        String formattedTime=fmtOut.format(date);
+
+                        editPickup.setText(formattedTime);
+                    }
+                }, hour, minute, true);
+                mTimePicker.show();
+            }
+        });
+
+        editReturn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Calendar mcurrentTime = Calendar.getInstance();
+                int hour = mcurrentTime.get(Calendar.HOUR_OF_DAY);
+                int minute = mcurrentTime.get(Calendar.MINUTE);
+                TimePickerDialog mTimePicker;
+                mTimePicker = new TimePickerDialog(getActivity(), new TimePickerDialog.OnTimeSetListener() {
+                    @Override
+                    public void onTimeSet(TimePicker timePicker, int selectedHour, int selectedMinute) {
+
+                        String time = selectedHour + ":" + selectedMinute;
+                        SimpleDateFormat fmt = new SimpleDateFormat("HH:mm");
+                        Date date = null;
+                        try {
+                            date = fmt.parse(time );
+                        } catch (ParseException e) {
+
+                            e.printStackTrace();
+                        }
+
+                        SimpleDateFormat fmtOut = new SimpleDateFormat("hh:mm aa");
+
+                        String formattedTime=fmtOut.format(date);
+
+                        editReturn.setText(formattedTime);
+                    }
+                }, hour, minute, true);
+                mTimePicker.show();
+            }
+        });
     }
 
 }

@@ -1,5 +1,6 @@
-package com.av.dev.pyurluxuryandroid.Core.api;
+package com.av.dev.pyurluxuryandroid.Core.ApiResponse;
 
+import com.av.dev.pyurluxuryandroid.Core.api.ApiObject;
 import com.google.gson.annotations.SerializedName;
 
 /**

@@ -27,6 +27,138 @@ public class PSingleton {
     //concert
     public static String concert;
     public static String ticket;
+    //event
+    public static String event;
+    //play
+    public static String play;
+
+    //land
+    public static String pickUp;
+    public static String returnTime;
+    public static String location;
+    public static String vehicle;
+    public static String brand;
+
+    //sea
+    public static String type;
+    public static String origin;
+    public static String destination;
+    public static String returnDate;
+    public static String depDate;
+    public static String pickTime;
+
+    public static String getPickTime() {
+        return pickTime;
+    }
+
+    public static void setPickTime(String pickTime) {
+        PSingleton.pickTime = pickTime;
+    }
+
+    public static String getDepDate() {
+
+        return depDate;
+    }
+
+    public static void setDepDate(String depDate) {
+        PSingleton.depDate = depDate;
+    }
+
+    public static String getReturnDate() {
+
+        return returnDate;
+    }
+
+    public static void setReturnDate(String returnDate) {
+        PSingleton.returnDate = returnDate;
+    }
+
+    public static String getDestination() {
+
+        return destination;
+    }
+
+    public static void setDestination(String destination) {
+        PSingleton.destination = destination;
+    }
+
+    public static String getType() {
+
+        return type;
+    }
+
+    public static void setType(String type) {
+        PSingleton.type = type;
+    }
+
+    public static String getOrigin() {
+
+        return origin;
+    }
+
+    public static void setOrigin(String origin) {
+        PSingleton.origin = origin;
+    }
+
+    public static String getBrand() {
+        return brand;
+    }
+
+    public static void setBrand(String brand) {
+        PSingleton.brand = brand;
+    }
+
+    public static String getVehicle() {
+
+        return vehicle;
+    }
+
+    public static void setVehicle(String vehicle) {
+        PSingleton.vehicle = vehicle;
+    }
+
+    public static String getLocation() {
+
+        return location;
+    }
+
+    public static void setLocation(String location) {
+        PSingleton.location = location;
+    }
+
+    public static String getReturnTime() {
+
+        return returnTime;
+    }
+
+    public static void setReturnTime(String returnTime) {
+        PSingleton.returnTime = returnTime;
+    }
+
+    public static String getPickUp() {
+
+        return pickUp;
+    }
+
+    public static void setPickUp(String pickUp) {
+        PSingleton.pickUp = pickUp;
+    }
+
+    public static String getPlay() {
+        return play;
+    }
+
+    public static void setPlay(String play) {
+        PSingleton.play = play;
+    }
+
+    public static String getEvent() {
+        return event;
+    }
+
+    public static void setEvent(String event) {
+        PSingleton.event = event;
+    }
 
     public static String getTicket() {
         return ticket;

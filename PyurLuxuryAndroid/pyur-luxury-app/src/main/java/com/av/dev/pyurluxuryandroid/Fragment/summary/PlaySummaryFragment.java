@@ -5,20 +5,35 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.av.dev.pyurluxuryandroid.Core.ApiResponse.ApiResponse;
+import com.av.dev.pyurluxuryandroid.Core.AppController;
 import com.av.dev.pyurluxuryandroid.Core.BaseActivity;
+import com.av.dev.pyurluxuryandroid.Core.Enums;
 import com.av.dev.pyurluxuryandroid.Core.PDialog;
+import com.av.dev.pyurluxuryandroid.Core.PSharedPreferences;
+import com.av.dev.pyurluxuryandroid.Core.PSingleton;
+import com.av.dev.pyurluxuryandroid.Core.api.RestClient;
+import com.av.dev.pyurluxuryandroid.Core.object.SendPost.PostPlayBookObject;
+import com.av.dev.pyurluxuryandroid.Core.object.SendPost.PostPlayDetailsObject;
+import com.av.dev.pyurluxuryandroid.Core.object.SharedPreferencesObject;
 import com.av.dev.pyurluxuryandroid.R;
 import com.av.dev.pyurluxuryandroid.View.Fonts;
+import com.skydoves.medal.MedalAnimation;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -41,6 +56,9 @@ public class PlaySummaryFragment extends Fragment {
     @BindView(R.id.txtnotes) TextView txtnotes;
     @BindView(R.id.profile_name) TextView profile_name;
     @BindView(R.id.profile_title) TextView profile_title;
+
+    @BindView(R.id.loading)
+    RelativeLayout loading;
 
     public PlaySummaryFragment() {
         // Required empty public constructor
@@ -79,13 +97,38 @@ public class PlaySummaryFragment extends Fragment {
         mTxtTitle.setCompoundDrawables( img, null, null, null );
 
         changeFont();
+        populateView();
+
+        //initialize loading
+        MedalAnimation medalAnimation = new MedalAnimation.Builder()
+                .setSpeed(4200)
+                .setTurn(4)
+                .build();
+        medalAnimation.startAnimation(view.findViewById(R.id.badge));
+
+        hideLoading();
 
         return view;
     }
 
+    private void showLoading(){
+
+        loading.setVisibility(View.VISIBLE);
+
+        btnConfirm.setEnabled(false);
+
+    }
+
+    private void hideLoading(){
+        loading.setVisibility(View.GONE);
+
+        btnConfirm.setEnabled(true);
+    }
+
     @OnClick(R.id.btnConfirm)
     public void onClick(){
-        PDialog.showDialogSuccess((BaseActivity) getActivity());
+        requestApiBookPlay(PSingleton.getPlay(),PSingleton.getDate(),PSingleton.getTime(),PSingleton.getNumPax(),
+                PSingleton.getNotes());
     }
 
     private void changeFont(){
@@ -104,6 +147,48 @@ public class PlaySummaryFragment extends Fragment {
         profile_name.setTypeface(Fonts.trajanRegular);
         profile_title.setTypeface(Fonts.latoRegular);
         btnConfirm.setTypeface(Fonts.latoRegular);
+
+    }
+
+    private void populateView(){
+        txtplay.setText(PSingleton.getPlay());
+        txtdate.setText(PSingleton.getDate());
+        txttime.setText(PSingleton.getTime());
+
+        ticket.setVisibility(View.GONE);
+        txtticket.setVisibility(View.GONE);
+
+        txtpax.setText(PSingleton.getNumPax()+" Persons");
+        txtnotes.setText(PSingleton.getNotes());
+    }
+
+    private void requestApiBookPlay(String play, String date, String time, String pax, String notes){
+
+        showLoading();
+
+        RestClient restClient = new RestClient(RestClient.loginApiResponse);
+        Call<ApiResponse> call = restClient.getApiServiceLogin().playBookService(PSharedPreferences.getSomeStringValue(AppController.getInstance(), SharedPreferencesObject.userToken),
+                new PostPlayBookObject(Enums.serviceTicketing,
+                        new PostPlayDetailsObject("Play Ticketing",
+                                play,date,time,pax,notes)));
+
+        call.enqueue(new Callback<ApiResponse>() {
+            @Override
+            public void onResponse(Call<ApiResponse> call, Response<ApiResponse> response) {
+
+                hideLoading();
+                if (response.isSuccessful()){
+                    Log.d("api response", response.body().getMessage());
+                    PDialog.showDialogSuccess((BaseActivity) getActivity());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ApiResponse> call, Throwable t) {
+
+                hideLoading();
+            }
+        });
 
     }
 

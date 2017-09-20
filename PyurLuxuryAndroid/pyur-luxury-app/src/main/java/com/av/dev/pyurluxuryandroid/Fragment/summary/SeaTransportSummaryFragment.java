@@ -9,16 +9,30 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.av.dev.pyurluxuryandroid.Core.ApiResponse.ApiResponse;
+import com.av.dev.pyurluxuryandroid.Core.AppController;
 import com.av.dev.pyurluxuryandroid.Core.BaseActivity;
+import com.av.dev.pyurluxuryandroid.Core.Enums;
 import com.av.dev.pyurluxuryandroid.Core.PDialog;
+import com.av.dev.pyurluxuryandroid.Core.PSharedPreferences;
+import com.av.dev.pyurluxuryandroid.Core.PSingleton;
+import com.av.dev.pyurluxuryandroid.Core.api.RestClient;
+import com.av.dev.pyurluxuryandroid.Core.object.SendPost.PostSeaBookObject;
+import com.av.dev.pyurluxuryandroid.Core.object.SendPost.PostSeaDetailsObject;
+import com.av.dev.pyurluxuryandroid.Core.object.SharedPreferencesObject;
 import com.av.dev.pyurluxuryandroid.R;
 import com.av.dev.pyurluxuryandroid.View.Fonts;
+import com.skydoves.medal.MedalAnimation;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -46,6 +60,8 @@ public class SeaTransportSummaryFragment extends Fragment {
     @BindView(R.id.profile_name) TextView profile_name;
     @BindView(R.id.profile_title) TextView profile_title;
 
+    @BindView(R.id.loading)
+    RelativeLayout loading;
 
     public SeaTransportSummaryFragment() {
         // Required empty public constructor
@@ -85,12 +101,39 @@ public class SeaTransportSummaryFragment extends Fragment {
 
         changeFont();
 
+        //initialize loading
+        MedalAnimation medalAnimation = new MedalAnimation.Builder()
+                .setSpeed(4200)
+                .setTurn(4)
+                .build();
+        medalAnimation.startAnimation(view.findViewById(R.id.badge));
+
+        hideLoading();
+
         return view;
     }
 
+    private void showLoading(){
+
+        loading.setVisibility(View.VISIBLE);
+
+        btnConfirm.setEnabled(false);
+
+    }
+
+    private void hideLoading(){
+        loading.setVisibility(View.GONE);
+
+        btnConfirm.setEnabled(true);
+    }
+
+
+
     @OnClick(R.id.btnConfirm)
     public void onClick(){
-        PDialog.showDialogSuccess((BaseActivity) getActivity());
+        requestApiSeaBook(PSingleton.getType(),PSingleton.getOrigin(),PSingleton.getDestination(),
+                PSingleton.getDepDate(),PSingleton.getReturnDate(),PSingleton.getPickTime(),
+                PSingleton.getReturnTime(),PSingleton.getNumPax(),PSingleton.getNotes());
     }
 
     private void changeFont(){
@@ -113,6 +156,51 @@ public class SeaTransportSummaryFragment extends Fragment {
         profile_name.setTypeface(Fonts.trajanRegular);
         profile_title.setTypeface(Fonts.latoRegular);
         btnConfirm.setTypeface(Fonts.latoRegular);
+
+        txtType.setText(PSingleton.getType());
+        txtdeparture.setText(PSingleton.getOrigin()+" to "+PSingleton.getDestination());
+        txtdepdate.setText(PSingleton.getDepDate());
+        txtreturnloc.setText(PSingleton.getDestination()+" to "+PSingleton.getOrigin());
+        txtreturndate.setText(PSingleton.getReturnDate());
+        txtdeptime.setText(PSingleton.getPickTime());
+        txtreturntime.setText(PSingleton.getReturnTime());
+        txtpassengers.setText(PSingleton.getNumPax()+" Persons");
+        txtnotes.setText(PSingleton.getNotes());
+
+    }
+
+    private void requestApiSeaBook(String cruise, String origin, String destination, String dep_date,
+                                   String return_date, String pick_up, String return_time, String passengers,
+                                   String notes){
+
+        showLoading();
+
+        RestClient restClient = new RestClient(RestClient.serviceApiResponse);
+        Call<ApiResponse> call = restClient.getApiServices().seaBookService(PSharedPreferences.getSomeStringValue(AppController.getInstance(), SharedPreferencesObject.userToken),
+                new PostSeaBookObject(Enums.serviceTransport,
+                new PostSeaDetailsObject("Sea Transport",cruise,origin,destination,dep_date,
+                        return_date,pick_up,return_time,passengers,notes)));
+
+        call.enqueue(new Callback<ApiResponse>() {
+            @Override
+            public void onResponse(Call<ApiResponse> call, Response<ApiResponse> response) {
+
+                hideLoading();
+
+                if (response.isSuccessful()){
+                    PDialog.showDialogSuccess((BaseActivity) getActivity());
+                }
+
+            }
+
+            @Override
+            public void onFailure(Call<ApiResponse> call, Throwable t) {
+
+                hideLoading();
+
+            }
+        });
+
     }
 
 }

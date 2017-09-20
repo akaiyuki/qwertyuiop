@@ -14,10 +14,11 @@ import android.widget.TextView;
 
 import com.av.dev.pyurluxuryandroid.Core.AppController;
 import com.av.dev.pyurluxuryandroid.Core.BaseActivity;
+import com.av.dev.pyurluxuryandroid.Core.Enums;
 import com.av.dev.pyurluxuryandroid.Core.PDialog;
 import com.av.dev.pyurluxuryandroid.Core.PSharedPreferences;
 import com.av.dev.pyurluxuryandroid.Core.PSingleton;
-import com.av.dev.pyurluxuryandroid.Core.api.ApiResponse;
+import com.av.dev.pyurluxuryandroid.Core.ApiResponse.ApiResponse;
 import com.av.dev.pyurluxuryandroid.Core.api.RestClient;
 import com.av.dev.pyurluxuryandroid.Core.object.SendPost.PostCinemaBookObject;
 import com.av.dev.pyurluxuryandroid.Core.object.SendPost.PostCinemaDetailsObject;
@@ -159,7 +160,7 @@ public class CinemaSummaryFragment extends Fragment {
 
         RestClient restClient = new RestClient(RestClient.loginApiResponse);
         Call<ApiResponse> call = restClient.getApiServiceLogin().cinemaBookService(PSharedPreferences.getSomeStringValue(AppController.getInstance(), SharedPreferencesObject.userToken),
-                new PostCinemaBookObject("Ticketing Service",
+                new PostCinemaBookObject(Enums.serviceTicketing,
                         new PostCinemaDetailsObject("Cinema Ticketing",movie,date,time,numPax,notes)));
 
         call.enqueue(new Callback<ApiResponse>() {

@@ -16,4 +16,9 @@ public class Enums {
     public static int inactiveDeleted = 1;
     public static int accountPending = 2;
     public static int suspendedDisapprived = 3;
+
+    /* service */
+    public static String serviceTicketing = "Ticketing Service";
+    public static String serviceTransport = "Transport Service";
+
 }

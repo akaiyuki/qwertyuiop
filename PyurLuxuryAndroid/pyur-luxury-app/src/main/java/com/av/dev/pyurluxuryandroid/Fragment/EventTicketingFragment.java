@@ -104,6 +104,12 @@ public class EventTicketingFragment extends Fragment {
 
     @OnClick(R.id.btnConfirm)
     public void onClick(){
+
+        PSingleton.setEvent(editevent.getText().toString());
+        PSingleton.setTicket(editticket.getText().toString());
+        PSingleton.setNumPax(String.valueOf(PSingleton.getPaxPosition()+1));
+        PSingleton.setNotes(editnotes.getText().toString());
+
         PEngine.switchFragment((BaseActivity) getActivity(), new EventSummaryFragment(), ((BaseActivity)getActivity()).getFrameLayout());
     }
 

@@ -1,6 +1,7 @@
 package com.av.dev.pyurluxuryandroid.Fragment;
 
 
+import android.app.TimePickerDialog;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -13,14 +14,21 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.TimePicker;
 
 import com.av.dev.pyurluxuryandroid.Adapter.HotelPaxAdapter;
 import com.av.dev.pyurluxuryandroid.Core.BaseActivity;
+import com.av.dev.pyurluxuryandroid.Core.PDatePicker;
 import com.av.dev.pyurluxuryandroid.Core.PEngine;
 import com.av.dev.pyurluxuryandroid.Core.PSingleton;
 import com.av.dev.pyurluxuryandroid.Fragment.summary.PlaySummaryFragment;
 import com.av.dev.pyurluxuryandroid.R;
 import com.av.dev.pyurluxuryandroid.View.Fonts;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -105,6 +113,13 @@ public class PlayFragment extends Fragment {
 
     @OnClick(R.id.btnConfirm)
     public void onClick(){
+
+        PSingleton.setPlay(editplay.getText().toString());
+        PSingleton.setDate(editdate.getText().toString());
+        PSingleton.setTime(edittime.getText().toString());
+        PSingleton.setNumPax(String.valueOf(PSingleton.getPaxPosition()+1));
+        PSingleton.setNotes(editnotes.getText().toString());
+
         PEngine.switchFragment((BaseActivity) getActivity(), new PlaySummaryFragment(), ((BaseActivity)getActivity()).getFrameLayout());
     }
 
@@ -120,6 +135,52 @@ public class PlayFragment extends Fragment {
         notes.setTypeface(Fonts.latoRegular);
         editnotes.setTypeface(Fonts.latoRegular);
         btnConfirm.setTypeface(Fonts.latoRegular);
+
+        editdate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                PDatePicker datePicker = new PDatePicker((BaseActivity) getActivity(), (EditText)view);
+            }
+        });
+
+        edittime.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Calendar mcurrentTime = Calendar.getInstance();
+                int hour = mcurrentTime.get(Calendar.HOUR_OF_DAY);
+                int minute = mcurrentTime.get(Calendar.MINUTE);
+                TimePickerDialog mTimePicker;
+                mTimePicker = new TimePickerDialog(getActivity(), new TimePickerDialog.OnTimeSetListener() {
+                    @Override
+                    public void onTimeSet(TimePicker timePicker, int selectedHour, int selectedMinute) {
+
+//                        editTime.setText( selectedHour + ":" + selectedMinute);
+
+                        String time = selectedHour + ":" + selectedMinute;
+
+                        SimpleDateFormat fmt = new SimpleDateFormat("HH:mm");
+                        Date date = null;
+                        try {
+                            date = fmt.parse(time );
+                        } catch (ParseException e) {
+
+                            e.printStackTrace();
+                        }
+
+                        SimpleDateFormat fmtOut = new SimpleDateFormat("hh:mm aa");
+
+                        String formattedTime=fmtOut.format(date);
+
+                        edittime.setText(formattedTime);
+
+
+
+                    }
+                }, hour, minute, true);
+                mTimePicker.show();
+            }
+        });
+
     }
 
 }

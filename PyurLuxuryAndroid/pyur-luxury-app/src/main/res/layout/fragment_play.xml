@@ -59,6 +59,8 @@
             android:drawableRight="@drawable/ic_date"
             android:hint="Select date"
             android:padding="10dp"
+            android:focusable="false"
+            android:focusableInTouchMode="true"
             android:textColor="@color/colorEditText"/>
 
 
@@ -83,6 +85,8 @@
             android:drawableRight="@drawable/ic_time"
             android:hint="Select time"
             android:padding="10dp"
+            android:focusable="false"
+            android:focusableInTouchMode="true"
             android:textColor="@color/colorEditText"/>
 
         <TextView

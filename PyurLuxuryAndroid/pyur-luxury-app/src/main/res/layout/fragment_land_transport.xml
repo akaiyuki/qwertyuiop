@@ -34,6 +34,8 @@
             android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp"
             android:hint="Select date"
+            android:focusable="false"
+            android:focusableInTouchMode="true"
             android:drawableRight="@drawable/ic_date"
             android:textColor="@color/colorEditText"/>
 
@@ -72,6 +74,8 @@
                     android:padding="10dp"
                     android:layout_marginLeft="15dp"
                     android:layout_marginRight="10dp"
+                    android:focusable="false"
+                    android:focusableInTouchMode="true"
                     android:textColor="@color/colorEditText"
                     android:drawableRight="@drawable/ic_time"/>
 
@@ -106,6 +110,8 @@
                     android:padding="10dp"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="15dp"
+                    android:focusable="false"
+                    android:focusableInTouchMode="true"
                     android:textColor="@color/colorEditText"
                     android:drawableRight="@drawable/ic_time"/>
 

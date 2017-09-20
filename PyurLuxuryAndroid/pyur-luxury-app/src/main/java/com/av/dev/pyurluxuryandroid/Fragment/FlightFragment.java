@@ -121,6 +121,17 @@ public class FlightFragment extends Fragment {
 
     @OnClick(R.id.btnConfirm)
     public void onClick(){
+
+        PSingleton.setOrigin(txtOrigin.getText().toString());
+        PSingleton.setDestination(txtDestination.getText().toString());
+        PSingleton.setDepDate(txtDeparture.getText().toString());
+        PSingleton.setReturnDate(editReturn.getText().toString());
+        PSingleton.setClass_name(editClass.getText().toString());
+        PSingleton.setNumPax(String.valueOf(PSingleton.getPaxPosition()+1));
+        PSingleton.setAirline(editAirline.getText().toString());
+        PSingleton.setNotes(editNotes.getText().toString());
+
+
         PEngine.switchFragment((BaseActivity) getActivity(), new FlightSummaryFragment(), ((BaseActivity)getActivity()).getFrameLayout());
     }
 

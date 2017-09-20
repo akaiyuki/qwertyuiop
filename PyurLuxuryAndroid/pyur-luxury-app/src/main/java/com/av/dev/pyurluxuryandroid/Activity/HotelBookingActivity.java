@@ -6,6 +6,7 @@ import android.os.Bundle;
 
 import com.av.dev.pyurluxuryandroid.Core.BaseActivity;
 import com.av.dev.pyurluxuryandroid.Core.PEngine;
+import com.av.dev.pyurluxuryandroid.Fragment.AirFragment;
 import com.av.dev.pyurluxuryandroid.Fragment.services.BeSpokeFragment;
 import com.av.dev.pyurluxuryandroid.Fragment.services.CinemaFragment;
 import com.av.dev.pyurluxuryandroid.Fragment.services.ConcertFragment;
@@ -59,6 +60,8 @@ public class HotelBookingActivity extends BaseActivity {
                 newFragment = new PlayFragment();
             } else if (extras.getString("goto").equalsIgnoreCase("flight")){
                 newFragment = new FlightFragment();
+            } else if (extras.getString("goto").equalsIgnoreCase("air")){
+                newFragment = new AirFragment();
             }
 
             assert newFragment != null;

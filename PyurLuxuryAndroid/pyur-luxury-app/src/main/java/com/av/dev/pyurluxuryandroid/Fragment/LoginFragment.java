@@ -167,6 +167,8 @@ public class LoginFragment extends Fragment {
 
                     }
 
+                } else {
+                    PDialog.showStatusPendingDialog((BaseActivity) getActivity(),response.message(),"Login Error");
                 }
 
             }

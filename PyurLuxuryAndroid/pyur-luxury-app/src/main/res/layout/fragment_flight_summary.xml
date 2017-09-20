@@ -6,6 +6,9 @@
     android:background="@color/colorToolbar"
     tools:context="com.av.dev.pyurluxuryandroid.Fragment.summary.FlightSummaryFragment">
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -51,6 +54,7 @@
 
 
                 <TextView
+                    android:id="@+id/txtorigin"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="MNL"
@@ -87,6 +91,7 @@
                 android:orientation="vertical">
 
                 <TextView
+                    android:id="@+id/txtreturnloc"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="HKG"
@@ -138,6 +143,7 @@
 
 
                 <TextView
+                    android:id="@+id/returnorigin"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="hkg"
@@ -174,6 +180,7 @@
                 android:orientation="vertical">
 
                 <TextView
+                    android:id="@+id/returnloc"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="mnl"
@@ -350,6 +357,19 @@
 
 
     </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true">
+
+            <include
+                layout="@layout/layout_loading"
+                android:id="@+id/loading"/>
+
+        </RelativeLayout>
+
+    </RelativeLayout>
 
 
 </ScrollView>

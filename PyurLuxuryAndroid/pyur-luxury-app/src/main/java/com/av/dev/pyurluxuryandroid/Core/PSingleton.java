@@ -47,6 +47,27 @@ public class PSingleton {
     public static String depDate;
     public static String pickTime;
 
+    //air
+    public static String class_name;
+    public static String airline;
+
+    public static String getAirline() {
+        return airline;
+    }
+
+    public static void setAirline(String airline) {
+        PSingleton.airline = airline;
+    }
+
+    public static String getClass_name() {
+
+        return class_name;
+    }
+
+    public static void setClass_name(String class_name) {
+        PSingleton.class_name = class_name;
+    }
+
     public static String getPickTime() {
         return pickTime;
     }

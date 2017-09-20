@@ -1,11 +1,10 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPrimaryDark"
     android:scrollbars="none"
-    tools:context="com.av.dev.pyurluxuryandroid.Fragment.FlightFragment">
+    tools:context="com.av.dev.pyurluxuryandroid.Fragment.AirFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -86,14 +85,22 @@
 
                 <TextView
                     android:id="@+id/txtorigin"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:padding="10dp"
+                    android:gravity="center_horizontal"
                     android:text="- -"
                     android:textAllCaps="true"
                     android:textColor="@color/colorWhiteText"
                     android:textSize="@dimen/font_size_small" />
+
+                <!--<EditText-->
+                    <!--android:id="@+id/txtorigin"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:hint="Select your vehicle type"-->
+                    <!--android:textColor="@color/colorEditText" />-->
 
 
             </LinearLayout>
@@ -125,12 +132,13 @@
 
                 <TextView
                     android:id="@+id/txtdestination"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:padding="10dp"
                     android:text="- -"
                     android:textAllCaps="true"
+                    android:gravity="center_horizontal"
                     android:textColor="@color/colorWhiteText"
                     android:textSize="@dimen/font_size_small" />
 
@@ -194,7 +202,7 @@
             android:layout_marginBottom="10dp"
             android:layout_marginTop="20dp"
             android:gravity="center"
-            android:visibility="visible">
+            android:visibility="gone">
 
             <TextView
                 android:id="@+id/txtoneway"
@@ -222,19 +230,43 @@
 
 
         <TextView
+            android:id="@+id/vehicle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="10dp"
+            android:padding="10dp"
+            android:text="vehicle type"
+            android:textAllCaps="true"
+            android:textColor="@color/colorTextColor"
+            android:textSize="@dimen/font_size_small" />
+
+        <EditText
+            android:id="@+id/editvehicle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/white_rounded_edge"
+            android:drawableRight="@drawable/ic_chevron_right"
+            android:hint="Select your vehicle type"
+            android:padding="10dp"
+            android:textColor="@color/colorEditText" />
+
+        <TextView
             android:id="@+id/departure"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
             android:layout_marginTop="10dp"
             android:padding="10dp"
-            android:text="departure"
+            android:text="Departure"
             android:textAllCaps="true"
             android:textColor="@color/colorTextColor"
             android:textSize="@dimen/font_size_small" />
 
         <EditText
-            android:id="@+id/txtdeparture"
+            android:id="@+id/editdeparture"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
@@ -243,7 +275,10 @@
             android:drawableRight="@drawable/ic_date"
             android:hint="Select your departure date"
             android:padding="10dp"
+            android:focusable="false"
+            android:focusableInTouchMode="true"
             android:textColor="@color/colorEditText" />
+
 
         <TextView
             android:id="@+id/txtreturn"
@@ -252,7 +287,7 @@
             android:layout_marginLeft="15dp"
             android:layout_marginTop="10dp"
             android:padding="10dp"
-            android:text="return"
+            android:text="Return"
             android:textAllCaps="true"
             android:textColor="@color/colorTextColor"
             android:textSize="@dimen/font_size_small" />
@@ -267,32 +302,85 @@
             android:drawableRight="@drawable/ic_date"
             android:hint="Select your return date"
             android:padding="10dp"
+            android:focusable="false"
+            android:focusableInTouchMode="true"
             android:textColor="@color/colorEditText" />
 
-
-        <TextView
-            android:id="@+id/txtclass"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
-            android:layout_marginTop="10dp"
-            android:padding="10dp"
-            android:text="class"
-            android:textAllCaps="true"
-            android:textColor="@color/colorTextColor"
-            android:textSize="@dimen/font_size_small" />
-
-        <EditText
-            android:id="@+id/editclass"
+        <LinearLayout
+            android:id="@+id/linear1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:background="@drawable/white_rounded_edge"
-            android:drawableRight="@drawable/ic_chevron_right"
-            android:hint="Economy"
-            android:padding="10dp"
-            android:textColor="@color/colorEditText" />
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+
+                <TextView
+                    android:id="@+id/pickup"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="pick up time"
+                    android:textAllCaps="true"
+                    android:textColor="@color/colorTextColor"
+                    android:textSize="12sp" />
+
+                <EditText
+                    android:id="@+id/editpickup"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/white_rounded_edge"
+                    android:drawableRight="@drawable/ic_time"
+                    android:focusable="false"
+                    android:focusableInTouchMode="true"
+                    android:hint="Select time"
+                    android:padding="10dp"
+                    android:textColor="@color/colorEditText" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/txtreturntime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="return time"
+                    android:textAllCaps="true"
+                    android:textColor="@color/colorTextColor"
+                    android:textSize="12sp" />
+
+                <EditText
+                    android:id="@+id/editreturntime"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="15dp"
+                    android:background="@drawable/white_rounded_edge"
+                    android:drawableRight="@drawable/ic_time"
+                    android:focusable="false"
+                    android:focusableInTouchMode="true"
+                    android:hint="Select time"
+                    android:padding="10dp"
+                    android:textColor="@color/colorEditText" />
+
+            </LinearLayout>
+
+
+        </LinearLayout>
 
         <TextView
             android:id="@+id/passengers"
@@ -314,29 +402,6 @@
             android:layout_marginLeft="20dp"
             android:scrollbars="vertical" />
 
-        <TextView
-            android:id="@+id/airline"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
-            android:layout_marginTop="10dp"
-            android:padding="10dp"
-            android:text="airline"
-            android:textAllCaps="true"
-            android:textColor="@color/colorTextColor"
-            android:textSize="@dimen/font_size_small" />
-
-        <EditText
-            android:id="@+id/editairline"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:background="@drawable/white_rounded_edge"
-            android:drawableRight="@drawable/ic_chevron_right"
-            android:hint="Choose your airline"
-            android:padding="10dp"
-            android:textColor="@color/colorEditText" />
 
         <TextView
             android:id="@+id/notes"
@@ -373,6 +438,5 @@
             android:textColor="@color/colorWhiteText" />
 
     </LinearLayout>
-
 
 </ScrollView>

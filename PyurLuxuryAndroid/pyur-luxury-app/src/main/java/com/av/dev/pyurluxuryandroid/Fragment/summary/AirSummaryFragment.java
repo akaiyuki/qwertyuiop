@@ -5,6 +5,7 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -37,35 +38,34 @@ import retrofit2.Response;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class FlightSummaryFragment extends Fragment {
-
-    @BindView(R.id.btnConfirm)
-    Button btnConfirm;
-    @BindView(R.id.departure) TextView departure;
-    @BindView(R.id.depdate) TextView depDate;
-    @BindView(R.id.txtreturn) TextView txtReturn;
-    @BindView(R.id.returndate) TextView returnDate;
-    @BindView(R.id.passengers) TextView passengers;
-    @BindView(R.id.txtpassengers) TextView txtPassengers;
-    @BindView(R.id.airline) TextView airline;
-    @BindView(R.id.txtairline) TextView txtAirline;
-    @BindView(R.id.txtclass) TextView txtClass;
-    @BindView(R.id.classtype) TextView classType;
-    @BindView(R.id.notes) TextView notes;
-    @BindView(R.id.txtnotes) TextView txtNotes;
-    @BindView(R.id.profile_name) TextView profileName;
-    @BindView(R.id.profile_title) TextView profileTitle;
-
-    @BindView(R.id.txtorigin) TextView txtorigin;
-    @BindView(R.id.txtreturnloc) TextView txtreturnloc;
-    @BindView(R.id.returnorigin) TextView returnorigin;
-    @BindView(R.id.returnloc) TextView returnloc;
+public class AirSummaryFragment extends Fragment {
 
     @BindView(R.id.loading)
     RelativeLayout loading;
+    @BindView(R.id.btnConfirm)
+    Button btnConfirm;
 
+    @BindView(R.id.vehicle) TextView vehicle;
+    @BindView(R.id.txtvehicle) TextView txtvehicle;
+    @BindView(R.id.departure) TextView departure;
+    @BindView(R.id.txtdeparture) TextView txtdeparture;
+    @BindView(R.id.txtdeparturedate) TextView txtdeparturedate;
+    @BindView(R.id.returndep) TextView returndep;
+    @BindView(R.id.txtreturndep) TextView txtreturndep;
+    @BindView(R.id.txtreturndate) TextView txtreturndate;
+    @BindView(R.id.deptime) TextView deptime;
+    @BindView(R.id.txtdeptime) TextView txtdeptime;
+    @BindView(R.id.returntime) TextView returntime;
+    @BindView(R.id.txtreturntime) TextView txtreturntime;
+    @BindView(R.id.passengers) TextView passengers;
+    @BindView(R.id.txtpassengers) TextView txtpassengers;
+    @BindView(R.id.notes) TextView notes;
+    @BindView(R.id.txtnotes) TextView txtnotes;
 
-    public FlightSummaryFragment() {
+    @BindView(R.id.profile_name) TextView profileName;
+    @BindView(R.id.profile_title) TextView profileTitle;
+
+    public AirSummaryFragment() {
         // Required empty public constructor
     }
 
@@ -74,7 +74,8 @@ public class FlightSummaryFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_flight_summary, container, false);
+        View view = inflater.inflate(R.layout.fragment_air_summary, container, false);
+
         ButterKnife.bind(this, view);
 
         Toolbar toolbar = (Toolbar) view.findViewById(R.id.app_bar);
@@ -93,14 +94,12 @@ public class FlightSummaryFragment extends Fragment {
         });
 
         TextView mTxtTitle = (TextView) toolbar.findViewById(R.id.txt_title);
-        mTxtTitle.setText("Flight Booking");
+        mTxtTitle.setText("Air");
         mTxtTitle.setTypeface(Fonts.latoBold);
 
         Drawable img = getContext().getResources().getDrawable( R.drawable.ic_flight_white );
         img.setBounds( 0, 0, 70, 60 );
         mTxtTitle.setCompoundDrawables( img, null, null, null );
-
-        changeFont();
 
         //initialize loading
         MedalAnimation medalAnimation = new MedalAnimation.Builder()
@@ -110,6 +109,8 @@ public class FlightSummaryFragment extends Fragment {
         medalAnimation.startAnimation(view.findViewById(R.id.badge));
 
         hideLoading();
+
+        changeFont();
 
         return view;
     }
@@ -128,43 +129,46 @@ public class FlightSummaryFragment extends Fragment {
         btnConfirm.setEnabled(true);
     }
 
-
     @OnClick(R.id.btnConfirm)
     public void onClick(){
-
-//        requestApiBookAir(PSingleton.getOrigin(),PSingleton.getDestination(),PSingleton.getAirline(),
-//                PSingleton.getDate(),PSingleton.getReturnDate(),PSingleton.getPickTime(),);
+        requestApiBookAir(PSingleton.getOrigin(),PSingleton.getDestination(),PSingleton.getVehicle(),
+                PSingleton.getDepDate(),PSingleton.getReturnDate(),PSingleton.getPickUp(),
+                PSingleton.getReturnTime(),PSingleton.getNumPax(),PSingleton.getNotes());
     }
 
+
     private void changeFont(){
+        vehicle.setTypeface(Fonts.latoRegular);
+        txtvehicle.setTypeface(Fonts.latoRegular);
         departure.setTypeface(Fonts.latoRegular);
-        depDate.setTypeface(Fonts.latoRegular);
-        txtReturn.setTypeface(Fonts.latoRegular);
-        returnDate.setTypeface(Fonts.latoRegular);
+        txtdeparture.setTypeface(Fonts.latoRegular);
+        txtdeparturedate.setTypeface(Fonts.latoRegular);
+        returndep.setTypeface(Fonts.latoRegular);
+        txtreturndep.setTypeface(Fonts.latoRegular);
+        txtreturndate.setTypeface(Fonts.latoRegular);
+        deptime.setTypeface(Fonts.latoRegular);
+        txtdeptime.setTypeface(Fonts.latoRegular);
+        returntime.setTypeface(Fonts.latoRegular);
+        txtreturntime.setTypeface(Fonts.latoRegular);
         passengers.setTypeface(Fonts.latoRegular);
-        txtPassengers.setTypeface(Fonts.latoRegular);
-        airline.setTypeface(Fonts.latoRegular);
-        txtAirline.setTypeface(Fonts.latoRegular);
-        txtClass.setTypeface(Fonts.latoRegular);
-        classType.setTypeface(Fonts.latoRegular);
+        txtpassengers.setTypeface(Fonts.latoRegular);
         notes.setTypeface(Fonts.latoRegular);
-        txtNotes.setTypeface(Fonts.latoRegular);
+        txtnotes.setTypeface(Fonts.latoRegular);
 
         profileName.setTypeface(Fonts.trajanRegular);
         profileTitle.setTypeface(Fonts.latoRegular);
         btnConfirm.setTypeface(Fonts.latoRegular);
 
-        txtorigin.setText(PSingleton.getOrigin());
-        txtreturnloc.setText(PSingleton.getDestination());
-        returnorigin.setText(PSingleton.getDestination());
-        returnloc.setText(PSingleton.getOrigin());
+        txtvehicle.setText(PSingleton.getVehicle());
+        txtdeparture.setText(PSingleton.getOrigin()+" to "+PSingleton.getDestination());
+        txtdeparturedate.setText(PSingleton.getDepDate());
+        txtreturndep.setText(PSingleton.getDestination()+" to "+PSingleton.getOrigin());
 
-        depDate.setText(PSingleton.getDate());
-        returnDate.setText(PSingleton.getReturnDate());
-        txtPassengers.setText(PSingleton.getNumPax()+" Persons");
-        txtAirline.setText(PSingleton.getAirline());
-        classType.setText(PSingleton.getClass_name());
-        txtNotes.setText(PSingleton.getNotes());
+        txtreturndate.setText(PSingleton.getReturnDate());
+        txtdeptime.setText(PSingleton.getPickUp());
+        txtpassengers.setText(PSingleton.getNumPax()+" Passengers");
+        txtreturntime.setText(PSingleton.getReturnTime());
+        txtnotes.setText(PSingleton.getNotes());
 
     }
 
@@ -184,11 +188,10 @@ public class FlightSummaryFragment extends Fragment {
             @Override
             public void onResponse(Call<ApiResponse> call, Response<ApiResponse> response) {
                 hideLoading();
-
                 if (response.isSuccessful()){
+                    Log.d("api response", response.body().getMessage());
                     PDialog.showDialogSuccess((BaseActivity) getActivity());
                 }
-
             }
 
             @Override
@@ -198,5 +201,6 @@ public class FlightSummaryFragment extends Fragment {
         });
 
     }
+
 
 }

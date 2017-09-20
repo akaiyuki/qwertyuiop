@@ -1,6 +1,7 @@
 package com.av.dev.pyurluxuryandroid.Core.ApiService;
 
 import com.av.dev.pyurluxuryandroid.Core.ApiResponse.ApiResponse;
+import com.av.dev.pyurluxuryandroid.Core.object.SendPost.PostAirBookObject;
 import com.av.dev.pyurluxuryandroid.Core.object.SendPost.PostLandBookObject;
 import com.av.dev.pyurluxuryandroid.Core.object.SendPost.PostSeaBookObject;
 
@@ -23,6 +24,11 @@ public interface ApiServices {
     @Headers("Content-Type:application/json")
     @POST("pyur/transactions")
     Call<ApiResponse> seaBookService(@Header("x-access-token") String token, @Body PostSeaBookObject body);
+
+    @Headers("Content-Type:application/json")
+    @POST("pyur/transactions")
+    Call<ApiResponse> airBookService(@Header("x-access-token") String token, @Body PostAirBookObject body);
+
 
 
 }

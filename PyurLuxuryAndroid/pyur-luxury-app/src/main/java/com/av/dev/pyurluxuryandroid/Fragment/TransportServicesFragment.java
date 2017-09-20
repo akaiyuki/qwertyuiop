@@ -82,7 +82,7 @@ public class TransportServicesFragment extends Fragment {
         if (position == 0){
 
             Intent intent = new Intent(getActivity(), HotelBookingActivity.class);
-            intent.putExtra("goto", "flight");
+            intent.putExtra("goto", "air");
             startActivity(intent);
 
         } else if (position == 1){

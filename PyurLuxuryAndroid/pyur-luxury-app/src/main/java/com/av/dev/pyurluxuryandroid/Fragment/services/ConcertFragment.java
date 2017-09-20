@@ -1,4 +1,4 @@
-package com.av.dev.pyurluxuryandroid.Fragment;
+package com.av.dev.pyurluxuryandroid.Fragment.services;
 
 
 import android.graphics.drawable.Drawable;
@@ -104,6 +104,12 @@ public class ConcertFragment extends Fragment {
 
     @OnClick(R.id.btnConfirm)
     public void onClick(){
+
+        PSingleton.setConcert(editconcert.getText().toString());
+        PSingleton.setTicket(editticket.getText().toString());
+        PSingleton.setNumPax(String.valueOf(PSingleton.getPaxPosition()+1));
+        PSingleton.setNotes(editnotes.getText().toString());
+
         PEngine.switchFragment((BaseActivity) getActivity(), new ConcertSummaryFragment(), ((BaseActivity)getActivity()).getFrameLayout());
     }
 

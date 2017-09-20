@@ -24,6 +24,26 @@ public class PSingleton {
     //cinema
     public static String cinema;
     public static String movie;
+    //concert
+    public static String concert;
+    public static String ticket;
+
+    public static String getTicket() {
+        return ticket;
+    }
+
+    public static void setTicket(String ticket) {
+        PSingleton.ticket = ticket;
+    }
+
+    public static String getConcert() {
+
+        return concert;
+    }
+
+    public static void setConcert(String concert) {
+        PSingleton.concert = concert;
+    }
 
     public static String getMovie() {
         return movie;

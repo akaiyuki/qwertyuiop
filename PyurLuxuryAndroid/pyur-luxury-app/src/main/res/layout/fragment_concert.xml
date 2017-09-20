@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:background="@color/colorPrimaryDark"
     android:scrollbars="none"
-    tools:context="com.av.dev.pyurluxuryandroid.Fragment.ConcertFragment">
+    tools:context="com.av.dev.pyurluxuryandroid.Fragment.services.ConcertFragment">
 
     <LinearLayout
         android:layout_width="match_parent"

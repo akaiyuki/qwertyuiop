@@ -87,18 +87,26 @@ public class LoginFragment extends Fragment {
     @OnClick(R.id.btnlogin)
     public void onClick(){
 
-        requestApiLogin(editusername.getText().toString(),editPassword.getText().toString());
+
+
+        if (editusername.getText().length() == 0 || editPassword.getText().length() == 0){
+            PDialog.showStatusPendingDialog((BaseActivity) getActivity(),"Please input username or password","Error Login");
+        } else {
+            requestApiLogin(editusername.getText().toString(),editPassword.getText().toString());
+        }
 
     }
 
     private void showLoading(){
 
         loading.setVisibility(View.VISIBLE);
+        btnLogin.setEnabled(false);
 
     }
 
     private void hideLoading(){
         loading.setVisibility(View.GONE);
+        btnLogin.setEnabled(true);
     }
 
     private void changeFont(){
@@ -128,9 +136,9 @@ public class LoginFragment extends Fragment {
             @Override
             public void onResponse(Call<ApiResponseLogin> call, Response<ApiResponseLogin> response) {
 
-                if (response.isSuccessful()){
+                hideLoading();
 
-                    hideLoading();
+                if (response.isSuccessful()){
 
                     Log.d("user loginusername: ",response.body().getData().getData().getUserName());
 

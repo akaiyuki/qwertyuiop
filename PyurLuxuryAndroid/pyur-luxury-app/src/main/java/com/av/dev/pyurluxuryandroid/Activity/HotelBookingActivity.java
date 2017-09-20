@@ -8,7 +8,7 @@ import com.av.dev.pyurluxuryandroid.Core.BaseActivity;
 import com.av.dev.pyurluxuryandroid.Core.PEngine;
 import com.av.dev.pyurluxuryandroid.Fragment.services.BeSpokeFragment;
 import com.av.dev.pyurluxuryandroid.Fragment.services.CinemaFragment;
-import com.av.dev.pyurluxuryandroid.Fragment.ConcertFragment;
+import com.av.dev.pyurluxuryandroid.Fragment.services.ConcertFragment;
 import com.av.dev.pyurluxuryandroid.Fragment.EventTicketingFragment;
 import com.av.dev.pyurluxuryandroid.Fragment.FlightFragment;
 import com.av.dev.pyurluxuryandroid.Fragment.HotelBookFragment;

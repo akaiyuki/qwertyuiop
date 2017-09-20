@@ -111,10 +111,14 @@ public class CinemaSummaryFragment extends Fragment {
 
         loading.setVisibility(View.VISIBLE);
 
+        btnConfirm.setEnabled(false);
+
     }
 
     private void hideLoading(){
         loading.setVisibility(View.GONE);
+
+        btnConfirm.setEnabled(true);
     }
 
 
@@ -156,7 +160,7 @@ public class CinemaSummaryFragment extends Fragment {
         RestClient restClient = new RestClient(RestClient.loginApiResponse);
         Call<ApiResponse> call = restClient.getApiServiceLogin().cinemaBookService(PSharedPreferences.getSomeStringValue(AppController.getInstance(), SharedPreferencesObject.userToken),
                 new PostCinemaBookObject("Ticketing Service",
-                        new PostCinemaDetailsObject(movie,date,time,numPax,notes)));
+                        new PostCinemaDetailsObject("Cinema Ticketing",movie,date,time,numPax,notes)));
 
         call.enqueue(new Callback<ApiResponse>() {
             @Override

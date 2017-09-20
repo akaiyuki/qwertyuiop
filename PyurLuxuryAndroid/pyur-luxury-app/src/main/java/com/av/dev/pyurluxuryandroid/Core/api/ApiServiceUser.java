@@ -3,6 +3,7 @@ package com.av.dev.pyurluxuryandroid.Core.api;
 import com.av.dev.pyurluxuryandroid.Core.ApiResponse.ApiResponseLogin;
 import com.av.dev.pyurluxuryandroid.Core.object.SendPost.ApiUserLoginObject;
 import com.av.dev.pyurluxuryandroid.Core.object.SendPost.PostCinemaBookObject;
+import com.av.dev.pyurluxuryandroid.Core.object.SendPost.PostConcertBookObject;
 import com.av.dev.pyurluxuryandroid.Core.object.SendPost.PostHotelBookObject;
 import com.av.dev.pyurluxuryandroid.Core.object.SendPost.PostResBookObject;
 
@@ -34,6 +35,11 @@ public interface ApiServiceUser {
     @Headers("Content-Type:application/json")
     @POST("pyur/transactions")
     Call<ApiResponse> cinemaBookService(@Header("x-access-token") String token, @Body PostCinemaBookObject body);
+
+    //concert ticketing
+    @Headers("Content-Type:application/json")
+    @POST("pyur/transactions")
+    Call<ApiResponse> concertBookService(@Header("x-access-token") String token, @Body PostConcertBookObject body);
 
 
     //login user

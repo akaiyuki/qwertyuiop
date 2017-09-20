@@ -9,16 +9,29 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.av.dev.pyurluxuryandroid.Core.AppController;
 import com.av.dev.pyurluxuryandroid.Core.BaseActivity;
 import com.av.dev.pyurluxuryandroid.Core.PDialog;
+import com.av.dev.pyurluxuryandroid.Core.PSharedPreferences;
+import com.av.dev.pyurluxuryandroid.Core.PSingleton;
+import com.av.dev.pyurluxuryandroid.Core.api.ApiResponse;
+import com.av.dev.pyurluxuryandroid.Core.api.RestClient;
+import com.av.dev.pyurluxuryandroid.Core.object.SendPost.PostConcertBookObject;
+import com.av.dev.pyurluxuryandroid.Core.object.SendPost.PostConcertDetailsObject;
+import com.av.dev.pyurluxuryandroid.Core.object.SharedPreferencesObject;
 import com.av.dev.pyurluxuryandroid.R;
 import com.av.dev.pyurluxuryandroid.View.Fonts;
+import com.skydoves.medal.MedalAnimation;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -40,6 +53,8 @@ public class ConcertSummaryFragment extends Fragment {
     @BindView(R.id.profile_name) TextView profile_name;
     @BindView(R.id.profile_title) TextView profile_title;
 
+    @BindView(R.id.loading)
+    RelativeLayout loading;
 
     public ConcertSummaryFragment() {
         // Required empty public constructor
@@ -79,12 +94,42 @@ public class ConcertSummaryFragment extends Fragment {
 
         changeFont();
 
+        populateView();
+
+        //initialize loading
+        MedalAnimation medalAnimation = new MedalAnimation.Builder()
+                .setSpeed(4200)
+                .setTurn(4)
+                .build();
+        medalAnimation.startAnimation(view.findViewById(R.id.badge));
+
+        hideLoading();
+
+
+
         return view;
     }
 
+    private void showLoading(){
+
+        loading.setVisibility(View.VISIBLE);
+
+        btnConfirm.setEnabled(false);
+
+    }
+
+    private void hideLoading(){
+        loading.setVisibility(View.GONE);
+
+        btnConfirm.setEnabled(true);
+    }
+
+
     @OnClick(R.id.btnConfirm)
     public void onClick(){
-        PDialog.showDialogSuccess((BaseActivity) getActivity());
+
+        requestApiBookConcert(PSingleton.getConcert(),PSingleton.getTicket(),PSingleton.getNumPax(),PSingleton.getNotes());
+
     }
 
 
@@ -102,6 +147,47 @@ public class ConcertSummaryFragment extends Fragment {
         profile_name.setTypeface(Fonts.trajanRegular);
         profile_title.setTypeface(Fonts.latoRegular);
         btnConfirm.setTypeface(Fonts.latoRegular);
+    }
+
+    private void populateView(){
+        txtconcert.setText(PSingleton.getConcert());
+
+        date.setVisibility(View.GONE);
+        txtdate.setVisibility(View.GONE);
+
+        txtticket.setText(PSingleton.getTicket());
+        txtpax.setText(PSingleton.getNumPax()+" Persons");
+        txtnotes.setText(PSingleton.getNotes());
+    }
+
+    private void requestApiBookConcert(String concert, String ticket, String pax, String notes){
+
+        showLoading();
+
+        RestClient restClient = new RestClient(RestClient.loginApiResponse);
+        Call<ApiResponse> call = restClient.getApiServiceLogin().concertBookService(PSharedPreferences.getSomeStringValue(AppController.getInstance(), SharedPreferencesObject.userToken),
+               new PostConcertBookObject("Ticketing Service",new PostConcertDetailsObject("Concert Ticketing",
+                       concert,ticket,pax,notes)));
+
+        call.enqueue(new Callback<ApiResponse>() {
+            @Override
+            public void onResponse(Call<ApiResponse> call, Response<ApiResponse> response) {
+
+                hideLoading();
+
+                if (response.isSuccessful()){
+                    PDialog.showDialogSuccess((BaseActivity) getActivity());
+                }
+
+            }
+
+            @Override
+            public void onFailure(Call<ApiResponse> call, Throwable t) {
+
+                hideLoading();
+
+            }
+        });
     }
 
 

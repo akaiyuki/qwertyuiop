@@ -116,11 +116,13 @@ public class RestaurantBookingDetailsFragment extends Fragment {
     private void showLoading(){
 
         loading.setVisibility(View.VISIBLE);
+        btnConfirm.setEnabled(false);
 
     }
 
     private void hideLoading(){
         loading.setVisibility(View.GONE);
+        btnConfirm.setEnabled(true);
     }
 
     @OnClick(R.id.btnConfirm)

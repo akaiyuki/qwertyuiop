@@ -18,8 +18,10 @@ import android.widget.TextView;
 
 import com.av.dev.pyurluxuryandroid.Adapter.HotelPaxAdapter;
 import com.av.dev.pyurluxuryandroid.Core.BaseActivity;
+import com.av.dev.pyurluxuryandroid.Core.PDatePicker;
 import com.av.dev.pyurluxuryandroid.Core.PEngine;
 import com.av.dev.pyurluxuryandroid.Core.PSingleton;
+import com.av.dev.pyurluxuryandroid.Core.object.PDateCheckOut;
 import com.av.dev.pyurluxuryandroid.Fragment.summary.FlightSummaryFragment;
 import com.av.dev.pyurluxuryandroid.R;
 import com.av.dev.pyurluxuryandroid.View.Fonts;
@@ -116,6 +118,8 @@ public class FlightFragment extends Fragment {
 
         changeWays();
 
+        PSingleton.setFlightType("Round Way");
+
         return view;
     }
 
@@ -130,7 +134,6 @@ public class FlightFragment extends Fragment {
         PSingleton.setNumPax(String.valueOf(PSingleton.getPaxPosition()+1));
         PSingleton.setAirline(editAirline.getText().toString());
         PSingleton.setNotes(editNotes.getText().toString());
-
 
         PEngine.switchFragment((BaseActivity) getActivity(), new FlightSummaryFragment(), ((BaseActivity)getActivity()).getFrameLayout());
     }
@@ -150,8 +153,33 @@ public class FlightFragment extends Fragment {
         txtNotes.setTypeface(Fonts.latoRegular);
         btnConfirm.setTypeface(Fonts.latoRegular);
 
+        editReturn.setTypeface(Fonts.latoRegular);
+        editClass.setTypeface(Fonts.latoRegular);
+        editAirline.setTypeface(Fonts.latoRegular);
+        editNotes.setTypeface(Fonts.latoRegular);
+
         oneWay.setTypeface(Fonts.latoRegular);
         roundWay.setTypeface(Fonts.latoRegular);
+
+        txtOrigin.setText("- -");
+        select1.setText("Select City");
+
+        txtDestination.setText("- -");
+        select2.setText("Select City");
+
+        txtDeparture.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                PDatePicker datePicker = new PDatePicker((BaseActivity) getActivity(), (EditText)view);
+            }
+        });
+
+        editReturn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                PDateCheckOut datePicker1 = new PDateCheckOut((BaseActivity) getActivity(),(EditText)view);
+            }
+        });
     }
 
     private void changeWays(){
@@ -163,7 +191,10 @@ public class FlightFragment extends Fragment {
                 roundWay.setBackgroundDrawable(getActivity().getResources().getDrawable(R.drawable.ic_oneway));
 
                 oneWay.setTextColor(Color.parseColor("#"+Integer.toHexString(ContextCompat.getColor(getContext(),R.color.colorWhiteText))));
-                roundWay.setTextColor(Color.parseColor("#"+Integer.toHexString(ContextCompat.getColor(getContext(),R.color.colorEditText))));
+                roundWay.setTextColor(Color.parseColor("#"+Integer.toHexString(ContextCompat.getColor(getContext(),R.color.colorWhiteText))));
+
+                PSingleton.setFlightType("One Way");
+
             }
         });
 
@@ -174,11 +205,11 @@ public class FlightFragment extends Fragment {
                 oneWay.setBackgroundDrawable(getActivity().getResources().getDrawable(R.drawable.ic_oneway));
 
                 roundWay.setTextColor(Color.parseColor("#"+Integer.toHexString(ContextCompat.getColor(getContext(),R.color.colorWhiteText))));
-                oneWay.setTextColor(Color.parseColor("#"+Integer.toHexString(ContextCompat.getColor(getContext(),R.color.colorEditText))));
+                oneWay.setTextColor(Color.parseColor("#"+Integer.toHexString(ContextCompat.getColor(getContext(),R.color.colorWhiteText))));
 
+                PSingleton.setFlightType("Round Way");
             }
         });
-
 
     }
 

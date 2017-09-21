@@ -110,7 +110,7 @@
             android:id="@+id/depdate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
+            android:layout_marginLeft="20dp"
             android:text="September 2, 2018 (Friday)"
             android:textSize="@dimen/font_size_medium"
             android:textColor="@color/colorBlackText"/>
@@ -199,7 +199,7 @@
             android:id="@+id/returndate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
+            android:layout_marginLeft="20dp"
             android:text="September 4, 2018 (Sunday)"
             android:textSize="@dimen/font_size_medium"
             android:textColor="@color/colorBlackText"/>

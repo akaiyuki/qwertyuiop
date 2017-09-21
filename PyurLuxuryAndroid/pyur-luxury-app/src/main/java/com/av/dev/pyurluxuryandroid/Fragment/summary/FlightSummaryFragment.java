@@ -5,6 +5,7 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,6 +23,8 @@ import com.av.dev.pyurluxuryandroid.Core.PSingleton;
 import com.av.dev.pyurluxuryandroid.Core.api.RestClient;
 import com.av.dev.pyurluxuryandroid.Core.object.SendPost.PostAirBookObject;
 import com.av.dev.pyurluxuryandroid.Core.object.SendPost.PostAirDetailsObject;
+import com.av.dev.pyurluxuryandroid.Core.object.SendPost.PostFlightBookObject;
+import com.av.dev.pyurluxuryandroid.Core.object.SendPost.PostFlightDetailsObject;
 import com.av.dev.pyurluxuryandroid.Core.object.SharedPreferencesObject;
 import com.av.dev.pyurluxuryandroid.R;
 import com.av.dev.pyurluxuryandroid.View.Fonts;
@@ -132,8 +135,10 @@ public class FlightSummaryFragment extends Fragment {
     @OnClick(R.id.btnConfirm)
     public void onClick(){
 
-//        requestApiBookAir(PSingleton.getOrigin(),PSingleton.getDestination(),PSingleton.getAirline(),
-//                PSingleton.getDate(),PSingleton.getReturnDate(),PSingleton.getPickTime(),);
+        requestApiBookFlight(PSingleton.getOrigin(),PSingleton.getDestination(),PSingleton.getFlightType(),
+                PSingleton.getDepDate(),PSingleton.getReturnDate(),PSingleton.getClass_name(),
+                PSingleton.getNumPax(),PSingleton.getAirline(),PSingleton.getNotes());
+
     }
 
     private void changeFont(){
@@ -159,43 +164,40 @@ public class FlightSummaryFragment extends Fragment {
         returnorigin.setText(PSingleton.getDestination());
         returnloc.setText(PSingleton.getOrigin());
 
-        depDate.setText(PSingleton.getDate());
+        depDate.setText(PSingleton.getDepDate());
         returnDate.setText(PSingleton.getReturnDate());
-        txtPassengers.setText(PSingleton.getNumPax()+" Persons");
+        txtPassengers.setText(PSingleton.getNumPax()+" Passengers");
         txtAirline.setText(PSingleton.getAirline());
         classType.setText(PSingleton.getClass_name());
         txtNotes.setText(PSingleton.getNotes());
 
     }
 
-    private void requestApiBookAir(String origin, String destination, String vehicle,
-                                   String departure, String return_date, String pickup_time,
-                                   String return_time, String pax, String notes){
+    private void requestApiBookFlight(String origin, String destination, String flight_trip, String dep_date,
+                                      String return_date, String class_type, String pax, String airline,
+                                      String notes){
 
         showLoading();
 
         RestClient restClient = new RestClient(RestClient.serviceApiResponse);
-        Call<ApiResponse> call = restClient.getApiServices().airBookService(PSharedPreferences.getSomeStringValue(AppController.getInstance(), SharedPreferencesObject.userToken),
-                new PostAirBookObject(Enums.serviceTransport,
-                        new PostAirDetailsObject("Air Transport",origin,destination,vehicle,departure,return_date,
-                                pickup_time,return_time,pax,notes)));
-
-        call.enqueue(new Callback<ApiResponse>() {
-            @Override
-            public void onResponse(Call<ApiResponse> call, Response<ApiResponse> response) {
-                hideLoading();
-
-                if (response.isSuccessful()){
-                    PDialog.showDialogSuccess((BaseActivity) getActivity());
+        Call<ApiResponse> call = restClient.getApiServices().flightBookService(PSharedPreferences.getSomeStringValue(AppController.getInstance(),SharedPreferencesObject.userToken),
+                new PostFlightBookObject("Flight Booking",new PostFlightDetailsObject(origin,destination,flight_trip,
+                        dep_date,return_date,class_type,pax,airline,notes)));
+            call.enqueue(new Callback<ApiResponse>() {
+                @Override
+                public void onResponse(Call<ApiResponse> call, Response<ApiResponse> response) {
+                    hideLoading();
+                    if (response.isSuccessful()){
+                        Log.d("api response", response.body().getMessage());
+                        PDialog.showDialogSuccess((BaseActivity) getActivity());
+                    }
                 }
 
-            }
-
-            @Override
-            public void onFailure(Call<ApiResponse> call, Throwable t) {
-                hideLoading();
-            }
-        });
+                @Override
+                public void onFailure(Call<ApiResponse> call, Throwable t) {
+                    hideLoading();
+                }
+            });
 
     }
 

@@ -50,6 +50,26 @@ public class PSingleton {
     //air
     public static String class_name;
     public static String airline;
+    public static String flightType;
+
+    //bespoke
+    public static String isUrgent;
+
+    public static String getFlightType() {
+        return flightType;
+    }
+
+    public static void setFlightType(String flightType) {
+        PSingleton.flightType = flightType;
+    }
+
+    public static String getIsUrgent() {
+        return isUrgent;
+    }
+
+    public static void setIsUrgent(String isUrgent) {
+        PSingleton.isUrgent = isUrgent;
+    }
 
     public static String getAirline() {
         return airline;

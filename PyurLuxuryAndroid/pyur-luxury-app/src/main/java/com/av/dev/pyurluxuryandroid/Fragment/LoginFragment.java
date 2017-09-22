@@ -140,7 +140,7 @@ public class LoginFragment extends Fragment {
 
                 if (response.isSuccessful()){
 
-                    Log.d("user loginusername: ",response.body().getData().getData().getUserName());
+                    Log.d("user token: ",response.body().getData().getUserToken());
 
                     PSharedPreferences.setSomeStringValue(AppController.getInstance(), SharedPreferencesObject.userType,response.body().getData().getData().getUserType());
                     PSharedPreferences.setSomeStringValue(AppController.getInstance(), SharedPreferencesObject.userName, response.body().getData().getData().getUserName());

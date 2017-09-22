@@ -18,6 +18,7 @@ import com.av.dev.pyurluxuryandroid.Activity.MainActivity;
 import com.av.dev.pyurluxuryandroid.Core.ApiResponse.ApiResponse;
 import com.av.dev.pyurluxuryandroid.Core.AppController;
 import com.av.dev.pyurluxuryandroid.Core.BaseActivity;
+import com.av.dev.pyurluxuryandroid.Core.PDialog;
 import com.av.dev.pyurluxuryandroid.Core.PSharedPreferences;
 import com.av.dev.pyurluxuryandroid.Core.PSingleton;
 import com.av.dev.pyurluxuryandroid.Core.api.RestClient;
@@ -162,8 +163,8 @@ public class BeSpokeSummaryFragment extends Fragment {
 
                     Log.d("api response",response.body().getMessage()+" "+urgency);
 
-                    startActivity(new Intent(getActivity(), MainActivity.class));
-                    getActivity().finish();
+                    PDialog.showDialogSuccess((BaseActivity) getActivity());
+
                 }
             }
 

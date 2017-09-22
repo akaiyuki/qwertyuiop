@@ -17,6 +17,7 @@ import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
+import com.av.dev.pyurluxuryandroid.Activity.HotelBookingActivity;
 import com.av.dev.pyurluxuryandroid.Activity.MainActivity;
 import com.av.dev.pyurluxuryandroid.Adapter.SlideAdapter;
 import com.av.dev.pyurluxuryandroid.Core.BaseActivity;
@@ -147,8 +148,14 @@ public class MerchantDetailsFragment extends Fragment {
 
     @OnClick(R.id.btnConfirm)
     public void onClick(){
-        startActivity(new Intent(getActivity(), MainActivity.class));
-        getActivity().finish();
+//        startActivity(new Intent(getActivity(), MainActivity.class));
+//        getActivity().finish();
+
+        Intent intent = new Intent(getActivity(), HotelBookingActivity.class);
+        intent.putExtra("goto","hotel");
+        intent.putExtra("lastscreen","merchant");
+        startActivity(intent);
+
     }
 
 }

@@ -1,5 +1,7 @@
 package com.av.dev.pyurluxuryandroid.Core;
 
+import com.av.dev.pyurluxuryandroid.Core.object.ApiResponseRequest;
+
 /**
  * Created by CodeSyaona on 29/08/2017.
  */
@@ -54,6 +56,25 @@ public class PSingleton {
 
     //bespoke
     public static String isUrgent;
+
+    public static ApiResponseRequest selectedRequest;
+    public static String selectedManager;
+
+    public static String getSelectedManager() {
+        return selectedManager;
+    }
+
+    public static void setSelectedManager(String selectedManager) {
+        PSingleton.selectedManager = selectedManager;
+    }
+
+    public static ApiResponseRequest getSelectedRequest() {
+        return selectedRequest;
+    }
+
+    public static void setSelectedRequest(ApiResponseRequest selectedRequest) {
+        PSingleton.selectedRequest = selectedRequest;
+    }
 
     public static String getFlightType() {
         return flightType;

@@ -18,6 +18,7 @@ import com.av.dev.pyurluxuryandroid.View.Fonts;
 import com.squareup.picasso.Picasso;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -61,6 +62,8 @@ public class PagerResPendingFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_pager_res_pending, container, false);
 
+        ButterKnife.bind(this,view);
+
         Toolbar toolbar = (Toolbar) view.findViewById(R.id.app_bar);
         ((BaseActivity) getActivity()).setSupportActionBar(toolbar);
         ((BaseActivity) getActivity()).getSupportActionBar().setHomeButtonEnabled(true);
@@ -88,17 +91,17 @@ public class PagerResPendingFragment extends Fragment {
 
     private void setUi(){
         city.setTypeface(Fonts.latoRegular);
-        txtCity.setTypeface(Fonts.latoBold);
+        txtCity.setTypeface(Fonts.latoRegular);
         restaurantName.setTypeface(Fonts.latoRegular);
-        txtRestaurantName.setTypeface(Fonts.latoBold);
+        txtRestaurantName.setTypeface(Fonts.latoRegular);
         date.setTypeface(Fonts.latoRegular);
-        txtDate.setTypeface(Fonts.latoBold);
+        txtDate.setTypeface(Fonts.latoRegular);
         time1.setTypeface(Fonts.latoRegular);
-        txtTime.setTypeface(Fonts.latoBold);
+        txtTime.setTypeface(Fonts.latoRegular);
         numPax.setTypeface(Fonts.latoRegular);
-        txtNumPax.setTypeface(Fonts.latoBold);
+        txtNumPax.setTypeface(Fonts.latoRegular);
         notes.setTypeface(Fonts.latoRegular);
-        txtNotes.setTypeface(Fonts.latoBold);
+        txtNotes.setTypeface(Fonts.latoRegular);
 
         Picasso.with(getContext())
                 .load(R.drawable.bg)

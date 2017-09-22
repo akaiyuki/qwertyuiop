@@ -1,12 +1,14 @@
 package com.av.dev.pyurluxuryandroid.Fragment;
 
 
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -103,7 +105,23 @@ public class HotelBookFragment extends Fragment {
         mTxtTitle.setCompoundDrawables( img, null, null, null );
 
 
-        // data to populate the RecyclerView with
+        Intent intent = getActivity().getIntent();
+        Bundle extras = intent.getExtras();
+        if (extras != null) {
+
+//            Bundle bundle = new Bundle();
+
+            if (extras.getString("lastscreen").equalsIgnoreCase("merchant")){
+                Log.d("from","merchant");
+            } else if (extras.getString("lastscreen").equalsIgnoreCase("service")){
+                Log.d("from","service");
+            }
+
+        }
+
+
+
+            // data to populate the RecyclerView with
         String[] data = {"1", "2", "3",
                 "4", "5", "6", "7", "8", "9", "10"};
 

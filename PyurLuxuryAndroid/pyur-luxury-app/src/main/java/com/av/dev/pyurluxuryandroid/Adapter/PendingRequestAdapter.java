@@ -10,10 +10,15 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.av.dev.pyurluxuryandroid.Core.Enums;
+import com.av.dev.pyurluxuryandroid.Core.PEngine;
+import com.av.dev.pyurluxuryandroid.Core.object.ApiResponseRequest;
 import com.av.dev.pyurluxuryandroid.R;
 import com.av.dev.pyurluxuryandroid.View.CircleTransform;
 import com.av.dev.pyurluxuryandroid.View.Fonts;
 import com.squareup.picasso.Picasso;
+
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 
@@ -21,14 +26,14 @@ import java.util.ArrayList;
  * Created by CodeSyaona on 05/09/2017.
  */
 
-public class PendingRequestAdapter extends ArrayAdapter<String> {
+public class PendingRequestAdapter extends ArrayAdapter<ApiResponseRequest> {
 
     Context mContext;
-    ArrayList<String> mData = new ArrayList<>();
+    ArrayList<ApiResponseRequest> mData = new ArrayList<>();
     int mResId;
     int column;
 
-    public PendingRequestAdapter(Context context, int resource, ArrayList<String> data) {
+    public PendingRequestAdapter(Context context, int resource, ArrayList<ApiResponseRequest> data) {
         super(context, resource, data);
         this.mContext = context;
         this.mResId = resource;
@@ -72,8 +77,10 @@ public class PendingRequestAdapter extends ArrayAdapter<String> {
 //            e.printStackTrace();
 //        }
 
+        ApiResponseRequest row = mData.get(position);
 
-        holder.txtname.setText(mData.get(position));
+
+        holder.txtname.setText(row.getLifestyleFirstname()+" "+row.getLifestyleLastname());
         holder.txtname.setTypeface(Fonts.latoBold);
 
         Picasso.with(getContext())
@@ -81,12 +88,38 @@ public class PendingRequestAdapter extends ArrayAdapter<String> {
                 .transform(new CircleTransform())
                 .into(holder.imgprofile);
 
-        holder.txtrequest.setText("Flight Booking");
+        holder.txtrequest.setText(row.getServiceCategory());
         holder.txtrequest.setTypeface(Fonts.latoRegular);
-        Drawable img = getContext().getResources().getDrawable( R.drawable.ic_flight_booking );
-        img.setBounds( 0, 0, 60, 60 );
-        holder.txtrequest.setCompoundDrawables( img, null, null, null );
 
+
+        if (row.getServiceCategory().equalsIgnoreCase(Enums.serviceHotel)){
+            Drawable img = getContext().getResources().getDrawable( R.drawable.ic_hotel );
+            img.setBounds( 0, 0, 60, 60 );
+            holder.txtrequest.setCompoundDrawables( img, null, null, null );
+        } else if (row.getServiceCategory().equalsIgnoreCase(Enums.serviceRestaurant)){
+            Drawable img = getContext().getResources().getDrawable( R.drawable.ic_restaurant );
+            img.setBounds( 0, 0, 60, 60 );
+            holder.txtrequest.setCompoundDrawables( img, null, null, null );
+        } else if (row.getServiceCategory().equalsIgnoreCase(Enums.serviceFlight)){
+            Drawable img = getContext().getResources().getDrawable( R.drawable.ic_flight_booking );
+            img.setBounds( 0, 0, 60, 60 );
+            holder.txtrequest.setCompoundDrawables( img, null, null, null );
+        } else if (row.getServiceCategory().equalsIgnoreCase(Enums.serviceTransport)){
+            Drawable img = getContext().getResources().getDrawable( R.drawable.ic_transport );
+            img.setBounds( 0, 0, 60, 60 );
+            holder.txtrequest.setCompoundDrawables( img, null, null, null );
+        } else if (row.getServiceCategory().equalsIgnoreCase(Enums.serviceTicketing)){
+            Drawable img = getContext().getResources().getDrawable( R.drawable.ic_ticketing );
+            img.setBounds( 0, 0, 60, 60 );
+            holder.txtrequest.setCompoundDrawables( img, null, null, null );
+        } else if (row.getServiceCategory().equalsIgnoreCase(Enums.serviceBespoke)){
+            Drawable img = getContext().getResources().getDrawable( R.drawable.ic_bespoke );
+            img.setBounds( 0, 0, 60, 60 );
+            holder.txtrequest.setCompoundDrawables( img, null, null, null );
+        }
+
+
+//        holder.txttime.setText(PEngine.formatUTCtoGMT8(mData.get(position).getDateAdded()));
         holder.txttime.setTypeface(Fonts.latoRegular);
 
         return convertView;

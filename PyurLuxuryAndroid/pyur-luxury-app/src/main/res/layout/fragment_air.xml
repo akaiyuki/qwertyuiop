@@ -85,15 +85,14 @@
 
                 <TextView
                     android:id="@+id/txtorigin"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:padding="10dp"
-                    android:gravity="center_horizontal"
-                    android:text="- -"
+                    android:text="mnl"
                     android:textAllCaps="true"
-                    android:textColor="@color/colorWhiteText"
-                    android:textSize="@dimen/font_size_small" />
+                    android:textColor="@color/colorTextColor"
+                    android:textSize="@dimen/font_size_large" />
 
                 <!--<EditText-->
                     <!--android:id="@+id/txtorigin"-->
@@ -132,15 +131,14 @@
 
                 <TextView
                     android:id="@+id/txtdestination"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:padding="10dp"
-                    android:text="- -"
+                    android:text="HKG"
                     android:textAllCaps="true"
-                    android:gravity="center_horizontal"
-                    android:textColor="@color/colorWhiteText"
-                    android:textSize="@dimen/font_size_small" />
+                    android:textColor="@color/colorTextColor"
+                    android:textSize="@dimen/font_size_large" />
 
             </LinearLayout>
 
@@ -166,7 +164,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:padding="10dp"
-                    android:text="Select City"
+                    android:text="Manila, PH"
                     android:textColor="@color/colorWhiteText"
                     android:textSize="@dimen/font_size_small" />
 
@@ -186,7 +184,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:padding="10dp"
-                    android:text="Select City"
+                    android:text="Hong Kong"
                     android:textColor="@color/colorWhiteText"
                     android:textSize="@dimen/font_size_small" />
 
@@ -311,6 +309,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
             android:orientation="horizontal">
 
             <LinearLayout
@@ -334,7 +334,6 @@
                     android:id="@+id/editpickup"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
                     android:layout_marginRight="10dp"
                     android:background="@drawable/white_rounded_edge"
                     android:drawableRight="@drawable/ic_time"
@@ -368,7 +367,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
-                    android:layout_marginRight="15dp"
                     android:background="@drawable/white_rounded_edge"
                     android:drawableRight="@drawable/ic_time"
                     android:focusable="false"

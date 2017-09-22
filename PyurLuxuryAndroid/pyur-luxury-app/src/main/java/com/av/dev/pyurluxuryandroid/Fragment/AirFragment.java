@@ -66,6 +66,8 @@ public class AirFragment extends Fragment {
     @BindView(R.id.notes) TextView notes;
     @BindView(R.id.editnotes) EditText editnotes;
 
+    @BindView(R.id.select1) TextView select1;
+    @BindView(R.id.select2) TextView select2;
 
     public AirFragment() {
         // Required empty public constructor
@@ -227,6 +229,14 @@ public class AirFragment extends Fragment {
                 mTimePicker.show();
             }
         });
+
+
+        txtorigin.setText("- -");
+        select1.setText("Select City");
+
+        txtdestination.setText("- -");
+        select2.setText("Select City");
+
 
     }
 

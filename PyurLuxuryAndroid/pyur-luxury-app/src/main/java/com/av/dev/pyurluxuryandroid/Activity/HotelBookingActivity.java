@@ -40,6 +40,7 @@ public class HotelBookingActivity extends BaseActivity {
 
             Fragment newFragment = null;
             if (extras.getString("goto").equalsIgnoreCase("hotel")) {
+                intent.putExtra("lastscreen",extras.getString("lastscreen"));
                 newFragment = new HotelBookFragment();
             } else if (extras.getString("goto").equalsIgnoreCase("restaurant")) {
                 newFragment = new RestaurantBookingFragment();

@@ -42,35 +42,23 @@ public class PagerPendingFragment extends Fragment {
     @BindView(R.id.imgmessage)
     ImageView imgmessage;
 
-    @BindView(R.id.departure)
-    TextView departure;
-    @BindView(R.id.deporigin)
-    TextView deporigin;
-    @BindView(R.id.depdes)
-    TextView depdes;
-    @BindView(R.id.depdate)
-    TextView depdate;
-    @BindView(R.id.txtreturn)
-    TextView txtreturn;
-    @BindView(R.id.returnorigin)
-    TextView returnorigin;
-    @BindView(R.id.returndes)
-    TextView returndes;
-    @BindView(R.id.returndate)
-    TextView returndate;
-    @BindView(R.id.passengers)
-    TextView passengers;
-    @BindView(R.id.txtpassengers)
-    TextView txtpassengers;
-    @BindView(R.id.airline)
-    TextView airline;
-    @BindView(R.id.txtairline)
-    TextView txtairline;
-    @BindView(R.id.txtclass)
-    TextView txtclass;
-    @BindView(R.id.classtype) TextView classtype;
+    @BindView(R.id.departure) TextView departure;
+    @BindView(R.id.depdate) TextView depDate;
+    @BindView(R.id.txtreturn) TextView txtReturn;
+    @BindView(R.id.returndate) TextView returnDate;
+    @BindView(R.id.passengers) TextView passengers;
+    @BindView(R.id.txtpassengers) TextView txtPassengers;
+    @BindView(R.id.airline) TextView airline;
+    @BindView(R.id.txtairline) TextView txtAirline;
+    @BindView(R.id.txtclass) TextView txtClass;
+    @BindView(R.id.classtype) TextView classType;
     @BindView(R.id.notes) TextView notes;
-    @BindView(R.id.txtnotes) TextView txtnotes;
+    @BindView(R.id.txtnotes) TextView txtNotes;
+
+    @BindView(R.id.txtorigin) TextView txtorigin;
+    @BindView(R.id.txtreturnloc) TextView txtreturnloc;
+    @BindView(R.id.returnorigin) TextView returnorigin;
+    @BindView(R.id.returnloc) TextView returnloc;
 
     public PagerPendingFragment() {
         // Required empty public constructor
@@ -126,21 +114,21 @@ public class PagerPendingFragment extends Fragment {
         time.setTypeface(Fonts.latoRegular);
 
         departure.setTypeface(Fonts.latoRegular);
-        deporigin.setTypeface(Fonts.latoBold);
-        depdes.setTypeface(Fonts.latoBold);
-        depdate.setTypeface(Fonts.latoRegular);
-        txtreturn.setTypeface(Fonts.latoRegular);
+        depDate.setTypeface(Fonts.latoBold);
+        txtReturn.setTypeface(Fonts.latoBold);
+        returnDate.setTypeface(Fonts.latoRegular);
+        txtPassengers.setTypeface(Fonts.latoRegular);
         returnorigin.setTypeface(Fonts.latoBold);
-        returndes.setTypeface(Fonts.latoBold);
-        returndate.setTypeface(Fonts.latoRegular);
+        txtAirline.setTypeface(Fonts.latoBold);
+        txtClass.setTypeface(Fonts.latoRegular);
         passengers.setTypeface(Fonts.latoRegular);
-        txtpassengers.setTypeface(Fonts.latoRegular);
+        classType.setTypeface(Fonts.latoRegular);
         airline.setTypeface(Fonts.latoRegular);
-        txtairline.setTypeface(Fonts.latoRegular);
-        txtclass.setTypeface(Fonts.latoRegular);
-        classtype.setTypeface(Fonts.latoRegular);
+        txtNotes.setTypeface(Fonts.latoRegular);
+        txtorigin.setTypeface(Fonts.latoRegular);
+        txtreturnloc.setTypeface(Fonts.latoRegular);
         notes.setTypeface(Fonts.latoRegular);
-        txtnotes.setTypeface(Fonts.latoRegular);
+        returnloc.setTypeface(Fonts.latoRegular);
 
 
     }

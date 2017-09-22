@@ -53,8 +53,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="40dp"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:layout_marginRight="40dp">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -62,17 +62,18 @@
                     android:orientation="vertical">
 
 
+
                     <TextView
-                        android:id="@+id/deporigin"
+                        android:id="@+id/txtorigin"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="10dp"
-                        android:padding="10dp"
                         android:text="MNL"
                         android:textAllCaps="true"
                         android:textColor="@color/colorButtonBackground"
+                        android:padding="10dp"
                         android:textSize="@dimen/font_size_big"
-                        android:textStyle="bold" />
+                        android:textStyle="bold"
+                        android:layout_marginLeft="10dp"/>
 
 
                 </LinearLayout>
@@ -87,7 +88,7 @@
                     <ImageView
                         android:layout_width="40dp"
                         android:layout_height="40dp"
-                        android:src="@drawable/ic_plane" />
+                        android:src="@drawable/ic_plane"/>
 
 
                 </LinearLayout>
@@ -100,15 +101,15 @@
                     android:orientation="vertical">
 
                     <TextView
-                        android:id="@+id/depdes"
+                        android:id="@+id/txtreturnloc"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:padding="10dp"
                         android:text="HKG"
                         android:textAllCaps="true"
                         android:textColor="@color/colorButtonBackground"
+                        android:padding="10dp"
                         android:textSize="@dimen/font_size_big"
-                        android:textStyle="bold" />
+                        android:textStyle="bold"/>
 
                 </LinearLayout>
 
@@ -119,10 +120,11 @@
                 android:id="@+id/depdate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
+                android:layout_marginLeft="20dp"
                 android:text="September 2, 2018 (Friday)"
-                android:textColor="@color/colorBlackText"
-                android:textSize="@dimen/font_size_medium" />
+                android:textSize="@dimen/font_size_medium"
+                android:textColor="@color/colorBlackText"/>
+
 
 
             <TextView
@@ -140,8 +142,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="40dp"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:layout_marginRight="40dp">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -149,17 +151,18 @@
                     android:orientation="vertical">
 
 
+
                     <TextView
                         android:id="@+id/returnorigin"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="10dp"
-                        android:padding="10dp"
                         android:text="hkg"
                         android:textAllCaps="true"
                         android:textColor="@color/colorButtonBackground"
+                        android:padding="10dp"
                         android:textSize="@dimen/font_size_big"
-                        android:textStyle="bold" />
+                        android:textStyle="bold"
+                        android:layout_marginLeft="10dp"/>
 
 
                 </LinearLayout>
@@ -174,7 +177,7 @@
                     <ImageView
                         android:layout_width="40dp"
                         android:layout_height="40dp"
-                        android:src="@drawable/ic_plane" />
+                        android:src="@drawable/ic_plane"/>
 
 
                 </LinearLayout>
@@ -187,15 +190,15 @@
                     android:orientation="vertical">
 
                     <TextView
-                        android:id="@+id/returndes"
+                        android:id="@+id/returnloc"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:padding="10dp"
                         android:text="mnl"
                         android:textAllCaps="true"
                         android:textColor="@color/colorButtonBackground"
+                        android:padding="10dp"
                         android:textSize="@dimen/font_size_big"
-                        android:textStyle="bold" />
+                        android:textStyle="bold"/>
 
                 </LinearLayout>
 
@@ -206,10 +209,10 @@
                 android:id="@+id/returndate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
+                android:layout_marginLeft="20dp"
                 android:text="September 4, 2018 (Sunday)"
-                android:textColor="@color/colorBlackText"
-                android:textSize="@dimen/font_size_medium" />
+                android:textSize="@dimen/font_size_medium"
+                android:textColor="@color/colorBlackText"/>
 
 
             <TextView
@@ -302,10 +305,8 @@
                 android:textSize="@dimen/font_size_medium" />
 
 
+
         </LinearLayout>
-
-
-
 
 
        <RelativeLayout

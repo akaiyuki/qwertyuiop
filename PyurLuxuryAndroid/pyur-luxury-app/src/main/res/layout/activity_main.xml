@@ -27,4 +27,16 @@
         app:itemTextColor="@drawable/selector_bottombar_item"
         />
 
+    <android.support.design.widget.BottomNavigationView
+        android:id="@+id/navigationlifestyle"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_gravity="start"
+        app:menu="@menu/menu_lifestyle"
+        android:layout_alignParentBottom="true"
+        android:background="@color/colorPrimaryDark"
+        app:itemIconTint="@drawable/selector_bottombar_item"
+        app:itemTextColor="@drawable/selector_bottombar_item"
+        android:visibility="gone"/>
+
 </RelativeLayout>

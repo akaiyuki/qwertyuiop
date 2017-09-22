@@ -25,7 +25,9 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/white"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/white_rounded_edge"
                 android:orientation="vertical">
 
                 <TextView
@@ -102,7 +104,7 @@
                     android:id="@+id/txtreturndep"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
+                    android:layout_marginLeft="20dp"
                     android:text=""
                     android:textSize="@dimen/font_size_medium"
                     android:textColor="@color/colorBlackText"/>
@@ -113,7 +115,7 @@
                     android:id="@+id/txtreturndate"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
+                    android:layout_marginLeft="20dp"
                     android:text=""
                     android:textSize="@dimen/font_size_medium"
                     android:textColor="@color/colorBlackText"/>
@@ -218,7 +220,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:background="@color/white">
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/white_rounded_edge">
 
 
                 <ImageView

@@ -1,5 +1,6 @@
 package com.av.dev.pyurluxuryandroid.Core.api;
 
+import com.av.dev.pyurluxuryandroid.Core.ApiService.ApiServiceTransaction;
 import com.av.dev.pyurluxuryandroid.Core.ApiService.ApiServiceUser;
 import com.av.dev.pyurluxuryandroid.Core.ApiService.ApiServices;
 import com.av.dev.pyurluxuryandroid.Core.PConfiguration;
@@ -20,10 +21,12 @@ public class RestClient {
     // Api Service Classes String
     public static String loginApiResponse = "ApiResponseLogin.class";
     public static String serviceApiResponse = "ApiResponse.class";
+    public static String requestApiResponse = "ApiResponseRequest.class";
 
     // Api Selected Service
     private ApiServiceUser apiResponse;
     private ApiServices apiResponseService;
+    private ApiServiceTransaction apiServiceTransaction;
 
 
     /* initialize Rest Client Api */
@@ -54,6 +57,8 @@ public class RestClient {
         return apiResponseService;
     }
 
+    public ApiServiceTransaction getApiServiceTransaction(){ return apiServiceTransaction;}
+
 
     /* checker for which api response to use */
     private void getApiRestService(String apiServiceSelected){
@@ -61,6 +66,8 @@ public class RestClient {
             apiResponse = retrofit.create(ApiServiceUser.class);
         } else if (apiServiceSelected.equalsIgnoreCase(serviceApiResponse)){
             apiResponseService = retrofit.create(ApiServices.class);
+        } else if (apiServiceSelected.equalsIgnoreCase(requestApiResponse)){
+            apiServiceTransaction = retrofit.create(ApiServiceTransaction.class);
         }
     }
 

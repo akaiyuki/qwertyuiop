@@ -32,12 +32,19 @@ import com.av.dev.pyurluxuryandroid.R;
 
 import java.util.ArrayList;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
 
 
 public class MainActivity extends BaseActivity {
 
     public static MainActivity INSTANCE = null;
-    private BottomNavigationView bottomToolbar;
+
+    @BindView(R.id.navigationlifestyle)
+    BottomNavigationView bottomLifestyle;
+
+    @BindView(R.id.navigation)
+    BottomNavigationView bottomToolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,19 +53,24 @@ public class MainActivity extends BaseActivity {
 
         INSTANCE = this;
 
+        ButterKnife.bind(this);
+
         setFrameLayout(R.id.framelayout_main);
 
+        if (PSharedPreferences.getSomeStringValue(AppController.getInstance(), SharedPreferencesObject.userType)
+                .equalsIgnoreCase(String.valueOf(Enums.client))){
 
-        PEngine.switchFragment(INSTANCE, new ServicesFragment(), getFrameLayout());
+            bottomLifestyle.setVisibility(View.GONE);
+            bottomToolbar.setVisibility(View.VISIBLE);
+
+            PEngine.switchFragment(INSTANCE, new ServicesFragment(), getFrameLayout());
 
 
-
-        bottomToolbar = (BottomNavigationView) findViewById(R.id.navigation);
-        bottomToolbar.setOnNavigationItemSelectedListener(
-                new BottomNavigationView.OnNavigationItemSelectedListener() {
-                    @Override
-                    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                        //try
+            bottomToolbar.setOnNavigationItemSelectedListener(
+                    new BottomNavigationView.OnNavigationItemSelectedListener() {
+                        @Override
+                        public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                            //try
 //                        int position = item.getOrder();
 //
 //                        if (position == 0){
@@ -70,71 +82,77 @@ public class MainActivity extends BaseActivity {
 //                            item.setIcon(R.drawable.ic_account);
 //                        }
 
-                        Menu menu = bottomToolbar.getMenu();
+                            Menu menu = bottomToolbar.getMenu();
+
+                            switch (item.getItemId()) {
+                                case R.id.menu_service:
+                                    // TODO
+
+                                    menu.findItem(R.id.menu_request).setIcon(R.drawable.ic_request);
+                                    menu.findItem(R.id.menu_account).setIcon(R.drawable.ic_account);
 
 
-                        switch (item.getItemId()) {
-                            case R.id.menu_service:
-                                // TODO
+                                    item.setIcon(R.drawable.ic_home_click);
+                                    PEngine.switchFragment(INSTANCE, new ServicesFragment(), getFrameLayout());
+                                    return true;
+                                case R.id.menu_request:
+                                    // TODO
 
-                                menu.findItem(R.id.menu_request).setIcon(R.drawable.ic_request);
-                                menu.findItem(R.id.menu_account).setIcon(R.drawable.ic_account);
+                                    menu.findItem(R.id.menu_service).setIcon(R.drawable.ic_home);
+                                    menu.findItem(R.id.menu_account).setIcon(R.drawable.ic_account);
 
-
-                                item.setIcon(R.drawable.ic_home_click);
-                                PEngine.switchFragment(INSTANCE, new ServicesFragment(), getFrameLayout());
-                                return true;
-                            case R.id.menu_request:
-                                // TODO
-
-                                menu.findItem(R.id.menu_service).setIcon(R.drawable.ic_home);
-                                menu.findItem(R.id.menu_account).setIcon(R.drawable.ic_account);
-
-                                item.setIcon(R.drawable.ic_pyur_click);
-
-
-//
-
-                                if (PSharedPreferences.getSomeStringValue(AppController.getInstance(), SharedPreferencesObject.userType)
-                                        .equalsIgnoreCase(String.valueOf(Enums.client))){
+                                    item.setIcon(R.drawable.ic_pyur_click);
 
                                     PEngine.switchFragment(INSTANCE, new PyurRequestFragment(), getFrameLayout());
+                                    return true;
+                                case R.id.menu_account:
+                                    // TODO
+                                    menu.findItem(R.id.menu_service).setIcon(R.drawable.ic_home);
+                                    menu.findItem(R.id.menu_request).setIcon(R.drawable.ic_request);
 
-                                } else if (PSharedPreferences.getSomeStringValue(AppController.getInstance(), SharedPreferencesObject.userType)
-                                        .equalsIgnoreCase(String.valueOf(Enums.lifeStyleManager))){
-
-                                    PEngine.switchFragment(INSTANCE, new RequestLifestyleFragment(), getFrameLayout());
-
-                                }
-
-                                return true;
-                            case R.id.menu_account:
-                                // TODO
-                                menu.findItem(R.id.menu_service).setIcon(R.drawable.ic_home);
-                                menu.findItem(R.id.menu_request).setIcon(R.drawable.ic_request);
-
-                                item.setIcon(R.drawable.ic_account_click);
-
-
-
-                                if (PSharedPreferences.getSomeStringValue(AppController.getInstance(), SharedPreferencesObject.userType)
-                                        .equalsIgnoreCase(String.valueOf(Enums.client))){
-
+                                    item.setIcon(R.drawable.ic_account_click);
                                     PEngine.switchFragment(INSTANCE, new AccountFragment(), getFrameLayout());
 
-                                } else if (PSharedPreferences.getSomeStringValue(AppController.getInstance(), SharedPreferencesObject.userType)
-                                        .equalsIgnoreCase(String.valueOf(Enums.lifeStyleManager))){
-
-                                    PEngine.switchFragment(INSTANCE, new AccountLifestyleFragment(), getFrameLayout());
-
-                                }
-
-
-                                return true;
+                                    return true;
+                            }
+                            return false;
                         }
-                        return false;
-                    }
-                });
+                    });
+
+        } else if (PSharedPreferences.getSomeStringValue(AppController.getInstance(), SharedPreferencesObject.userType)
+                .equalsIgnoreCase(String.valueOf(Enums.lifeStyleManager))){
+
+            bottomToolbar.setVisibility(View.GONE);
+            bottomLifestyle.setVisibility(View.VISIBLE);
+
+            PEngine.switchFragment(INSTANCE, new RequestLifestyleFragment(), getFrameLayout());
+
+            bottomLifestyle.setOnNavigationItemSelectedListener(
+                    new BottomNavigationView.OnNavigationItemSelectedListener() {
+                        @Override
+                        public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                            Menu menu = bottomToolbar.getMenu();
+
+                            switch (item.getItemId()) {
+                                case R.id.menu_request:
+                                    // TODO
+
+                                    menu.findItem(R.id.menu_account).setIcon(R.drawable.ic_account);
+                                    item.setIcon(R.drawable.ic_pyur_click);
+                                    PEngine.switchFragment(INSTANCE, new RequestLifestyleFragment(), getFrameLayout());
+                                    return true;
+                                case R.id.menu_account:
+                                    // TODO
+                                    menu.findItem(R.id.menu_request).setIcon(R.drawable.ic_request);
+                                    item.setIcon(R.drawable.ic_account_click);
+                                    PEngine.switchFragment(INSTANCE, new AccountLifestyleFragment(), getFrameLayout());
+                                    return true;
+                            }
+                            return false;
+                        }
+                    });
+
+        }
 
     }
 

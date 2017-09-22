@@ -20,5 +20,14 @@ public class Enums {
     /* service */
     public static String serviceTicketing = "Ticketing Service";
     public static String serviceTransport = "Transport Service";
+    public static String serviceHotel = "Hotel Booking";
+    public static String serviceRestaurant = "Restaurant Booking";
+    public static String serviceBespoke = "BeSpoke Service";
+    public static String serviceFlight = "Flight Booking";
+
+    /* request status */
+    public static String requestPending = "2";
+    public static String requestCompleted = "1";
+
 
 }

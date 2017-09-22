@@ -110,6 +110,7 @@ public class ServicesFragment extends Fragment {
         if (position == 0){
             Intent intent = new Intent(getActivity(), HotelBookingActivity.class);
             intent.putExtra("goto", "hotel");
+            intent.putExtra("lastscreen","service");
             startActivity(intent);
         } else if (position == 1){
             Intent intent = new Intent(getActivity(), HotelBookingActivity.class);

@@ -27,7 +27,8 @@ public class Enums {
 
     /* request status */
     public static String requestPending = "2";
-    public static String requestCompleted = "1";
+    public static String requestDisapproved = "1";
+    public static String requestCompleted = "0";
 
 
 }

@@ -10,6 +10,9 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.av.dev.pyurluxuryandroid.Core.Enums;
+import com.av.dev.pyurluxuryandroid.Core.PEngine;
+import com.av.dev.pyurluxuryandroid.Core.object.ApiClientDetailsObject;
 import com.av.dev.pyurluxuryandroid.R;
 import com.av.dev.pyurluxuryandroid.View.CircleTransform;
 import com.av.dev.pyurluxuryandroid.View.Fonts;
@@ -21,14 +24,14 @@ import java.util.ArrayList;
  * Created by CodeSyaona on 18/09/2017.
  */
 
-public class ActiveAdapter extends ArrayAdapter<String> {
+public class ActiveAdapter extends ArrayAdapter<ApiClientDetailsObject> {
 
     Context mContext;
-    ArrayList<String> mData = new ArrayList<>();
+    ArrayList<ApiClientDetailsObject> mData = new ArrayList<>();
     int mResId;
     int column;
 
-    public ActiveAdapter(Context context, int resource, ArrayList<String> data) {
+    public ActiveAdapter(Context context, int resource, ArrayList<ApiClientDetailsObject> data) {
         super(context, resource, data);
         this.mContext = context;
         this.mResId = resource;
@@ -47,9 +50,11 @@ public class ActiveAdapter extends ArrayAdapter<String> {
             holder = new ViewHolder();
 
             holder.txtname = (TextView) convertView.findViewById(R.id.name);
-            holder.txtbooking = (TextView) convertView.findViewById(R.id.booking);
-            holder.imgprofile = (ImageView) convertView.findViewById(R.id.profilepic);
-            holder.txtDetails = convertView.findViewById(R.id.details);
+            holder.txtrequest = (TextView) convertView.findViewById(R.id.request);
+            holder.txttime = (TextView) convertView.findViewById(R.id.time);
+            holder.imgprofile = (ImageView) convertView.findViewById(R.id.img);
+            holder.imgcall = convertView.findViewById(R.id.imgcall);
+            holder.imgmessage = convertView.findViewById(R.id.imgmessage);
 
             convertView.setTag(holder);
         } else {
@@ -69,33 +74,62 @@ public class ActiveAdapter extends ArrayAdapter<String> {
 //            e.printStackTrace();
 //        }
 
+        ApiClientDetailsObject row = mData.get(position);
 
-        holder.txtname.setText(mData.get(position));
+        holder.txtname.setText(row.getClientFirstName()+" "+row.getClientLastName());
+        holder.txtname.setTypeface(Fonts.latoBold);
 
         Picasso.with(getContext())
-                .load(R.drawable.hotel_booking_bg)
+                .load(R.drawable.bg)
                 .transform(new CircleTransform())
                 .into(holder.imgprofile);
 
-        holder.txtbooking.setText("Flight Booking");
-        Drawable img = getContext().getResources().getDrawable( R.drawable.ic_flight_booking );
-        img.setBounds( 0, 0, 60, 60 );
-        holder.txtbooking.setCompoundDrawables( img, null, null, null );
+        holder.txtrequest.setText(row.getServiceCategory());
+        holder.txtrequest.setTypeface(Fonts.latoRegular);
 
-        holder.txtname.setTypeface(Fonts.latoRegular);
-        holder.txtbooking.setTypeface(Fonts.latoRegular);
-        holder.txtDetails.setTypeface(Fonts.latoItalic);
 
-        //trial
-        holder.txtDetails.setText("\"Lorem ipsum dolor sit amet\"");
+        if (row.getServiceCategory().equalsIgnoreCase(Enums.serviceHotel)){
+            Drawable img = getContext().getResources().getDrawable( R.drawable.ic_hotel );
+            img.setBounds( 0, 0, 60, 60 );
+            holder.txtrequest.setCompoundDrawables( img, null, null, null );
+        } else if (row.getServiceCategory().equalsIgnoreCase(Enums.serviceRestaurant)){
+            Drawable img = getContext().getResources().getDrawable( R.drawable.ic_restaurant );
+            img.setBounds( 0, 0, 60, 60 );
+            holder.txtrequest.setCompoundDrawables( img, null, null, null );
+        } else if (row.getServiceCategory().equalsIgnoreCase(Enums.serviceFlight)){
+            Drawable img = getContext().getResources().getDrawable( R.drawable.ic_flight_booking );
+            img.setBounds( 0, 0, 60, 60 );
+            holder.txtrequest.setCompoundDrawables( img, null, null, null );
+        } else if (row.getServiceCategory().equalsIgnoreCase(Enums.serviceTransport)){
+            Drawable img = getContext().getResources().getDrawable( R.drawable.ic_transport );
+            img.setBounds( 0, 0, 60, 60 );
+            holder.txtrequest.setCompoundDrawables( img, null, null, null );
+        } else if (row.getServiceCategory().equalsIgnoreCase(Enums.serviceTicketing)){
+            Drawable img = getContext().getResources().getDrawable( R.drawable.ic_ticketing );
+            img.setBounds( 0, 0, 60, 60 );
+            holder.txtrequest.setCompoundDrawables( img, null, null, null );
+        } else if (row.getServiceCategory().equalsIgnoreCase(Enums.serviceBespoke)){
+            Drawable img = getContext().getResources().getDrawable( R.drawable.ic_bespoke );
+            img.setBounds( 0, 0, 60, 60 );
+            holder.txtrequest.setCompoundDrawables( img, null, null, null );
+        }
+
+
+//        holder.txttime.setText(PEngine.formatUTCtoGMT8(mData.get(position).getDateAdded()));
+        holder.txttime.setTypeface(Fonts.latoRegular);
+        holder.txttime.setText(PEngine.formatTimeStamp(row.getDateAdded()));
+
+
 
         return convertView;
     }
 
     class ViewHolder {
         TextView txtname;
-        TextView txtbooking;
-        TextView txtDetails;
+        TextView txtrequest;
+        TextView txttime;
         ImageView imgprofile;
+        ImageView imgcall;
+        ImageView imgmessage;
     }
 }

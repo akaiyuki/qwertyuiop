@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/colorWhiteBackground">
+    android:background="@drawable/rounded_top_white">
 
     <ImageView
         android:id="@+id/img"
@@ -21,7 +21,7 @@
         android:layout_marginLeft="20dp"
         android:layout_marginTop="20dp"
         android:layout_toRightOf="@+id/img"
-        android:text="John Stephenson"
+        android:text=""
         android:textSize="@dimen/font_size_medium"
         android:layout_below="@+id/app_bar"
         android:textStyle="bold"/>
@@ -48,7 +48,7 @@
         android:layout_alignParentRight="true"
         android:layout_marginRight="15dp"
         android:layout_marginTop="20dp"
-        android:text="8:00 AM"
+        android:text=""
         android:textSize="@dimen/font_size_small"
         android:layout_below="@+id/app_bar"/>
 

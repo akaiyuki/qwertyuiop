@@ -121,6 +121,7 @@ public class PendingRequestAdapter extends ArrayAdapter<ApiResponseRequest> {
 
 //        holder.txttime.setText(PEngine.formatUTCtoGMT8(mData.get(position).getDateAdded()));
         holder.txttime.setTypeface(Fonts.latoRegular);
+        holder.txttime.setText(PEngine.formatTimeStamp(row.getDateAdded()));
 
         return convertView;
     }

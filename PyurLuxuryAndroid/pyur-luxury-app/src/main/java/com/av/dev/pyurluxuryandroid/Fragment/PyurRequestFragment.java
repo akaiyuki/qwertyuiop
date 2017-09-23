@@ -332,7 +332,8 @@ public class PyurRequestFragment extends Fragment {
         showLoading();
 
         RestClient restClient = new RestClient(RestClient.requestApiResponse);
-        Call<ApiResponseTransaction> call = restClient.getApiServiceTransaction().getTransactions(PSharedPreferences.getSomeStringValue(AppController.getInstance(), SharedPreferencesObject.userToken));
+        Call<ApiResponseTransaction> call = restClient.getApiServiceTransaction().getTransactions(PSharedPreferences.getSomeStringValue(AppController.getInstance(), SharedPreferencesObject.userToken),
+                "0");
         call.enqueue(new Callback<ApiResponseTransaction>() {
             @Override
             public void onResponse(Call<ApiResponseTransaction> call, Response<ApiResponseTransaction> response) {

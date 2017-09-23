@@ -6,21 +6,39 @@ import android.support.v4.app.Fragment;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.av.dev.pyurluxuryandroid.Adapter.ActiveAdapter;
+import com.av.dev.pyurluxuryandroid.Adapter.PendingRequestAdapter;
+import com.av.dev.pyurluxuryandroid.Core.ApiResponse.ApiResponseTransaction;
+import com.av.dev.pyurluxuryandroid.Core.AppController;
 import com.av.dev.pyurluxuryandroid.Core.BaseActivity;
+import com.av.dev.pyurluxuryandroid.Core.Enums;
+import com.av.dev.pyurluxuryandroid.Core.PEngine;
+import com.av.dev.pyurluxuryandroid.Core.PSharedPreferences;
+import com.av.dev.pyurluxuryandroid.Core.api.RestClient;
+import com.av.dev.pyurluxuryandroid.Core.object.ApiClientDetailsObject;
+import com.av.dev.pyurluxuryandroid.Core.object.ApiResponseClientRequestObject;
+import com.av.dev.pyurluxuryandroid.Core.object.SharedPreferencesObject;
+import com.av.dev.pyurluxuryandroid.Fragment.LifestyleManager.request.PagerHotelActiveFragment;
 import com.av.dev.pyurluxuryandroid.R;
 import com.av.dev.pyurluxuryandroid.View.SlidingTabLayout;
+import com.skydoves.medal.MedalAnimation;
 
 import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -36,6 +54,16 @@ public class RequestLifestyleFragment extends Fragment {
     private SlidingTabLayout mSlidingTabLayout;
     private int mLastPage = 0;
     private ListView mListViewPager;
+
+    private ArrayList<ApiClientDetailsObject> mArrayList = new ArrayList<>();
+    private ActiveAdapter mAdapterActive;
+    private ActiveAdapter mAdapterCompleted;
+    private ArrayList<ApiClientDetailsObject> mArrayActive = new ArrayList<>();
+    private ArrayList<ApiClientDetailsObject> mArrayCompleted = new ArrayList<>();
+
+
+    @BindView(R.id.loading)
+    RelativeLayout loading;
 
     public RequestLifestyleFragment() {
         // Required empty public constructor
@@ -59,8 +87,33 @@ public class RequestLifestyleFragment extends Fragment {
         TextView mTxtTitle = toolbar.findViewById(R.id.txt_title);
         mTxtTitle.setText("CLIENT REQUESTS");
 
+        //initialize loading
+        MedalAnimation medalAnimation = new MedalAnimation.Builder()
+                .setSpeed(4200)
+                .setTurn(4)
+                .build();
+        medalAnimation.startAnimation(view.findViewById(R.id.badge));
+
+        hideLoading();
+
+
+        requestApiGetRequests();
+
+
         return view;
     }
+
+    private void showLoading(){
+
+        loading.setVisibility(View.VISIBLE);
+
+    }
+
+    private void hideLoading(){
+        loading.setVisibility(View.GONE);
+
+    }
+
 
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
@@ -70,12 +123,12 @@ public class RequestLifestyleFragment extends Fragment {
         mPageAdapter = new SectionsPagerAdapter();
         mViewPager.setAdapter(mPageAdapter);
 
-        mViewPager.setCurrentItem(0);
+        mViewPager.setCurrentItem(1);
 
         mSlidingTabLayout = (SlidingTabLayout) view.findViewById(R.id.sliding_tabs);
         mSlidingTabLayout.setRowCount(2);
         mSlidingTabLayout.setViewPager(mViewPager);
-//        mSlidingTabLayout.setOnPageChangeListener(pageListener);
+        mSlidingTabLayout.setOnPageChangeListener(pageListener);
 
 
         // END_INCLUDE (setup_slidingtablayout)
@@ -136,33 +189,72 @@ public class RequestLifestyleFragment extends Fragment {
             ((ViewPager) container).addView(view, 0);
 
             if (position == 0){
-                ListView listView = view.findViewById(R.id.listview);
+                mListViewPager = view.findViewById(R.id.listview);
 
-                ArrayList<String> list = new ArrayList<String>();
+//                ArrayList<String> list = new ArrayList<String>();
+//
+//                list.add("Ashley Graham");
+//                list.add("Luke Andrews");
+//                list.add("Diane Yap");
+//
+//
+//                ActiveAdapter mAdapter = new ActiveAdapter(getActivity(), R.layout.custom_active, list);
+//                mAdapter.notifyDataSetChanged();
+//
+//                mListViewPager.setAdapter(mAdapter);
 
-                list.add("Ashley Graham");
-                list.add("Luke Andrews");
-                list.add("Diane Yap");
+                mAdapterActive = new ActiveAdapter(getActivity(), R.layout.custom_active, mArrayActive);
+                mAdapterActive.notifyDataSetChanged();
+
+                mListViewPager.setAdapter(mAdapterActive);
+
+                mListViewPager.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(AdapterView<?> adapterView, View view, int pos, long l) {
+//                        PEngine.switchFragment((BaseActivity) getActivity(), new PagerCompletedFragment(), ((BaseActivity)getActivity()).getFrameLayout());
+
+                        ApiClientDetailsObject requestObject = (ApiClientDetailsObject) mListViewPager.getAdapter().getItem(pos);
+
+                        if (requestObject.getServiceCategory().equalsIgnoreCase(Enums.serviceHotel)){
+                            PEngine.switchFragment((BaseActivity) getActivity(), new PagerHotelActiveFragment(), ((BaseActivity)getActivity()).getFrameLayout());
+                        }
+
+                    }
+                });
 
 
-                ActiveAdapter mAdapter = new ActiveAdapter(getActivity(), R.layout.custom_active, list);
-                mAdapter.notifyDataSetChanged();
-
-                listView.setAdapter(mAdapter);
             } else if (position == 1){
-                ListView listView = view.findViewById(R.id.listview);
+                mListViewPager = view.findViewById(R.id.listview);
 
-                ArrayList<String> list = new ArrayList<String>();
+//                ArrayList<String> list = new ArrayList<String>();
+//
+//                list.add("Ashley Graham");
+//                list.add("Luke Andrews");
+//                list.add("Diane Yap");
+//
+//
+//                ActiveAdapter mAdapter = new ActiveAdapter(getActivity(), R.layout.custom_active, list);
+//                mAdapter.notifyDataSetChanged();
+//
+//                mListViewPager.setAdapter(mAdapter);
 
-                list.add("Ashley Graham");
-                list.add("Luke Andrews");
-                list.add("Diane Yap");
+                mAdapterCompleted = new ActiveAdapter(getActivity(), R.layout.custom_active, mArrayCompleted);
+                mAdapterCompleted.notifyDataSetChanged();
+
+                mListViewPager.setAdapter(mAdapterCompleted);
+
+                mListViewPager.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(AdapterView<?> adapterView, View view, int pos, long l) {
+//                        PEngine.switchFragment((BaseActivity) getActivity(), new PagerCompletedFragment(), ((BaseActivity)getActivity()).getFrameLayout());
+
+//                        PEngine.switchFragment((BaseActivity) getActivity(), new PagerCompletedFragment(), ((BaseActivity)getActivity()).getFrameLayout());
+
+                    }
+                });
 
 
-                ActiveAdapter mAdapter = new ActiveAdapter(getActivity(), R.layout.custom_active, list);
-                mAdapter.notifyDataSetChanged();
 
-                listView.setAdapter(mAdapter);
             }
 
 
@@ -179,5 +271,103 @@ public class RequestLifestyleFragment extends Fragment {
             container.removeView((View) object);
         }
     }
+
+    private void requestApiGetRequests(){
+
+        showLoading();
+        RestClient restClient = new RestClient(RestClient.requestApiResponse);
+        Call<ApiResponseClientRequestObject> call = restClient.getApiServiceTransaction().getClientTransaction(PSharedPreferences.getSomeStringValue(AppController.getInstance(),SharedPreferencesObject.userToken),
+                "1");
+        call.enqueue(new Callback<ApiResponseClientRequestObject>() {
+            @Override
+            public void onResponse(Call<ApiResponseClientRequestObject> call, Response<ApiResponseClientRequestObject> response) {
+                hideLoading();
+                if (response.isSuccessful()){
+                    Log.d("api response",response.body().getMsg());
+
+                    mArrayList.addAll(response.body().getData());
+
+                    Log.d("api response", String.valueOf(mArrayList.size()) + " " + response.body().getMsg());
+
+                    mArrayActive.clear();
+                    mArrayCompleted.clear();
+
+                    ArrayList<ApiClientDetailsObject> pending = response.body().getData();
+
+                    for (int i = 0; i < pending.size(); i++){
+                        ApiClientDetailsObject requestPending = pending.get(i);
+                        if (requestPending.getRequestStatus().equalsIgnoreCase(Enums.requestPending)){
+                            mArrayActive.add(requestPending);
+                        } else if (requestPending.getRequestStatus().equalsIgnoreCase(Enums.requestCompleted)){
+                            mArrayCompleted.add(requestPending);
+                        }
+                    }
+
+
+                    mAdapterActive = new ActiveAdapter(getActivity(), R.layout.custom_active, mArrayActive);
+
+                    mAdapterActive.notifyDataSetChanged();
+
+                    mListViewPager.setAdapter(mAdapterActive);
+
+                    mViewPager.setCurrentItem(0);
+
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ApiResponseClientRequestObject> call, Throwable t) {
+                hideLoading();
+            }
+        });
+    }
+
+    ViewPager.OnPageChangeListener pageListener =  new ViewPager.OnPageChangeListener() {
+        @Override
+        public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+        }
+
+        @Override
+        public void onPageSelected(int position) {
+
+            if (position == 0){
+                mAdapterActive = new ActiveAdapter(getActivity(), R.layout.custom_active, mArrayActive);
+                mAdapterActive.notifyDataSetChanged();
+                mListViewPager.setAdapter(mAdapterActive);
+                mListViewPager.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+
+                        ApiClientDetailsObject requestObject = (ApiClientDetailsObject) mListViewPager.getAdapter().getItem(i);
+                        Log.d("selected list", requestObject.getServiceCategory());
+
+                        if (requestObject.getServiceCategory().equalsIgnoreCase(Enums.serviceHotel)){
+                            PEngine.switchFragment((BaseActivity) getActivity(), new PagerHotelActiveFragment(), ((BaseActivity)getActivity()).getFrameLayout());
+                        }
+
+                    }
+                });
+            } else if (position == 1){
+                mAdapterCompleted = new ActiveAdapter(getActivity(), R.layout.custom_active, mArrayCompleted);
+                mAdapterCompleted.notifyDataSetChanged();
+                mListViewPager.setAdapter(mAdapterCompleted);
+                mListViewPager.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(AdapterView<?> adapterView, View view, int pos, long l) {
+//                        PEngine.switchFragment((BaseActivity) getActivity(), new PagerCompletedFragment(), ((BaseActivity)getActivity()).getFrameLayout());
+
+
+                    }
+                });
+            }
+
+
+        }
+        @Override
+        public void onPageScrollStateChanged(int state) {
+
+        }
+    };
 
 }

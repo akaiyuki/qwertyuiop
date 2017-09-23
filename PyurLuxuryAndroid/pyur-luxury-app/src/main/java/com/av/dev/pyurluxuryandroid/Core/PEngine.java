@@ -78,7 +78,7 @@ public class PEngine {
         } catch (ParseException e) {
             e.printStackTrace();
         }
-        SimpleDateFormat dateFormatter = new SimpleDateFormat("dd MMMM yyyy, EEE, hh:mm a");
+        SimpleDateFormat dateFormatter = new SimpleDateFormat("hh:mm a");
         //dateFormatter.setTimeZone(TimeZone.getDefault());
 
         dateFormatter.setTimeZone(TimeZone.getTimeZone(TimeZone.getDefault().getDisplayName(false, TimeZone.SHORT)));

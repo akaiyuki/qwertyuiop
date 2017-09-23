@@ -1,6 +1,7 @@
 package com.av.dev.pyurluxuryandroid.Fragment.LifestyleManager;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.PagerAdapter;
@@ -8,11 +9,14 @@ import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.av.dev.pyurluxuryandroid.Activity.LoginActivity;
 import com.av.dev.pyurluxuryandroid.Adapter.LifestyleAccountAdapter;
+import com.av.dev.pyurluxuryandroid.Core.PSharedPreferences;
 import com.av.dev.pyurluxuryandroid.R;
 import com.av.dev.pyurluxuryandroid.View.Fonts;
 import com.av.dev.pyurluxuryandroid.View.SlidingTabLayout;
@@ -21,6 +25,7 @@ import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -53,6 +58,9 @@ public class AccountLifestyleFragment extends Fragment {
     TextView cancelled;
     @BindView(R.id.txtcancelled)
     TextView txtcancelled;
+//    @BindView(R.id.logout)
+//    Button logout;
+
 
 
     public AccountLifestyleFragment() {
@@ -72,6 +80,13 @@ public class AccountLifestyleFragment extends Fragment {
 
         return view;
     }
+
+//    @OnClick(R.id.logout)
+//    public void onClickLogout(){
+//        PSharedPreferences.clearAllPreferences();
+//        startActivity(new Intent(getActivity(), LoginActivity.class));
+//        getActivity().finish();
+//    }
 
     private void changeFont(){
         name.setTypeface(Fonts.latoRegular);
@@ -170,6 +185,7 @@ public class AccountLifestyleFragment extends Fragment {
                 TextView email = view.findViewById(R.id.email);
                 TextView txtemail = view.findViewById(R.id.txtemail);
                 TextView password = view.findViewById(R.id.password);
+                Button btnLogout = view.findViewById(R.id.logout);
 
                 //change font
                 name.setTypeface(Fonts.latoRegular);
@@ -183,6 +199,15 @@ public class AccountLifestyleFragment extends Fragment {
                 email.setTypeface(Fonts.latoRegular);
                 txtemail.setTypeface(Fonts.latoRegular);
                 password.setTypeface(Fonts.latoRegular);
+
+                btnLogout.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        PSharedPreferences.clearAllPreferences();
+                        startActivity(new Intent(getActivity(), LoginActivity.class));
+                        getActivity().finish();
+                    }
+                });
 
             } else if (position == 1){
 

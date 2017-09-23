@@ -57,6 +57,8 @@ public class PyurRequestFragment extends Fragment {
     private SlidingTabLayout mSlidingTabLayout;
     private int mLastPage = 0;
     private ListView mListViewPager;
+    private ListView listviewPending;
+    private ListView listviewCompleted;
     private ArrayList<ApiResponseRequest> mArrayList = new ArrayList<>();
     private PendingRequestAdapter mAdapterPending;
     private PendingRequestAdapter mAdapterCompleted;
@@ -194,7 +196,7 @@ public class PyurRequestFragment extends Fragment {
 
             if (position == 0) {
 
-//                mListViewPager = view.findViewById(R.id.listview);
+                listviewPending = view.findViewById(R.id.listview);
 
 //                requestApiRequest();
 
@@ -203,16 +205,16 @@ public class PyurRequestFragment extends Fragment {
                 mAdapterPending = new PendingRequestAdapter(getActivity(), R.layout.custom_pending_list, mArrayPending);
                 mAdapterPending.notifyDataSetChanged();
 
-                mListViewPager.setAdapter(mAdapterPending);
+                listviewPending.setAdapter(mAdapterPending);
 
-                mListViewPager.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                listviewPending.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                     @Override
                     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 
-                        String selected = String.valueOf(mListViewPager.getAdapter().getItem(i));
+//                        String selected = String.valueOf(mListViewPager.getAdapter().getItem(i));
 
-                        ApiResponseRequest requestObject = (ApiResponseRequest) mListViewPager.getAdapter().getItem(i);
-                        Log.d("selected list", requestObject.getServiceCategory());
+                        ApiResponseRequest requestObject = (ApiResponseRequest) adapterView.getAdapter().getItem(i);
+                        Log.d("selected list", requestObject.getId());
 
                         PSingleton.setSelectedManager(requestObject.getId());
                         PSingleton.setRequestTime(requestObject.getDateAdded());
@@ -232,20 +234,20 @@ public class PyurRequestFragment extends Fragment {
 
             } else if (position == 1){
 
-//                mListViewPager = view.findViewById(R.id.listview);
+                listviewCompleted = view.findViewById(R.id.listview);
 
 
                 mAdapterCompleted = new PendingRequestAdapter(getActivity(), R.layout.custom_pending_list, mArrayCompleted);
                 mAdapterCompleted.notifyDataSetChanged();
 
-                mListViewPager.setAdapter(mAdapterCompleted);
+                listviewCompleted.setAdapter(mAdapterCompleted);
 
-                mListViewPager.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                listviewCompleted.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                     @Override
                     public void onItemClick(AdapterView<?> adapterView, View view, int pos, long l) {
 //                        PEngine.switchFragment((BaseActivity) getActivity(), new PagerCompletedFragment(), ((BaseActivity)getActivity()).getFrameLayout());
 
-                        PEngine.switchFragment((BaseActivity) getActivity(), new PagerCompletedFragment(), ((BaseActivity)getActivity()).getFrameLayout());
+//                        PEngine.switchFragment((BaseActivity) getActivity(), new PagerCompletedFragment(), ((BaseActivity)getActivity()).getFrameLayout());
 
                     }
                 });
@@ -383,7 +385,7 @@ public class PyurRequestFragment extends Fragment {
 
                     mAdapterPending.notifyDataSetChanged();
 
-                    mListViewPager.setAdapter(mAdapterPending);
+                    listviewPending.setAdapter(mAdapterPending);
 
 
 //                    mListViewPager.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -398,8 +400,8 @@ public class PyurRequestFragment extends Fragment {
 //                        }
 //                    });
 
-                    mAdapterCompleted = new PendingRequestAdapter(getActivity(), R.layout.custom_pending_list, mArrayCompleted);
-                    mAdapterCompleted.notifyDataSetChanged();
+//                    mAdapterCompleted = new PendingRequestAdapter(getActivity(), R.layout.custom_pending_list, mArrayCompleted);
+//                    mAdapterCompleted.notifyDataSetChanged();
 
 
                     mPageAdapter = new SectionsPagerAdapter();
@@ -435,12 +437,12 @@ public class PyurRequestFragment extends Fragment {
             if (position == 0){
                 mAdapterPending = new PendingRequestAdapter(getActivity(), R.layout.custom_pending_list, mArrayPending);
                 mAdapterPending.notifyDataSetChanged();
-                mListViewPager.setAdapter(mAdapterPending);
-                mListViewPager.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                listviewPending.setAdapter(mAdapterPending);
+                listviewPending.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                     @Override
                     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 
-                        ApiResponseRequest requestObject = (ApiResponseRequest) mListViewPager.getAdapter().getItem(i);
+                        ApiResponseRequest requestObject = (ApiResponseRequest) adapterView.getAdapter().getItem(i);
                         Log.d("selected list", requestObject.getServiceCategory());
 
                         PSingleton.setSelectedManager(requestObject.getId());
@@ -461,13 +463,13 @@ public class PyurRequestFragment extends Fragment {
             } else if (position == 1){
                 mAdapterCompleted = new PendingRequestAdapter(getActivity(), R.layout.custom_pending_list, mArrayCompleted);
                 mAdapterCompleted.notifyDataSetChanged();
-                mListViewPager.setAdapter(mAdapterCompleted);
-                mListViewPager.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                listviewCompleted.setAdapter(mAdapterCompleted);
+                listviewCompleted.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                     @Override
                     public void onItemClick(AdapterView<?> adapterView, View view, int pos, long l) {
 //                        PEngine.switchFragment((BaseActivity) getActivity(), new PagerCompletedFragment(), ((BaseActivity)getActivity()).getFrameLayout());
 
-                        PEngine.switchFragment((BaseActivity) getActivity(), new PagerCompletedFragment(), ((BaseActivity)getActivity()).getFrameLayout());
+//                        PEngine.switchFragment((BaseActivity) getActivity(), new PagerCompletedFragment(), ((BaseActivity)getActivity()).getFrameLayout());
 
                     }
                 });

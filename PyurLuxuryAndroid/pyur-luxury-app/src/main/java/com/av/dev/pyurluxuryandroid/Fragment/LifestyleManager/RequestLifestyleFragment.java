@@ -205,7 +205,7 @@ public class RequestLifestyleFragment extends Fragment {
                     @Override
                     public void onItemClick(AdapterView<?> adapterView, View view, int pos, long l) {
 
-                        ApiClientDetailsObject requestObject = (ApiClientDetailsObject) mListViewPager.getAdapter().getItem(pos);
+                        ApiClientDetailsObject requestObject = (ApiClientDetailsObject) adapterView.getAdapter().getItem(pos);
 
                         PSingleton.setSelectedManager(requestObject.getId());
                         PSingleton.setRequestTime(requestObject.getDateAdded());
@@ -290,8 +290,8 @@ public class RequestLifestyleFragment extends Fragment {
                     mListViewPager.setAdapter(mAdapterActive);
 
 
-                    mAdapterCompleted = new ActiveAdapter(getActivity(), R.layout.custom_active, mArrayCompleted);
-                    mAdapterCompleted.notifyDataSetChanged();
+//                    mAdapterCompleted = new ActiveAdapter(getActivity(), R.layout.custom_active, mArrayCompleted);
+//                    mAdapterCompleted.notifyDataSetChanged();
 
 
                     mPageAdapter = new SectionsPagerAdapter();
@@ -309,51 +309,6 @@ public class RequestLifestyleFragment extends Fragment {
         });
     }
 
-    private void requestApiGetRequestCompleted(){
-        showLoading();
-        RestClient restClient = new RestClient(RestClient.requestApiResponse);
-        Call<ApiResponseClientRequestObject> call = restClient.getApiServiceTransaction().getClientTransaction(PSharedPreferences.getSomeStringValue(AppController.getInstance(),SharedPreferencesObject.userToken),
-                "1");
-        call.enqueue(new Callback<ApiResponseClientRequestObject>() {
-            @Override
-            public void onResponse(Call<ApiResponseClientRequestObject> call, Response<ApiResponseClientRequestObject> response) {
-                hideLoading();
-                if (response.isSuccessful()){
-                    Log.d("api response",response.body().getMsg());
-
-                    mArrayList.addAll(response.body().getData());
-
-                    Log.d("api response", String.valueOf(mArrayList.size()) + " " + response.body().getMsg());
-
-                    mArrayActive.clear();
-                    mArrayCompleted.clear();
-
-                    ArrayList<ApiClientDetailsObject> pending = response.body().getData();
-
-                    for (int i = 0; i < pending.size(); i++){
-                        ApiClientDetailsObject requestPending = pending.get(i);
-                        if (requestPending.getRequestStatus().equalsIgnoreCase(Enums.requestPending)){
-                            mArrayActive.add(requestPending);
-                        } else if (requestPending.getRequestStatus().equalsIgnoreCase(Enums.requestCompleted)){
-                            mArrayCompleted.add(requestPending);
-                        }
-                    }
-
-
-                    mAdapterCompleted = new ActiveAdapter(getActivity(), R.layout.custom_active, mArrayCompleted);
-                    mAdapterCompleted.notifyDataSetChanged();
-                    mListViewPager.setAdapter(mAdapterCompleted);
-
-                    mViewPager.setCurrentItem(1);
-                }
-            }
-
-            @Override
-            public void onFailure(Call<ApiResponseClientRequestObject> call, Throwable t) {
-                hideLoading();
-            }
-        });
-    }
 
     ViewPager.OnPageChangeListener pageListener =  new ViewPager.OnPageChangeListener() {
         @Override
@@ -372,7 +327,7 @@ public class RequestLifestyleFragment extends Fragment {
                     @Override
                     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 
-                        ApiClientDetailsObject requestObject = (ApiClientDetailsObject) mListViewPager.getAdapter().getItem(i);
+                        ApiClientDetailsObject requestObject = (ApiClientDetailsObject) adapterView.getAdapter().getItem(i);
                         Log.d("selected list", requestObject.getServiceCategory());
 
                         PSingleton.setSelectedManager(requestObject.getId());

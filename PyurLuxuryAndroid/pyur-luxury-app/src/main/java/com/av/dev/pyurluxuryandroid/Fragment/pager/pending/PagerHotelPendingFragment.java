@@ -169,6 +169,7 @@ public class PagerHotelPendingFragment extends Fragment {
         request.setCompoundDrawables( img, null, null, null );
 
         time.setTypeface(Fonts.latoRegular);
+        time.setText(PEngine.formatTimeStamp(PSingleton.getRequestTime()));
 
         btncancel.setTypeface(Fonts.latoRegular);
 

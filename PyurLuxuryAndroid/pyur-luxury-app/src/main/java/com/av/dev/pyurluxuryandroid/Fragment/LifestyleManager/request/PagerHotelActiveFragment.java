@@ -17,6 +17,7 @@ import android.widget.TextView;
 import com.av.dev.pyurluxuryandroid.Core.ApiResponse.ApiResponsePerTransaction;
 import com.av.dev.pyurluxuryandroid.Core.AppController;
 import com.av.dev.pyurluxuryandroid.Core.BaseActivity;
+import com.av.dev.pyurluxuryandroid.Core.PEngine;
 import com.av.dev.pyurluxuryandroid.Core.PSharedPreferences;
 import com.av.dev.pyurluxuryandroid.Core.PSingleton;
 import com.av.dev.pyurluxuryandroid.Core.api.RestClient;
@@ -164,6 +165,7 @@ public class PagerHotelActiveFragment extends Fragment {
         request.setCompoundDrawables( img, null, null, null );
 
         time.setTypeface(Fonts.latoRegular);
+        time.setText(PEngine.formatTimeStamp(PSingleton.getRequestTime()));
 
         btncompleted.setTypeface(Fonts.latoRegular);
 

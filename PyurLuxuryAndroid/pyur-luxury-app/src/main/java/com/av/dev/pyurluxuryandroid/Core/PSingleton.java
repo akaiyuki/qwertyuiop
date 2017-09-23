@@ -59,6 +59,15 @@ public class PSingleton {
 
     public static ApiResponseRequest selectedRequest;
     public static String selectedManager;
+    public static String requestTime;
+
+    public static String getRequestTime() {
+        return requestTime;
+    }
+
+    public static void setRequestTime(String requestTime) {
+        PSingleton.requestTime = requestTime;
+    }
 
     public static String getSelectedManager() {
         return selectedManager;

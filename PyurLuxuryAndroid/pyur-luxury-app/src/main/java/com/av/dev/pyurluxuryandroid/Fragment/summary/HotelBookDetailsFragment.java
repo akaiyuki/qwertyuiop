@@ -16,6 +16,7 @@ import android.widget.TextView;
 import com.av.dev.pyurluxuryandroid.Core.AppController;
 import com.av.dev.pyurluxuryandroid.Core.BaseActivity;
 import com.av.dev.pyurluxuryandroid.Core.PDialog;
+import com.av.dev.pyurluxuryandroid.Core.PEngine;
 import com.av.dev.pyurluxuryandroid.Core.PSharedPreferences;
 import com.av.dev.pyurluxuryandroid.Core.PSingleton;
 import com.av.dev.pyurluxuryandroid.Core.ApiResponse.ApiResponse;
@@ -116,13 +117,17 @@ public class HotelBookDetailsFragment extends Fragment {
     @OnClick(R.id.btnConfirm)
     public void onClick(){
 
-//        PEngine.switchFragment((BaseActivity) getActivity(), new RestaurantBookingDetailsFragment(), ((BaseActivity) getActivity()).getFrameLayout());
 
+        if (txtCity.getText().length() != 0 && txtHotelName.getText().length() != 0 &&
+                txtcheckin.getText().length() != 0 && txtCheckout.getText().length() != 0
+                && !PSingleton.getNumPax().equalsIgnoreCase("0")){
 
-
-        requestApiBookHotel(PSingleton.getCity(),PSingleton.getHotelName(),PSingleton.getCheckIn(),
-                PSingleton.getCheckOut(),PSingleton.getRoomType(),PSingleton.getNumRoom(),PSingleton.getNumPax(),
-                PSingleton.getNotes());
+            requestApiBookHotel(PSingleton.getCity(),PSingleton.getHotelName(),PSingleton.getCheckIn(),
+                    PSingleton.getCheckOut(),PSingleton.getRoomType(),PSingleton.getNumRoom(),PSingleton.getNumPax(),
+                    PSingleton.getNotes());
+        } else {
+            PDialog.showStatusPendingDialog((BaseActivity) getActivity(),"Please input necessary details","Error!");
+        }
 
 
 
@@ -164,8 +169,8 @@ public class HotelBookDetailsFragment extends Fragment {
     private void populateViews(){
         txtCity.setText(PSingleton.getCity());
         txtHotelName.setText(PSingleton.getHotelName());
-        txtcheckin.setText(PSingleton.getCheckIn());
-        txtCheckout.setText(PSingleton.getCheckOut());
+        txtcheckin.setText(PEngine.convertDateToString(PSingleton.getCheckIn()));
+        txtCheckout.setText(PEngine.convertDateToString(PSingleton.getCheckOut()));
 
         //hide time
         time.setText("Number of Rooms");

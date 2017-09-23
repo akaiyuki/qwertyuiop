@@ -88,4 +88,18 @@ public class PEngine {
 
         return result;
     }
+
+    public static String convertDateToString(String dateString){
+        SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
+        Date date = null;
+        try {
+            date = sdf.parse(dateString);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        sdf = new SimpleDateFormat("MMM dd, yyyy");
+        String formatDateString = sdf.format(date);
+
+        return formatDateString;
+    }
 }

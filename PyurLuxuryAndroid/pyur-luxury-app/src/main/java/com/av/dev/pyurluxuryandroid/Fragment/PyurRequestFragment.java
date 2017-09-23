@@ -211,6 +211,7 @@ public class PyurRequestFragment extends Fragment {
                         Log.d("selected list", requestObject.getServiceCategory());
 
                         PSingleton.setSelectedManager(requestObject.getId());
+                        PSingleton.setRequestTime(requestObject.getDateAdded());
 
                         if (requestObject.getServiceCategory().equalsIgnoreCase(Enums.serviceHotel)){
                             PEngine.switchFragment((BaseActivity) getActivity(), new PagerHotelPendingFragment(), ((BaseActivity)getActivity()).getFrameLayout());
@@ -431,6 +432,7 @@ public class PyurRequestFragment extends Fragment {
                         Log.d("selected list", requestObject.getServiceCategory());
 
                         PSingleton.setSelectedManager(requestObject.getId());
+                        PSingleton.setRequestTime(requestObject.getDateAdded());
 
                         if (requestObject.getServiceCategory().equalsIgnoreCase(Enums.serviceHotel)){
                             PEngine.switchFragment((BaseActivity) getActivity(), new PagerHotelPendingFragment(), ((BaseActivity)getActivity()).getFrameLayout());

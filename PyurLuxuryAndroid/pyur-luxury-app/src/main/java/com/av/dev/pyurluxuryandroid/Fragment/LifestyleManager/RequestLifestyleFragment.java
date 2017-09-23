@@ -23,6 +23,7 @@ import com.av.dev.pyurluxuryandroid.Core.BaseActivity;
 import com.av.dev.pyurluxuryandroid.Core.Enums;
 import com.av.dev.pyurluxuryandroid.Core.PEngine;
 import com.av.dev.pyurluxuryandroid.Core.PSharedPreferences;
+import com.av.dev.pyurluxuryandroid.Core.PSingleton;
 import com.av.dev.pyurluxuryandroid.Core.api.RestClient;
 import com.av.dev.pyurluxuryandroid.Core.object.ApiClientDetailsObject;
 import com.av.dev.pyurluxuryandroid.Core.object.ApiResponseClientRequestObject;
@@ -191,18 +192,6 @@ public class RequestLifestyleFragment extends Fragment {
             if (position == 0){
                 mListViewPager = view.findViewById(R.id.listview);
 
-//                ArrayList<String> list = new ArrayList<String>();
-//
-//                list.add("Ashley Graham");
-//                list.add("Luke Andrews");
-//                list.add("Diane Yap");
-//
-//
-//                ActiveAdapter mAdapter = new ActiveAdapter(getActivity(), R.layout.custom_active, list);
-//                mAdapter.notifyDataSetChanged();
-//
-//                mListViewPager.setAdapter(mAdapter);
-
                 mAdapterActive = new ActiveAdapter(getActivity(), R.layout.custom_active, mArrayActive);
                 mAdapterActive.notifyDataSetChanged();
 
@@ -211,9 +200,11 @@ public class RequestLifestyleFragment extends Fragment {
                 mListViewPager.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                     @Override
                     public void onItemClick(AdapterView<?> adapterView, View view, int pos, long l) {
-//                        PEngine.switchFragment((BaseActivity) getActivity(), new PagerCompletedFragment(), ((BaseActivity)getActivity()).getFrameLayout());
 
                         ApiClientDetailsObject requestObject = (ApiClientDetailsObject) mListViewPager.getAdapter().getItem(pos);
+
+                        PSingleton.setSelectedManager(requestObject.getId());
+                        PSingleton.setRequestTime(requestObject.getDateAdded());
 
                         if (requestObject.getServiceCategory().equalsIgnoreCase(Enums.serviceHotel)){
                             PEngine.switchFragment((BaseActivity) getActivity(), new PagerHotelActiveFragment(), ((BaseActivity)getActivity()).getFrameLayout());
@@ -226,21 +217,8 @@ public class RequestLifestyleFragment extends Fragment {
             } else if (position == 1){
                 mListViewPager = view.findViewById(R.id.listview);
 
-//                ArrayList<String> list = new ArrayList<String>();
-//
-//                list.add("Ashley Graham");
-//                list.add("Luke Andrews");
-//                list.add("Diane Yap");
-//
-//
-//                ActiveAdapter mAdapter = new ActiveAdapter(getActivity(), R.layout.custom_active, list);
-//                mAdapter.notifyDataSetChanged();
-//
-//                mListViewPager.setAdapter(mAdapter);
-
                 mAdapterCompleted = new ActiveAdapter(getActivity(), R.layout.custom_active, mArrayCompleted);
                 mAdapterCompleted.notifyDataSetChanged();
-
                 mListViewPager.setAdapter(mAdapterCompleted);
 
                 mListViewPager.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -252,11 +230,7 @@ public class RequestLifestyleFragment extends Fragment {
 
                     }
                 });
-
-
-
             }
-
 
             // Return the View
             return view;
@@ -341,6 +315,10 @@ public class RequestLifestyleFragment extends Fragment {
 
                         ApiClientDetailsObject requestObject = (ApiClientDetailsObject) mListViewPager.getAdapter().getItem(i);
                         Log.d("selected list", requestObject.getServiceCategory());
+
+                        PSingleton.setSelectedManager(requestObject.getId());
+                        PSingleton.setRequestTime(requestObject.getDateAdded());
+
 
                         if (requestObject.getServiceCategory().equalsIgnoreCase(Enums.serviceHotel)){
                             PEngine.switchFragment((BaseActivity) getActivity(), new PagerHotelActiveFragment(), ((BaseActivity)getActivity()).getFrameLayout());

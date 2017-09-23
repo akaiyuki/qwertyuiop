@@ -124,7 +124,7 @@ public class RequestLifestyleFragment extends Fragment {
         mPageAdapter = new SectionsPagerAdapter();
         mViewPager.setAdapter(mPageAdapter);
 
-        mViewPager.setCurrentItem(1);
+        mViewPager.setCurrentItem(0);
 
         mSlidingTabLayout = (SlidingTabLayout) view.findViewById(R.id.sliding_tabs);
         mSlidingTabLayout.setRowCount(2);
@@ -135,7 +135,7 @@ public class RequestLifestyleFragment extends Fragment {
         // END_INCLUDE (setup_slidingtablayout)
     }
 
-    private class SectionsPagerAdapter extends PagerAdapter {
+    class SectionsPagerAdapter extends PagerAdapter {
 
         /**
          * @return the number of pages to display
@@ -161,6 +161,10 @@ public class RequestLifestyleFragment extends Fragment {
             return tabTitleList[position];
         }
         // END_INCLUDE (pageradapter_getpagetitle)
+
+        public int getItemPosition(Object object) {
+            return POSITION_NONE;
+        }
 
         /**
          * Instantiate the {@link View} which should be displayed at {@code position}. Here we
@@ -205,6 +209,7 @@ public class RequestLifestyleFragment extends Fragment {
 
                         PSingleton.setSelectedManager(requestObject.getId());
                         PSingleton.setRequestTime(requestObject.getDateAdded());
+                        PSingleton.setSelectedClient(requestObject.getClientFirstName()+" "+requestObject.getClientLastName());
 
                         if (requestObject.getServiceCategory().equalsIgnoreCase(Enums.serviceHotel)){
                             PEngine.switchFragment((BaseActivity) getActivity(), new PagerHotelActiveFragment(), ((BaseActivity)getActivity()).getFrameLayout());
@@ -284,8 +289,62 @@ public class RequestLifestyleFragment extends Fragment {
 
                     mListViewPager.setAdapter(mAdapterActive);
 
+
+                    mAdapterCompleted = new ActiveAdapter(getActivity(), R.layout.custom_active, mArrayCompleted);
+                    mAdapterCompleted.notifyDataSetChanged();
+
+
+                    mPageAdapter = new SectionsPagerAdapter();
+                    mViewPager.setAdapter(mPageAdapter);
+
                     mViewPager.setCurrentItem(0);
 
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ApiResponseClientRequestObject> call, Throwable t) {
+                hideLoading();
+            }
+        });
+    }
+
+    private void requestApiGetRequestCompleted(){
+        showLoading();
+        RestClient restClient = new RestClient(RestClient.requestApiResponse);
+        Call<ApiResponseClientRequestObject> call = restClient.getApiServiceTransaction().getClientTransaction(PSharedPreferences.getSomeStringValue(AppController.getInstance(),SharedPreferencesObject.userToken),
+                "1");
+        call.enqueue(new Callback<ApiResponseClientRequestObject>() {
+            @Override
+            public void onResponse(Call<ApiResponseClientRequestObject> call, Response<ApiResponseClientRequestObject> response) {
+                hideLoading();
+                if (response.isSuccessful()){
+                    Log.d("api response",response.body().getMsg());
+
+                    mArrayList.addAll(response.body().getData());
+
+                    Log.d("api response", String.valueOf(mArrayList.size()) + " " + response.body().getMsg());
+
+                    mArrayActive.clear();
+                    mArrayCompleted.clear();
+
+                    ArrayList<ApiClientDetailsObject> pending = response.body().getData();
+
+                    for (int i = 0; i < pending.size(); i++){
+                        ApiClientDetailsObject requestPending = pending.get(i);
+                        if (requestPending.getRequestStatus().equalsIgnoreCase(Enums.requestPending)){
+                            mArrayActive.add(requestPending);
+                        } else if (requestPending.getRequestStatus().equalsIgnoreCase(Enums.requestCompleted)){
+                            mArrayCompleted.add(requestPending);
+                        }
+                    }
+
+
+                    mAdapterCompleted = new ActiveAdapter(getActivity(), R.layout.custom_active, mArrayCompleted);
+                    mAdapterCompleted.notifyDataSetChanged();
+                    mListViewPager.setAdapter(mAdapterCompleted);
+
+                    mViewPager.setCurrentItem(1);
                 }
             }
 
@@ -318,6 +377,7 @@ public class RequestLifestyleFragment extends Fragment {
 
                         PSingleton.setSelectedManager(requestObject.getId());
                         PSingleton.setRequestTime(requestObject.getDateAdded());
+                        PSingleton.setSelectedClient(requestObject.getClientFirstName()+" "+requestObject.getClientLastName());
 
 
                         if (requestObject.getServiceCategory().equalsIgnoreCase(Enums.serviceHotel)){
@@ -327,6 +387,8 @@ public class RequestLifestyleFragment extends Fragment {
                     }
                 });
             } else if (position == 1){
+//                requestApiGetRequestCompleted();
+//                Log.d("completed size", String.valueOf(mArrayCompleted.size()));
                 mAdapterCompleted = new ActiveAdapter(getActivity(), R.layout.custom_active, mArrayCompleted);
                 mAdapterCompleted.notifyDataSetChanged();
                 mListViewPager.setAdapter(mAdapterCompleted);

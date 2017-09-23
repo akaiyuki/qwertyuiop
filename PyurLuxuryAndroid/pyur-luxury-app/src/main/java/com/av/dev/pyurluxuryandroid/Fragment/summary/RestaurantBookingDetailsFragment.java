@@ -16,6 +16,7 @@ import android.widget.TextView;
 import com.av.dev.pyurluxuryandroid.Core.AppController;
 import com.av.dev.pyurluxuryandroid.Core.BaseActivity;
 import com.av.dev.pyurluxuryandroid.Core.PDialog;
+import com.av.dev.pyurluxuryandroid.Core.PEngine;
 import com.av.dev.pyurluxuryandroid.Core.PSharedPreferences;
 import com.av.dev.pyurluxuryandroid.Core.PSingleton;
 import com.av.dev.pyurluxuryandroid.Core.ApiResponse.ApiResponse;
@@ -126,8 +127,16 @@ public class RestaurantBookingDetailsFragment extends Fragment {
     @OnClick(R.id.btnConfirm)
     public void onClick(){
 
-        requestApiBookRestaurant(PSingleton.getCity(),PSingleton.getHotelName(),PSingleton.getDate(),
-                PSingleton.getTime(),PSingleton.getNumPax(),PSingleton.getNotes());
+        if (txtCity.getText().length() != 0 && txtRestaurantName.getText().length() != 0 &&
+                txtDate.getText().length() != 0 && txtTime.getText().length() != 0
+                && !PSingleton.getNumPax().equalsIgnoreCase("0")){
+
+            requestApiBookRestaurant(PSingleton.getCity(),PSingleton.getHotelName(),PSingleton.getDate(),
+                    PSingleton.getTime(),PSingleton.getNumPax(),PSingleton.getNotes());
+
+        } else {
+            PDialog.showStatusPendingDialog((BaseActivity) getActivity(),"Please input necessary details","Error!");
+        }
 
     }
 
@@ -153,7 +162,7 @@ public class RestaurantBookingDetailsFragment extends Fragment {
     private void populateView(){
         txtCity.setText(PSingleton.getCity());
         txtRestaurantName.setText(PSingleton.getHotelName());
-        txtDate.setText(PSingleton.getDate());
+        txtDate.setText(PEngine.convertDateToString(PSingleton.getDate()));
         txtTime.setText(PSingleton.getTime());
         txtNumPax.setText(PSingleton.getNumPax()+" Persons");
         txtNotes.setText(PSingleton.getNotes());

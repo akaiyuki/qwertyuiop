@@ -191,8 +191,10 @@ public class PagerHotelActiveFragment extends Fragment {
                 if (response.isSuccessful()){
                     Log.d("api response", response.body().getData().getManager().getFirstName());
 
-                    name.setText(response.body().getData().getManager().getFirstName()+ " " +
-                            response.body().getData().getManager().getLastName());
+//                    name.setText(response.body().getData().getManager().getFirstName()+ " " +
+//                            response.body().getData().getManager().getLastName());
+
+                    name.setText(PSingleton.getSelectedClient());
 
                     txtCity.setText(response.body().getData().getServiceDetails().getCity());
                     txtHotelName.setText(response.body().getData().getServiceDetails().getHotelName());

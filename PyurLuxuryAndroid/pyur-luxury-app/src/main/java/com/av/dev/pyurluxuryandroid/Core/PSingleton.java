@@ -60,6 +60,15 @@ public class PSingleton {
     public static ApiResponseRequest selectedRequest;
     public static String selectedManager;
     public static String requestTime;
+    public static String selectedClient;
+
+    public static String getSelectedClient() {
+        return selectedClient;
+    }
+
+    public static void setSelectedClient(String selectedClient) {
+        PSingleton.selectedClient = selectedClient;
+    }
 
     public static String getRequestTime() {
         return requestTime;

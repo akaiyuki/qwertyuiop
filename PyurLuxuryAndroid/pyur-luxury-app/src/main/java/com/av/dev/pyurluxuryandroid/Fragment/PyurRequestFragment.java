@@ -134,7 +134,7 @@ public class PyurRequestFragment extends Fragment {
         mPageAdapter = new SectionsPagerAdapter();
         mViewPager.setAdapter(mPageAdapter);
 
-        mViewPager.setCurrentItem(1);
+        mViewPager.setCurrentItem(0);
 
         mSlidingTabLayout = (SlidingTabLayout) view.findViewById(R.id.sliding_tabs);
         mSlidingTabLayout.setRowCount(2);
@@ -172,6 +172,10 @@ public class PyurRequestFragment extends Fragment {
             return tabTitleList[position];
         }
         // END_INCLUDE (pageradapter_getpagetitle)
+
+        public int getItemPosition(Object object) {
+            return POSITION_NONE;
+        }
 
         /**
          * Instantiate the {@link View} which should be displayed at {@code position}. Here we
@@ -394,7 +398,15 @@ public class PyurRequestFragment extends Fragment {
 //                        }
 //                    });
 
+                    mAdapterCompleted = new PendingRequestAdapter(getActivity(), R.layout.custom_pending_list, mArrayCompleted);
+                    mAdapterCompleted.notifyDataSetChanged();
+
+
+                    mPageAdapter = new SectionsPagerAdapter();
+                    mViewPager.setAdapter(mPageAdapter);
+
                     mViewPager.setCurrentItem(0);
+
 
                 }
 

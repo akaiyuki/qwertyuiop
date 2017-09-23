@@ -172,7 +172,7 @@ public class PagerBespokePendingFragment extends Fragment {
                             response.body().getData().getManager().getLastName());
 
                     txtrequest.setText(response.body().getData().getServiceDetails().getRequest());
-                    txturgency.setText(response.body().getData().getServiceDetails().getRequest());
+                    txturgency.setText(response.body().getData().getServiceDetails().getIsUrgent());
 
                 }
             }

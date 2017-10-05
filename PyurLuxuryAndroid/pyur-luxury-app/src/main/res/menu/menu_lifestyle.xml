@@ -5,7 +5,7 @@
         android:id="@+id/menu_request"
         android:enabled="true"
         android:icon="@drawable/ic_request"
-        android:title="Pyur Request"
+        android:title="Client Request"
         app:showAsAction="always"/>
 
     <item

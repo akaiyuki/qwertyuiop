@@ -11,6 +11,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.av.dev.pyurluxuryandroid.Activity.MainActivity;
+import com.av.dev.pyurluxuryandroid.Fragment.LifestyleManager.RequestLifestyleFragment;
 import com.av.dev.pyurluxuryandroid.R;
 import com.av.dev.pyurluxuryandroid.View.CircleTransform;
 import com.av.dev.pyurluxuryandroid.View.Fonts;
@@ -125,6 +126,37 @@ public class PDialog {
         dialog.show();
 
 
+    }
+
+    public static void showDoneRequestDialog(final BaseActivity baseActivity, String title, String message){
+        final Dialog dialog = new Dialog(baseActivity);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.setContentView(R.layout.dialog_status);
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
+
+        TextView txtMessage = dialog.findViewById(R.id.message);
+        TextView txtOk = dialog.findViewById(R.id.ok);
+        TextView txtTitle = dialog.findViewById(R.id.title);
+
+        txtMessage.setTypeface(Fonts.latoRegular);
+        txtOk.setTypeface(Fonts.latoRegular);
+        txtTitle.setTypeface(Fonts.latoBold);
+
+        txtMessage.setText(message);
+        txtTitle.setText(title);
+
+        LinearLayout mButtonDone = (LinearLayout) dialog.findViewById(R.id.btnOk);
+        mButtonDone.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                dialog.dismiss();
+                PEngine.switchFragment(baseActivity, new RequestLifestyleFragment(), baseActivity.getFrameLayout());
+
+            }
+        });
+
+        dialog.show();
     }
 
 }

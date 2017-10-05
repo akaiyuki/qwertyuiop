@@ -24,6 +24,7 @@ import com.av.dev.pyurluxuryandroid.Core.PEngine;
 import com.av.dev.pyurluxuryandroid.Core.PSharedPreferences;
 import com.av.dev.pyurluxuryandroid.Core.PSingleton;
 import com.av.dev.pyurluxuryandroid.Core.api.RestClient;
+import com.av.dev.pyurluxuryandroid.Core.object.ApiClientDetailsObject;
 import com.av.dev.pyurluxuryandroid.Core.object.ApiResponseRequest;
 import com.av.dev.pyurluxuryandroid.Core.object.SharedPreferencesObject;
 import com.av.dev.pyurluxuryandroid.Fragment.pager.completed.PagerCompletedFragment;
@@ -37,7 +38,12 @@ import com.av.dev.pyurluxuryandroid.View.Fonts;
 import com.av.dev.pyurluxuryandroid.View.SlidingTabLayout;
 import com.skydoves.medal.MedalAnimation;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -370,6 +376,18 @@ public class PyurRequestFragment extends Fragment {
 //                            mArrayPending.add(s);
 //                        }
 //                    }
+
+                    Collections.sort(pending, new Comparator<ApiResponseRequest>() {
+                        DateFormat f = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
+                        @Override
+                        public int compare(ApiResponseRequest o1, ApiResponseRequest o2) {
+                            try {
+                                return f.parse(o2.getDateAdded()).compareTo(f.parse(o1.getDateAdded()));
+                            } catch (ParseException e) {
+                                throw new IllegalArgumentException(e);
+                            }
+                        }
+                    });
 
                     for (int i = 0; i < pending.size(); i++){
                         ApiResponseRequest requestPending = pending.get(i);

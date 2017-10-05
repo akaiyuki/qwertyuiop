@@ -57,7 +57,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
                 android:padding="5dp"
-                android:text="Bonifacio Global City, Taguig"
+                android:text=""
                 android:textColor="@color/colorBlackText"
                 android:textSize="@dimen/font_size_medium" />
 
@@ -79,7 +79,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
                 android:padding="5dp"
-                android:text="Carpe Deim"
+                android:text=""
                 android:textColor="@color/colorBlackText"
                 android:textSize="@dimen/font_size_medium" />
 
@@ -100,7 +100,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
                 android:padding="5dp"
-                android:text="May 2, 2018 (Friday)"
+                android:text=""
                 android:textColor="@color/colorBlackText"
                 android:textSize="@dimen/font_size_medium" />
 
@@ -121,7 +121,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
                 android:padding="5dp"
-                android:text="8:00 PM"
+                android:text=""
                 android:textColor="@color/colorBlackText"
                 android:textSize="@dimen/font_size_medium" />
 
@@ -142,7 +142,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
                 android:padding="5dp"
-                android:text="2 Persons"
+                android:text=""
                 android:textColor="@color/colorBlackText"
                 android:textSize="@dimen/font_size_medium" />
 
@@ -165,7 +165,7 @@
                 android:layout_marginLeft="15dp"
                 android:layout_marginRight="15dp"
                 android:padding="5dp"
-                android:text="Lorem ipsum dolor sit amet, consectetur adipiscingelit."
+                android:text=""
                 android:textColor="@color/colorBlackText"
                 android:textSize="@dimen/font_size_medium" />
         </LinearLayout>
@@ -181,6 +181,16 @@
 
         </RelativeLayout>
 
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true">
+
+            <include
+                layout="@layout/layout_loading"
+                android:id="@+id/loading"/>
+
+        </RelativeLayout>
 
     </RelativeLayout>
 

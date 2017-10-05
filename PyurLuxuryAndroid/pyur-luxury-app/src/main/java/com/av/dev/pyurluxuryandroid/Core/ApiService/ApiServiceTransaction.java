@@ -1,14 +1,18 @@
 package com.av.dev.pyurluxuryandroid.Core.ApiService;
 
+import com.av.dev.pyurluxuryandroid.Core.ApiResponse.ApiResponse;
 import com.av.dev.pyurluxuryandroid.Core.ApiResponse.ApiResponsePerTransaction;
 import com.av.dev.pyurluxuryandroid.Core.ApiResponse.ApiResponseTransaction;
 import com.av.dev.pyurluxuryandroid.Core.object.ApiDetailsBespokeObject;
+import com.av.dev.pyurluxuryandroid.Core.object.ApiDoneRequestObject;
 import com.av.dev.pyurluxuryandroid.Core.object.ApiResponseClientRequestObject;
 import com.av.dev.pyurluxuryandroid.Core.object.ApiRestaurantObject;
 
 import retrofit2.Call;
+import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.Header;
+import retrofit2.http.PATCH;
 import retrofit2.http.Query;
 
 /**
@@ -39,4 +43,6 @@ public interface ApiServiceTransaction {
     Call<ApiRestaurantObject> getRestaurantTransaction(@Header("x-access-token") String token,
                                                        @Query("_id") String id);
 
+    @PATCH("pyur/requests_booking")
+    Call<ApiResponse> doneRequest(@Header("x-access-token") String token, @Body ApiDoneRequestObject data);
 }

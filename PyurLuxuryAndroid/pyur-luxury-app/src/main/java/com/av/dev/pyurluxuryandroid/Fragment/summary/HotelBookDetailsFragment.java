@@ -169,8 +169,11 @@ public class HotelBookDetailsFragment extends Fragment {
     private void populateViews(){
         txtCity.setText(PSingleton.getCity());
         txtHotelName.setText(PSingleton.getHotelName());
-        txtcheckin.setText(PEngine.convertDateToString(PSingleton.getCheckIn()));
-        txtCheckout.setText(PEngine.convertDateToString(PSingleton.getCheckOut()));
+
+        if(PSingleton.getCheckIn().length()!= 0 && PSingleton.getCheckOut().length() != 0){
+            txtcheckin.setText(PEngine.convertDateToString(PSingleton.getCheckIn()));
+            txtCheckout.setText(PEngine.convertDateToString(PSingleton.getCheckOut()));
+        }
 
         //hide time
         time.setText("Number of Rooms");

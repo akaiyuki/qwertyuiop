@@ -33,7 +33,15 @@ import com.av.dev.pyurluxuryandroid.R;
 import com.av.dev.pyurluxuryandroid.View.SlidingTabLayout;
 import com.skydoves.medal.MedalAnimation;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Date;
+import java.util.TimeZone;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -196,6 +204,18 @@ public class RequestLifestyleFragment extends Fragment {
             if (position == 0){
                 mListViewPager = view.findViewById(R.id.listview);
 
+//                Collections.sort(mArrayActive, new Comparator<ApiClientDetailsObject>() {
+//                    @Override
+//                    public int compare(ApiClientDetailsObject entry1, ApiClientDetailsObject entry2) {
+//                        try {
+//                            return entry2.getDateAdded().compareTo(entry1.getDateAdded());
+//                        } catch (Exception e) {
+//                            e.printStackTrace();
+//                            return 0;
+//                        }
+//                    }
+//                });
+
                 mAdapterActive = new ActiveAdapter(getActivity(), R.layout.custom_active, mArrayActive);
                 mAdapterActive.notifyDataSetChanged();
 
@@ -273,14 +293,44 @@ public class RequestLifestyleFragment extends Fragment {
 
                     ArrayList<ApiClientDetailsObject> pending = response.body().getData();
 
+//                    Collections.sort(pending, new Comparator<ApiClientDetailsObject>() {
+//                        @Override
+//                        public int compare(ApiClientDetailsObject entry1, ApiClientDetailsObject entry2) {
+//                            try {
+//                                return PEngine.formatUTCtoGMT8(entry2.getDateAdded()).compareTo(PEngine.formatUTCtoGMT8(entry1.getDateAdded()));
+//                            } catch (Exception e) {
+//                                e.printStackTrace();
+//                                return 0;
+//                            }
+//                        }
+//                    });
+
+
+                    Collections.sort(pending, new Comparator<ApiClientDetailsObject>() {
+                        DateFormat f = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
+                        @Override
+                        public int compare(ApiClientDetailsObject o1, ApiClientDetailsObject o2) {
+                            try {
+                                return f.parse(o2.getDateAdded()).compareTo(f.parse(o1.getDateAdded()));
+                            } catch (ParseException e) {
+                                throw new IllegalArgumentException(e);
+                            }
+                        }
+                    });
+
+
                     for (int i = 0; i < pending.size(); i++){
                         ApiClientDetailsObject requestPending = pending.get(i);
                         if (requestPending.getRequestStatus().equalsIgnoreCase(Enums.requestPending)){
                             mArrayActive.add(requestPending);
+
+                            Log.d("array", requestPending.getDateAdded());
                         } else if (requestPending.getRequestStatus().equalsIgnoreCase(Enums.requestCompleted)){
                             mArrayCompleted.add(requestPending);
                         }
                     }
+
+
 
 
                     mAdapterActive = new ActiveAdapter(getActivity(), R.layout.custom_active, mArrayActive);
@@ -364,5 +414,7 @@ public class RequestLifestyleFragment extends Fragment {
 
         }
     };
+
+
 
 }

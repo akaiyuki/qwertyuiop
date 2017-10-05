@@ -14,14 +14,18 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.av.dev.pyurluxuryandroid.Core.ApiResponse.ApiResponse;
 import com.av.dev.pyurluxuryandroid.Core.ApiResponse.ApiResponsePerTransaction;
 import com.av.dev.pyurluxuryandroid.Core.AppController;
 import com.av.dev.pyurluxuryandroid.Core.BaseActivity;
+import com.av.dev.pyurluxuryandroid.Core.PDialog;
 import com.av.dev.pyurluxuryandroid.Core.PEngine;
 import com.av.dev.pyurluxuryandroid.Core.PSharedPreferences;
 import com.av.dev.pyurluxuryandroid.Core.PSingleton;
 import com.av.dev.pyurluxuryandroid.Core.api.RestClient;
+import com.av.dev.pyurluxuryandroid.Core.object.ApiDoneRequestObject;
 import com.av.dev.pyurluxuryandroid.Core.object.SharedPreferencesObject;
+import com.av.dev.pyurluxuryandroid.Fragment.LifestyleManager.RequestLifestyleFragment;
 import com.av.dev.pyurluxuryandroid.R;
 import com.av.dev.pyurluxuryandroid.View.CircleTransform;
 import com.av.dev.pyurluxuryandroid.View.Fonts;
@@ -30,6 +34,7 @@ import com.squareup.picasso.Picasso;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -215,6 +220,37 @@ public class PagerHotelActiveFragment extends Fragment {
         });
 
 
+    }
+
+    @OnClick(R.id.btncompleted)
+    public void onClickRequest(){
+
+        requestApiDoneRequest(PSingleton.getSelectedManager(),"1");
+    }
+
+    private void requestApiDoneRequest(String id, String flag){
+
+        showLoading();
+        RestClient restClient = new RestClient(RestClient.requestApiResponse);
+        Call<ApiResponse> call = restClient.getApiServiceTransaction().doneRequest(PSharedPreferences.getSomeStringValue(AppController.getInstance(),SharedPreferencesObject.userToken),
+                new ApiDoneRequestObject(id,flag));
+        call.enqueue(new Callback<ApiResponse>() {
+            @Override
+            public void onResponse(Call<ApiResponse> call, Response<ApiResponse> response) {
+                hideLoading();
+
+                if (response.isSuccessful()){
+                    PDialog.showDoneRequestDialog((BaseActivity) getActivity(),"Success!",response.body().getMessage());
+
+                }
+
+            }
+
+            @Override
+            public void onFailure(Call<ApiResponse> call, Throwable t) {
+                hideLoading();
+            }
+        });
     }
 
 }
